@@ -6,4 +6,24 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://prachitparikh.github.io/downloads/prachit-parikh-portfolio.pdf</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://prachitparikh.github.io/downloads/prachit-parikh-uat-plan-template.pdf</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://prachitparikh.github.io/downloads/prachit-parikh-sql-data-validation-checks.pdf</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://prachitparikh.github.io/downloads/prachit-parikh-agent-ready-requirements-checklist.pdf</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
+  <url>
+    <loc>https://prachitparikh.github.io/downloads/prachit-parikh-requirements-ai-agents-can-build.pdf</loc>
+    <lastmod>2026-11-02</lastmod>
+  </url>
 </urlset>
