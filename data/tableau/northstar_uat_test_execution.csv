@@ -1,0 +1,221 @@
+Test ID,Module,Requirement ID,Path,Planned date,Executed date,Status,Retest result,Tester
+TC-001,Customer onboarding,REQ-016,Happy,2026-09-17,2026-09-17,Passed,,Ben T.
+TC-002,Customer onboarding,REQ-006,Unhappy,2026-09-18,2026-09-20,Passed,,Ana R.
+TC-003,Customer onboarding,REQ-033,Happy,2026-09-07,2026-09-07,Passed,,Ben T.
+TC-004,Customer onboarding,REQ-027,Happy,2026-09-18,2026-09-20,Passed,,Dana K.
+TC-005,Customer onboarding,REQ-049,Happy,2026-09-16,2026-09-16,Passed,,Dana K.
+TC-006,Customer onboarding,REQ-049,Unhappy,2026-09-12,2026-09-12,Passed,,Ana R.
+TC-007,Customer onboarding,REQ-055,Unhappy,2026-09-08,2026-09-08,Passed,,Chen L.
+TC-008,Customer onboarding,REQ-035,Happy,2026-09-19,2026-09-20,Passed,,Dana K.
+TC-009,Customer onboarding,REQ-057,Unhappy,2026-09-08,2026-09-10,Passed,,Ben T.
+TC-010,Customer onboarding,REQ-050,Unhappy,2026-09-18,2026-09-18,Passed,,Ana R.
+TC-011,Customer onboarding,REQ-025,Unhappy,2026-09-20,2026-09-20,Passed,,Dana K.
+TC-012,Customer onboarding,REQ-014,Unhappy,2026-09-17,2026-09-17,Failed,Passed,Ana R.
+TC-013,Customer onboarding,REQ-047,Happy,2026-09-16,2026-09-18,Passed,,Ben T.
+TC-014,Customer onboarding,REQ-015,Unhappy,2026-09-14,2026-09-16,Passed,,Ana R.
+TC-015,Customer onboarding,REQ-005,Happy,2026-09-10,2026-09-10,Failed,Passed,Chen L.
+TC-016,Customer onboarding,REQ-057,Unhappy,2026-09-10,2026-09-11,Passed,,Ben T.
+TC-017,Customer onboarding,REQ-035,Unhappy,2026-09-11,2026-09-13,Passed,,Dana K.
+TC-018,Customer onboarding,REQ-009,Unhappy,2026-09-16,2026-09-16,Passed,,Ana R.
+TC-019,Customer onboarding,REQ-010,Happy,2026-09-19,2026-09-19,Passed,,Dana K.
+TC-020,Customer onboarding,REQ-039,Unhappy,2026-09-16,2026-09-17,Passed,,Chen L.
+TC-021,Customer onboarding,REQ-008,Unhappy,2026-09-15,2026-09-15,Failed,Passed,Chen L.
+TC-022,Customer onboarding,REQ-030,Happy,2026-09-08,2026-09-08,Passed,,Chen L.
+TC-023,Customer onboarding,REQ-059,Happy,2026-09-15,2026-09-17,Passed,,Chen L.
+TC-024,Customer onboarding,REQ-013,Happy,2026-09-20,2026-09-22,Passed,,Chen L.
+TC-025,Customer onboarding,REQ-059,Happy,2026-09-19,2026-09-21,Passed,,Chen L.
+TC-026,Customer onboarding,REQ-057,Unhappy,2026-09-14,2026-09-14,Passed,,Ben T.
+TC-027,Customer onboarding,REQ-006,Happy,2026-09-07,2026-09-09,Passed,,Dana K.
+TC-028,Customer onboarding,REQ-050,Happy,2026-09-20,2026-09-22,Passed,,Ben T.
+TC-029,Customer onboarding,REQ-011,Unhappy,2026-09-17,2026-09-19,Passed,,Dana K.
+TC-030,Customer onboarding,REQ-046,Unhappy,2026-09-10,2026-09-10,Blocked,,Dana K.
+TC-031,Customer onboarding,REQ-058,Unhappy,2026-09-17,2026-09-18,Passed,,Ana R.
+TC-032,Customer onboarding,REQ-002,Happy,2026-09-10,2026-09-10,Passed,,Ben T.
+TC-033,Customer onboarding,REQ-015,Happy,2026-09-07,2026-09-07,Passed,,Ana R.
+TC-034,Customer onboarding,REQ-016,Unhappy,2026-09-20,2026-09-22,Passed,,Dana K.
+TC-035,Customer onboarding,REQ-037,Unhappy,2026-09-10,2026-09-12,Passed,,Ben T.
+TC-036,Customer onboarding,REQ-013,Happy,2026-09-19,2026-09-20,Passed,,Ana R.
+TC-037,Customer onboarding,REQ-027,Unhappy,2026-09-17,2026-09-18,Passed,,Ana R.
+TC-038,Customer onboarding,REQ-004,Unhappy,2026-09-17,2026-09-17,Passed,,Chen L.
+TC-039,Customer onboarding,REQ-035,Unhappy,2026-09-19,2026-09-19,Failed,Passed,Ben T.
+TC-040,Customer onboarding,REQ-016,Happy,2026-09-13,2026-09-14,Passed,,Dana K.
+TC-041,Customer onboarding,REQ-042,Happy,2026-09-19,2026-09-21,Failed,Passed,Ana R.
+TC-042,Customer onboarding,REQ-031,Happy,2026-09-19,2026-09-19,Failed,Passed,Dana K.
+TC-043,Billing,REQ-025,Unhappy,2026-09-07,2026-09-07,Passed,,Dana K.
+TC-044,Billing,REQ-043,Unhappy,2026-09-11,2026-09-13,Passed,,Ben T.
+TC-045,Billing,REQ-038,Happy,2026-09-10,2026-09-10,Passed,,Chen L.
+TC-046,Billing,REQ-033,Happy,2026-09-07,2026-09-08,Passed,,Ana R.
+TC-047,Billing,REQ-005,Happy,2026-09-15,2026-09-15,Passed,,Ben T.
+TC-048,Billing,REQ-016,Happy,2026-09-13,2026-09-15,Passed,,Ana R.
+TC-049,Billing,REQ-034,Unhappy,2026-09-13,2026-09-15,Passed,,Chen L.
+TC-050,Billing,REQ-016,Unhappy,2026-09-10,2026-09-10,Passed,,Dana K.
+TC-051,Billing,REQ-030,Unhappy,2026-09-09,2026-09-09,Passed,,Ana R.
+TC-052,Billing,REQ-007,Happy,2026-09-07,2026-09-09,Passed,,Ben T.
+TC-053,Billing,REQ-057,Happy,2026-09-15,2026-09-15,Passed,,Ben T.
+TC-054,Billing,REQ-054,Unhappy,2026-09-12,2026-09-13,Passed,,Ana R.
+TC-055,Billing,REQ-007,Happy,2026-09-17,2026-09-17,Failed,,Chen L.
+TC-056,Billing,REQ-019,Happy,2026-09-08,2026-09-10,Failed,Passed,Chen L.
+TC-057,Billing,REQ-033,Unhappy,2026-09-10,2026-09-10,Passed,,Chen L.
+TC-058,Billing,REQ-054,Unhappy,2026-09-20,2026-09-21,Passed,,Ana R.
+TC-059,Billing,REQ-041,Unhappy,2026-09-07,2026-09-07,Passed,,Ben T.
+TC-060,Billing,REQ-036,Happy,2026-09-18,2026-09-19,Passed,,Ana R.
+TC-061,Billing,REQ-035,Happy,2026-09-08,2026-09-08,Blocked,,Chen L.
+TC-062,Billing,REQ-009,Happy,2026-09-16,2026-09-17,Passed,,Chen L.
+TC-063,Billing,REQ-014,Happy,2026-09-12,2026-09-12,Failed,,Ana R.
+TC-064,Billing,REQ-048,Happy,2026-09-12,2026-09-13,Failed,,Ben T.
+TC-065,Billing,REQ-057,Unhappy,2026-09-20,2026-09-20,Passed,,Ana R.
+TC-066,Billing,REQ-051,Unhappy,2026-09-09,2026-09-09,Passed,,Ben T.
+TC-067,Billing,REQ-025,Happy,2026-09-11,2026-09-11,Passed,,Dana K.
+TC-068,Billing,REQ-023,Unhappy,2026-09-10,2026-09-11,Passed,,Ben T.
+TC-069,Billing,REQ-026,Unhappy,2026-09-10,2026-09-10,Passed,,Chen L.
+TC-070,Billing,REQ-023,Unhappy,2026-09-20,2026-09-20,Passed,,Chen L.
+TC-071,Billing,REQ-012,Unhappy,2026-09-07,2026-09-07,Passed,,Ana R.
+TC-072,Billing,REQ-047,Unhappy,2026-09-08,2026-09-08,Passed,,Dana K.
+TC-073,Billing,REQ-008,Unhappy,2026-09-16,,Not run,,Ben T.
+TC-074,Billing,REQ-001,Happy,2026-09-11,2026-09-12,Passed,,Chen L.
+TC-075,Billing,REQ-040,Unhappy,2026-09-13,2026-09-13,Passed,,Ana R.
+TC-076,Billing,REQ-020,Unhappy,2026-09-18,2026-09-20,Blocked,,Chen L.
+TC-077,Billing,REQ-009,Happy,2026-09-13,2026-09-15,Passed,,Dana K.
+TC-078,Billing,REQ-040,Unhappy,2026-09-17,2026-09-17,Blocked,,Dana K.
+TC-079,Billing,REQ-028,Unhappy,2026-09-15,2026-09-15,Failed,Passed,Dana K.
+TC-080,Billing,REQ-033,Unhappy,2026-09-14,2026-09-14,Passed,,Ben T.
+TC-081,Billing,REQ-043,Unhappy,2026-09-17,2026-09-19,Passed,,Ana R.
+TC-082,Billing,REQ-016,Unhappy,2026-09-20,,Not run,,Ben T.
+TC-083,Billing,REQ-003,Happy,2026-09-19,2026-09-19,Passed,,Dana K.
+TC-084,Billing,REQ-057,Happy,2026-09-16,2026-09-16,Failed,Passed,Dana K.
+TC-085,Billing,REQ-042,Happy,2026-09-14,2026-09-14,Passed,,Ana R.
+TC-086,Billing,REQ-052,Unhappy,2026-09-19,2026-09-19,Passed,,Ana R.
+TC-087,Billing,REQ-030,Happy,2026-09-15,2026-09-15,Passed,,Dana K.
+TC-088,Billing,REQ-039,Unhappy,2026-09-17,2026-09-19,Passed,,Dana K.
+TC-089,Billing,REQ-059,Unhappy,2026-09-16,2026-09-18,Failed,Passed,Ben T.
+TC-090,Billing,REQ-016,Unhappy,2026-09-18,2026-09-19,Failed,Passed,Dana K.
+TC-091,Billing,REQ-005,Unhappy,2026-09-17,2026-09-18,Passed,,Ben T.
+TC-092,Billing,REQ-006,Happy,2026-09-11,2026-09-13,Passed,,Ben T.
+TC-093,Billing,REQ-046,Happy,2026-09-10,2026-09-10,Passed,,Ana R.
+TC-094,Billing,REQ-030,Unhappy,2026-09-13,2026-09-15,Passed,,Ana R.
+TC-095,Billing,REQ-038,Happy,2026-09-10,2026-09-11,Failed,,Dana K.
+TC-096,Billing,REQ-020,Unhappy,2026-09-14,2026-09-14,Passed,,Dana K.
+TC-097,Billing,REQ-052,Happy,2026-09-15,2026-09-17,Passed,,Dana K.
+TC-098,Billing,REQ-002,Unhappy,2026-09-10,2026-09-11,Passed,,Chen L.
+TC-099,Billing,REQ-047,Happy,2026-09-17,2026-09-18,Passed,,Dana K.
+TC-100,Billing,REQ-035,Happy,2026-09-09,,Not run,,Dana K.
+TC-101,Payments,REQ-006,Unhappy,2026-09-16,2026-09-16,Passed,,Ben T.
+TC-102,Payments,REQ-017,Unhappy,2026-09-20,2026-09-20,Passed,,Chen L.
+TC-103,Payments,REQ-049,Unhappy,2026-09-10,2026-09-10,Passed,,Chen L.
+TC-104,Payments,REQ-027,Unhappy,2026-09-19,,Not run,,Ana R.
+TC-105,Payments,REQ-004,Unhappy,2026-09-14,2026-09-16,Passed,,Ben T.
+TC-106,Payments,REQ-049,Happy,2026-09-17,2026-09-17,Passed,,Ben T.
+TC-107,Payments,REQ-009,Unhappy,2026-09-10,2026-09-12,Failed,Passed,Ana R.
+TC-108,Payments,REQ-045,Unhappy,2026-09-16,2026-09-17,Blocked,,Chen L.
+TC-109,Payments,REQ-050,Happy,2026-09-09,2026-09-09,Passed,,Chen L.
+TC-110,Payments,REQ-037,Unhappy,2026-09-08,2026-09-08,Passed,,Dana K.
+TC-111,Payments,REQ-045,Happy,2026-09-18,2026-09-20,Passed,,Ana R.
+TC-112,Payments,REQ-052,Happy,2026-09-18,2026-09-20,Passed,,Ana R.
+TC-113,Payments,REQ-005,Unhappy,2026-09-12,2026-09-12,Passed,,Ana R.
+TC-114,Payments,REQ-007,Unhappy,2026-09-20,2026-09-21,Passed,,Chen L.
+TC-115,Payments,REQ-028,Happy,2026-09-17,2026-09-18,Failed,,Chen L.
+TC-116,Payments,REQ-030,Unhappy,2026-09-16,2026-09-18,Failed,,Chen L.
+TC-117,Payments,REQ-029,Happy,2026-09-12,2026-09-12,Failed,Passed,Dana K.
+TC-118,Payments,REQ-022,Happy,2026-09-16,2026-09-17,Passed,,Dana K.
+TC-119,Payments,REQ-014,Unhappy,2026-09-20,2026-09-21,Passed,,Chen L.
+TC-120,Payments,REQ-045,Unhappy,2026-09-12,2026-09-14,Passed,,Ana R.
+TC-121,Payments,REQ-016,Unhappy,2026-09-15,2026-09-15,Blocked,,Dana K.
+TC-122,Payments,REQ-042,Unhappy,2026-09-15,2026-09-16,Passed,,Dana K.
+TC-123,Payments,REQ-015,Unhappy,2026-09-19,2026-09-19,Passed,,Ben T.
+TC-124,Payments,REQ-031,Unhappy,2026-09-11,2026-09-11,Passed,,Dana K.
+TC-125,Payments,REQ-045,Unhappy,2026-09-18,2026-09-18,Passed,,Chen L.
+TC-126,Payments,REQ-047,Happy,2026-09-11,2026-09-11,Passed,,Chen L.
+TC-127,Payments,REQ-013,Happy,2026-09-08,2026-09-08,Passed,,Dana K.
+TC-128,Payments,REQ-039,Unhappy,2026-09-11,2026-09-13,Passed,,Ana R.
+TC-129,Payments,REQ-024,Happy,2026-09-20,2026-09-20,Passed,,Chen L.
+TC-130,Payments,REQ-018,Happy,2026-09-07,2026-09-07,Passed,,Ana R.
+TC-131,Payments,REQ-041,Unhappy,2026-09-15,2026-09-15,Passed,,Ana R.
+TC-132,Payments,REQ-031,Unhappy,2026-09-20,2026-09-20,Passed,,Dana K.
+TC-133,Payments,REQ-017,Unhappy,2026-09-12,2026-09-12,Passed,,Ana R.
+TC-134,Payments,REQ-005,Happy,2026-09-20,2026-09-21,Passed,,Ben T.
+TC-135,Payments,REQ-016,Happy,2026-09-09,2026-09-09,Failed,Passed,Dana K.
+TC-136,Payments,REQ-015,Unhappy,2026-09-16,2026-09-18,Passed,,Dana K.
+TC-137,Payments,REQ-028,Unhappy,2026-09-14,2026-09-16,Passed,,Ana R.
+TC-138,Payments,REQ-007,Happy,2026-09-16,,Not run,,Ben T.
+TC-139,Payments,REQ-016,Happy,2026-09-11,2026-09-11,Passed,,Ana R.
+TC-140,Payments,REQ-045,Unhappy,2026-09-09,2026-09-10,Passed,,Chen L.
+TC-141,Payments,REQ-045,Unhappy,2026-09-07,2026-09-07,Passed,,Ana R.
+TC-142,Payments,REQ-051,Happy,2026-09-17,2026-09-17,Passed,,Dana K.
+TC-143,Payments,REQ-059,Unhappy,2026-09-08,2026-09-08,Passed,,Ben T.
+TC-144,Payments,REQ-039,Unhappy,2026-09-08,2026-09-08,Passed,,Dana K.
+TC-145,Payments,REQ-045,Unhappy,2026-09-08,2026-09-08,Passed,,Chen L.
+TC-146,Payments,REQ-006,Happy,2026-09-15,2026-09-16,Passed,,Dana K.
+TC-147,Payments,REQ-002,Happy,2026-09-18,2026-09-18,Passed,,Ben T.
+TC-148,Payments,REQ-002,Unhappy,2026-09-17,2026-09-19,Failed,Passed,Ana R.
+TC-149,Payments,REQ-034,Unhappy,2026-09-19,2026-09-20,Passed,,Chen L.
+TC-150,Payments,REQ-028,Unhappy,2026-09-09,,Not run,,Ana R.
+TC-151,Payments,REQ-021,Happy,2026-09-14,2026-09-14,Passed,,Ben T.
+TC-152,Refunds,REQ-019,Unhappy,2026-09-12,2026-09-13,Passed,,Ana R.
+TC-153,Refunds,REQ-021,Happy,2026-09-14,2026-09-14,Passed,,Dana K.
+TC-154,Refunds,REQ-043,Unhappy,2026-09-20,2026-09-20,Passed,,Dana K.
+TC-155,Refunds,REQ-040,Unhappy,2026-09-07,2026-09-07,Passed,,Dana K.
+TC-156,Refunds,REQ-036,Happy,2026-09-19,2026-09-19,Passed,,Chen L.
+TC-157,Refunds,REQ-041,Happy,2026-09-14,2026-09-15,Failed,Passed,Ben T.
+TC-158,Refunds,REQ-027,Happy,2026-09-11,2026-09-13,Passed,,Ben T.
+TC-159,Refunds,REQ-008,Happy,2026-09-20,2026-09-21,Blocked,,Dana K.
+TC-160,Refunds,REQ-027,Unhappy,2026-09-18,2026-09-18,Passed,,Dana K.
+TC-161,Refunds,REQ-025,Happy,2026-09-10,2026-09-10,Passed,,Ben T.
+TC-162,Refunds,REQ-022,Unhappy,2026-09-20,2026-09-21,Passed,,Ana R.
+TC-163,Refunds,REQ-038,Unhappy,2026-09-11,2026-09-13,Passed,,Ben T.
+TC-164,Refunds,REQ-022,Unhappy,2026-09-14,2026-09-14,Passed,,Dana K.
+TC-165,Refunds,REQ-015,Unhappy,2026-09-12,2026-09-12,Failed,Passed,Ana R.
+TC-166,Refunds,REQ-025,Happy,2026-09-12,2026-09-13,Passed,,Dana K.
+TC-167,Refunds,REQ-022,Happy,2026-09-07,2026-09-09,Passed,,Dana K.
+TC-168,Refunds,REQ-001,Happy,2026-09-08,2026-09-09,Passed,,Dana K.
+TC-169,Refunds,REQ-005,Unhappy,2026-09-20,2026-09-20,Passed,,Chen L.
+TC-170,Refunds,REQ-042,Happy,2026-09-12,2026-09-13,Passed,,Chen L.
+TC-171,Refunds,REQ-025,Unhappy,2026-09-20,2026-09-22,Passed,,Dana K.
+TC-172,Refunds,REQ-005,Happy,2026-09-20,2026-09-22,Passed,,Chen L.
+TC-173,Refunds,REQ-007,Happy,2026-09-10,2026-09-11,Passed,,Dana K.
+TC-174,Refunds,REQ-003,Unhappy,2026-09-09,2026-09-09,Passed,,Ana R.
+TC-175,Refunds,REQ-010,Happy,2026-09-11,2026-09-12,Passed,,Dana K.
+TC-176,Refunds,REQ-011,Happy,2026-09-16,2026-09-16,Passed,,Ana R.
+TC-177,Refunds,REQ-032,Happy,2026-09-16,2026-09-18,Failed,Passed,Ben T.
+TC-178,Refunds,REQ-017,Happy,2026-09-14,2026-09-15,Passed,,Dana K.
+TC-179,Refunds,REQ-005,Unhappy,2026-09-11,2026-09-11,Passed,,Chen L.
+TC-180,Refunds,REQ-045,Unhappy,2026-09-16,2026-09-17,Passed,,Dana K.
+TC-181,Refunds,REQ-055,Unhappy,2026-09-20,2026-09-21,Passed,,Ana R.
+TC-182,Refunds,REQ-037,Unhappy,2026-09-10,2026-09-10,Passed,,Chen L.
+TC-183,Refunds,REQ-043,Unhappy,2026-09-07,,Not run,,Chen L.
+TC-184,Refunds,REQ-059,Unhappy,2026-09-07,2026-09-07,Passed,,Chen L.
+TC-185,Reporting,REQ-015,Happy,2026-09-19,2026-09-21,Failed,,Chen L.
+TC-186,Reporting,REQ-041,Happy,2026-09-17,2026-09-17,Passed,,Ana R.
+TC-187,Reporting,REQ-047,Happy,2026-09-11,2026-09-11,Failed,Passed,Ana R.
+TC-188,Reporting,REQ-012,Happy,2026-09-11,2026-09-12,Passed,,Ben T.
+TC-189,Reporting,REQ-034,Unhappy,2026-09-19,2026-09-19,Passed,,Ben T.
+TC-190,Reporting,REQ-052,Unhappy,2026-09-11,2026-09-12,Blocked,,Chen L.
+TC-191,Reporting,REQ-010,Happy,2026-09-19,2026-09-19,Passed,,Dana K.
+TC-192,Reporting,REQ-026,Happy,2026-09-20,2026-09-20,Failed,Passed,Chen L.
+TC-193,Reporting,REQ-044,Unhappy,2026-09-15,2026-09-15,Passed,,Dana K.
+TC-194,Reporting,REQ-007,Happy,2026-09-20,2026-09-20,Passed,,Dana K.
+TC-195,Reporting,REQ-021,Happy,2026-09-07,2026-09-09,Passed,,Ana R.
+TC-196,Reporting,REQ-008,Happy,2026-09-17,2026-09-17,Failed,Passed,Ana R.
+TC-197,Reporting,REQ-008,Happy,2026-09-07,2026-09-08,Passed,,Ben T.
+TC-198,Reporting,REQ-024,Unhappy,2026-09-15,2026-09-16,Passed,,Ben T.
+TC-199,Reporting,REQ-040,Unhappy,2026-09-13,2026-09-14,Passed,,Chen L.
+TC-200,Reporting,REQ-029,Unhappy,2026-09-07,2026-09-07,Passed,,Ben T.
+TC-201,Reporting,REQ-035,Unhappy,2026-09-20,2026-09-20,Passed,,Ana R.
+TC-202,Reporting,REQ-055,Unhappy,2026-09-13,2026-09-13,Passed,,Ana R.
+TC-203,Reporting,REQ-002,Happy,2026-09-17,2026-09-19,Passed,,Chen L.
+TC-204,Reporting,REQ-051,Happy,2026-09-10,,Not run,,Ana R.
+TC-205,Reporting,REQ-038,Happy,2026-09-20,2026-09-20,Passed,,Ben T.
+TC-206,Reporting,REQ-001,Unhappy,2026-09-12,2026-09-14,Passed,,Ben T.
+TC-207,Reporting,REQ-008,Happy,2026-09-09,2026-09-09,Passed,,Ben T.
+TC-208,Reporting,REQ-038,Unhappy,2026-09-07,2026-09-07,Passed,,Ana R.
+TC-209,Reporting,REQ-048,Unhappy,2026-09-09,2026-09-09,Passed,,Ana R.
+TC-210,Reporting,REQ-050,Unhappy,2026-09-18,2026-09-19,Passed,,Ana R.
+TC-211,Reporting,REQ-003,Unhappy,2026-09-14,2026-09-16,Passed,,Dana K.
+TC-212,Reporting,REQ-004,Unhappy,2026-09-17,,Not run,,Dana K.
+TC-213,Reporting,REQ-046,Unhappy,2026-09-13,2026-09-14,Passed,,Ana R.
+TC-214,Reporting,REQ-005,Happy,2026-09-08,2026-09-08,Passed,,Chen L.
+TC-215,Reporting,REQ-046,Unhappy,2026-09-16,2026-09-18,Passed,,Dana K.
+TC-216,Reporting,REQ-033,Unhappy,2026-09-16,2026-09-17,Passed,,Ana R.
+TC-217,Reporting,REQ-047,Happy,2026-09-19,2026-09-21,Passed,,Dana K.
+TC-218,Reporting,REQ-030,Unhappy,2026-09-14,2026-09-15,Failed,Passed,Dana K.
+TC-219,Reporting,REQ-021,Unhappy,2026-09-18,2026-09-19,Passed,,Chen L.
+TC-220,Reporting,REQ-005,Happy,2026-09-09,2026-09-10,Passed,,Ana R.

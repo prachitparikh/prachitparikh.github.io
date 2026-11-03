@@ -1,0 +1,7 @@
+Order,Step,Check,Amount USD,Running total USD
+1,"Finance ledger, October",Start,1236200,1236200
+2,Cancelled orders counted,1 Definition,9600,1245800
+3,Orders shifted by UTC vs Eastern,2 Calendar,4200,1250000
+4,Join to addresses double-counted,3 Grain,41900,1291900
+5,Orders with no customer record,4 Orphans,-7400,1284500
+6,"Dashboard, October",End,1284500,1284500
