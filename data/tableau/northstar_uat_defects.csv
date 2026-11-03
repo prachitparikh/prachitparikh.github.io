@@ -1,0 +1,34 @@
+Defect ID,Test ID,Module,Severity,Opened date,Closed date,Status
+DEF-001,TC-012,Customer onboarding,Low,2026-09-17,,Ready for retest
+DEF-002,TC-015,Customer onboarding,High,2026-09-10,2026-09-15,Closed
+DEF-003,TC-021,Customer onboarding,Medium,2026-09-15,,Ready for retest
+DEF-004,TC-033,Customer onboarding,High,2026-09-07,,In fix
+DEF-005,TC-039,Customer onboarding,Medium,2026-09-19,,Open
+DEF-006,TC-041,Customer onboarding,High,2026-09-21,2026-09-24,Closed
+DEF-007,TC-042,Customer onboarding,High,2026-09-19,2026-09-22,Closed
+DEF-008,TC-055,Billing,Low,2026-09-17,2026-09-24,Closed
+DEF-009,TC-056,Billing,High,2026-09-10,2026-09-15,Closed
+DEF-010,TC-063,Billing,Critical,2026-09-12,2026-09-13,Closed
+DEF-011,TC-064,Billing,Low,2026-09-13,,In fix
+DEF-012,TC-066,Billing,Medium,2026-09-09,2026-09-16,Closed
+DEF-013,TC-079,Billing,Critical,2026-09-15,2026-09-17,Closed
+DEF-014,TC-084,Billing,High,2026-09-16,2026-09-19,Closed
+DEF-015,TC-089,Billing,Medium,2026-09-18,2026-09-20,Closed
+DEF-016,TC-090,Billing,High,2026-09-19,2026-09-24,Closed
+DEF-017,TC-095,Billing,Low,2026-09-11,2026-09-22,Closed
+DEF-018,TC-107,Payments,High,2026-09-12,2026-09-13,Closed
+DEF-019,TC-115,Payments,Low,2026-09-18,2026-09-29,Closed
+DEF-020,TC-116,Payments,Low,2026-09-18,2026-09-29,Closed
+DEF-021,TC-117,Payments,High,2026-09-12,2026-09-16,Closed
+DEF-022,TC-135,Payments,Low,2026-09-09,,In fix
+DEF-023,TC-148,Payments,Medium,2026-09-19,2026-09-27,Closed
+DEF-024,TC-157,Refunds,Medium,2026-09-15,2026-09-21,Closed
+DEF-025,TC-165,Refunds,Low,2026-09-12,,In fix
+DEF-026,TC-177,Refunds,High,2026-09-18,2026-09-23,Closed
+DEF-027,TC-181,Refunds,High,2026-09-21,,In fix
+DEF-028,TC-185,Reporting,High,2026-09-21,2026-09-22,Closed
+DEF-029,TC-187,Reporting,Low,2026-09-11,2026-09-20,Closed
+DEF-030,TC-191,Reporting,Medium,2026-09-19,,Open
+DEF-031,TC-192,Reporting,Medium,2026-09-20,2026-09-23,Closed
+DEF-032,TC-196,Reporting,High,2026-09-17,2026-09-21,Closed
+DEF-033,TC-218,Reporting,High,2026-09-15,2026-09-20,Closed
