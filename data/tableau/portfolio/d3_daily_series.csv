@@ -1,0 +1,63 @@
+date,series_key,revenue,series
+2026-10-01,finance_revenue,43360.0,"Finance ledger (US Eastern, completed only)"
+2026-10-02,finance_revenue,55455.0,"Finance ledger (US Eastern, completed only)"
+2026-10-03,finance_revenue,14495.0,"Finance ledger (US Eastern, completed only)"
+2026-10-04,finance_revenue,24230.0,"Finance ledger (US Eastern, completed only)"
+2026-10-05,finance_revenue,44855.0,"Finance ledger (US Eastern, completed only)"
+2026-10-06,finance_revenue,42855.0,"Finance ledger (US Eastern, completed only)"
+2026-10-07,finance_revenue,47495.0,"Finance ledger (US Eastern, completed only)"
+2026-10-08,finance_revenue,55240.0,"Finance ledger (US Eastern, completed only)"
+2026-10-09,finance_revenue,49290.0,"Finance ledger (US Eastern, completed only)"
+2026-10-10,finance_revenue,16125.0,"Finance ledger (US Eastern, completed only)"
+2026-10-11,finance_revenue,8725.0,"Finance ledger (US Eastern, completed only)"
+2026-10-12,finance_revenue,48315.0,"Finance ledger (US Eastern, completed only)"
+2026-10-13,finance_revenue,54160.0,"Finance ledger (US Eastern, completed only)"
+2026-10-14,finance_revenue,54080.0,"Finance ledger (US Eastern, completed only)"
+2026-10-15,finance_revenue,50040.0,"Finance ledger (US Eastern, completed only)"
+2026-10-16,finance_revenue,43460.0,"Finance ledger (US Eastern, completed only)"
+2026-10-17,finance_revenue,20430.0,"Finance ledger (US Eastern, completed only)"
+2026-10-18,finance_revenue,11210.0,"Finance ledger (US Eastern, completed only)"
+2026-10-19,finance_revenue,59205.0,"Finance ledger (US Eastern, completed only)"
+2026-10-20,finance_revenue,41385.0,"Finance ledger (US Eastern, completed only)"
+2026-10-21,finance_revenue,61730.0,"Finance ledger (US Eastern, completed only)"
+2026-10-22,finance_revenue,53130.0,"Finance ledger (US Eastern, completed only)"
+2026-10-23,finance_revenue,33760.0,"Finance ledger (US Eastern, completed only)"
+2026-10-24,finance_revenue,11620.0,"Finance ledger (US Eastern, completed only)"
+2026-10-25,finance_revenue,25105.0,"Finance ledger (US Eastern, completed only)"
+2026-10-26,finance_revenue,38050.0,"Finance ledger (US Eastern, completed only)"
+2026-10-27,finance_revenue,47005.0,"Finance ledger (US Eastern, completed only)"
+2026-10-28,finance_revenue,48000.0,"Finance ledger (US Eastern, completed only)"
+2026-10-29,finance_revenue,46350.0,"Finance ledger (US Eastern, completed only)"
+2026-10-30,finance_revenue,57435.0,"Finance ledger (US Eastern, completed only)"
+2026-10-31,finance_revenue,29605.0,"Finance ledger (US Eastern, completed only)"
+2026-10-01,dashboard_revenue,53860.0,Revenue dashboard (as built)
+2026-10-02,dashboard_revenue,58655.0,Revenue dashboard (as built)
+2026-10-03,dashboard_revenue,15695.0,Revenue dashboard (as built)
+2026-10-04,dashboard_revenue,24230.0,Revenue dashboard (as built)
+2026-10-05,dashboard_revenue,49855.0,Revenue dashboard (as built)
+2026-10-06,dashboard_revenue,41255.0,Revenue dashboard (as built)
+2026-10-07,dashboard_revenue,51595.0,Revenue dashboard (as built)
+2026-10-08,dashboard_revenue,57340.0,Revenue dashboard (as built)
+2026-10-09,dashboard_revenue,51090.0,Revenue dashboard (as built)
+2026-10-10,dashboard_revenue,16125.0,Revenue dashboard (as built)
+2026-10-11,dashboard_revenue,8725.0,Revenue dashboard (as built)
+2026-10-12,dashboard_revenue,46115.0,Revenue dashboard (as built)
+2026-10-13,dashboard_revenue,59960.0,Revenue dashboard (as built)
+2026-10-14,dashboard_revenue,54980.0,Revenue dashboard (as built)
+2026-10-15,dashboard_revenue,50040.0,Revenue dashboard (as built)
+2026-10-16,dashboard_revenue,47060.0,Revenue dashboard (as built)
+2026-10-17,dashboard_revenue,19530.0,Revenue dashboard (as built)
+2026-10-18,dashboard_revenue,11210.0,Revenue dashboard (as built)
+2026-10-19,dashboard_revenue,61005.0,Revenue dashboard (as built)
+2026-10-20,dashboard_revenue,43585.0,Revenue dashboard (as built)
+2026-10-21,dashboard_revenue,60430.0,Revenue dashboard (as built)
+2026-10-22,dashboard_revenue,56130.0,Revenue dashboard (as built)
+2026-10-23,dashboard_revenue,36160.0,Revenue dashboard (as built)
+2026-10-24,dashboard_revenue,11620.0,Revenue dashboard (as built)
+2026-10-25,dashboard_revenue,25105.0,Revenue dashboard (as built)
+2026-10-26,dashboard_revenue,42850.0,Revenue dashboard (as built)
+2026-10-27,dashboard_revenue,49705.0,Revenue dashboard (as built)
+2026-10-28,dashboard_revenue,49200.0,Revenue dashboard (as built)
+2026-10-29,dashboard_revenue,52050.0,Revenue dashboard (as built)
+2026-10-30,dashboard_revenue,56035.0,Revenue dashboard (as built)
+2026-10-31,dashboard_revenue,23305.0,Revenue dashboard (as built)
