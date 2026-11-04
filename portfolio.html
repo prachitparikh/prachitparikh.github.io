@@ -68,6 +68,20 @@ ul{padding-left:20px}li{margin:6px 0}
 .note{background:var(--soft);border-radius:8px;padding:10px 12px;font-size:.88rem;color:var(--muted);margin-top:10px}
 .links{font:600 .92rem/1.4 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;margin-top:10px}
 .post{margin:0 0 16px}.post a{font:600 1.05rem/1.35 -apple-system,Segoe UI,Helvetica,Arial,sans-serif}.post p{margin:3px 0 0;color:var(--muted);font-size:.95rem}
+.dash{border:1px solid var(--line);border-radius:12px;background:#fff;margin:0 0 22px;overflow:hidden}
+.dash .shot{display:block;position:relative;aspect-ratio:16/10;overflow:hidden;background:#f4f6fb;border-bottom:1px solid var(--line)}
+.dash .shot img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s ease}
+.dash .shot:hover img{transform:scale(1.04)}
+.dash .live{position:absolute;top:12px;left:12px;font:700 .72rem/1 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:#0f1834;color:#fff;padding:7px 10px;border-radius:999px}
+.dash .live:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#3ddc97;margin-right:7px;vertical-align:1px}
+.dash .in{padding:18px 22px 20px}
+.dash .kind{font:700 .75rem/1 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#0d8a76}
+.dash h3{margin:8px 0 6px}
+.dash p{margin:0 0 12px;color:var(--muted);font-size:.96rem}
+.dash .btns{display:flex;gap:10px;flex-wrap:wrap}
+.dash .btns a{font:600 .9rem/1 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;padding:10px 14px;border-radius:8px;border:1px solid var(--line)}
+.dash .btns a.go{background:var(--accent);color:#fff;border-color:var(--accent)}
+.dash .btns a:hover{text-decoration:none;filter:brightness(.95)}
 footer{padding:40px 22px 60px;color:var(--muted);font-size:.9rem}
 @media (max-width:560px){.case dl{grid-template-columns:1fr}.case dt{margin-top:6px}}
 </style>
@@ -141,7 +155,7 @@ footer{padding:40px 22px 60px;color:var(--muted);font-size:.9rem}
 <dt>Outcome</dt><dd>A conditional go for the cutover, with the conditions written down.</dd>
 <dt>Stack</dt><dd>Python, SQL (SQLite), Excel (openpyxl), pytest, GitHub Actions</dd>
 </dl>
-<div class="links"><a href="https://github.com/prachitparikh/billing-migration-reconciliation">See the mapping, SQL and results on GitHub</a></div>
+<div class="links"><a href="https://github.com/prachitparikh/billing-migration-reconciliation">See the mapping, SQL and results on GitHub</a> &middot; <a href="https://public.tableau.com/app/profile/prachit.parikh/viz/BillingMigrationGoNo-GoReconciliationDashboardPrachitParikh/BillingMigrationGoNo-Go">Open the live Tableau dashboard</a></div>
 <div class="note">Portfolio project. Northstar Systems is fictional and the legacy data is generated; the mapping, rules, SQL and results are real and reproducible.</div>
 </div>
 
@@ -156,9 +170,33 @@ footer{padding:40px 22px 60px;color:var(--muted);font-size:.9rem}
 <dt>The result</dt><dd>On 500 held-out tickets, Claude Haiku 5.5 sent 99.8% to the right team (today's rules: 65%) and rated 37 of 38 P1 tickets as P1 (rules: 13). None of the 19 planted "mark this P1" instructions worked.</dd>
 <dt>The catch</dt><dd>The test tickets come from the same labeling guide as the prompt, so these are ceiling numbers. The recommendation is a four-week shadow pilot with gates.</dd>
 </dl>
-<div class="links"><a href="https://github.com/prachitparikh/ai-ticket-triage-evaluation">See the evaluation on GitHub</a></div>
+<div class="links"><a href="https://github.com/prachitparikh/ai-ticket-triage-evaluation">See the evaluation on GitHub</a> &middot; <a href="https://public.tableau.com/app/profile/prachit.parikh/viz/AITicketTriageEvaluationRulesvsMLvsClaudePrachitParikh/AITicketTriageEvaluation">Open the live Tableau dashboard</a></div>
 <div class="note">Portfolio project. Northstar Systems is fictional; the evaluation code and results are real and reproducible.</div>
 </div>
+
+<h2 id="tableau">Live dashboards on Tableau Public</h2>
+<p>The same work as interactive dashboards: hover any bar or cell for the numbers behind it. Each one is built from the result files the project's own SQL and Python produce, so the dashboard and the GitHub results show the same numbers. All three are on <a href="https://public.tableau.com/app/profile/prachit.parikh">my Tableau Public profile</a>.</p>
+<div class="dash" id="dashboard-billing-migration">
+<a class="shot" href="https://public.tableau.com/app/profile/prachit.parikh/viz/BillingMigrationGoNo-GoReconciliationDashboardPrachitParikh/BillingMigrationGoNo-Go"><img src="https://public.tableau.com/views/BillingMigrationGoNo-GoReconciliationDashboardPrachitParikh/BillingMigrationGoNo-Go.png?:display_static_image=y&:showVizHome=n" alt="Tableau dashboard by Prachit Parikh: billing migration go/no-go, reconciliation pass rates for mock cutover 1 and 2, the record bridge, all 37 checks and the finance tie-out" loading="lazy" width="1300" height="1250"><span class="live">Live on Tableau Public</span></a>
+<div class="in"><span class="kind">SQL + data migration</span>
+<h3>Billing migration go/no-go</h3>
+<p>Mock 1 vs mock 2 pass rates by check level, all 37 checks with their failing records, the bridge from legacy rows to loaded records, the finance tie-out by currency and the data quality failure rate on the legacy extract.</p>
+<div class="btns"><a class="go" href="https://public.tableau.com/app/profile/prachit.parikh/viz/BillingMigrationGoNo-GoReconciliationDashboardPrachitParikh/BillingMigrationGoNo-Go">Open the interactive dashboard</a><a href="https://github.com/prachitparikh/billing-migration-reconciliation">Data and SQL on GitHub</a></div>
+</div></div>
+<div class="dash" id="dashboard-ticket-triage">
+<a class="shot" href="https://public.tableau.com/app/profile/prachit.parikh/viz/AITicketTriageEvaluationRulesvsMLvsClaudePrachitParikh/AITicketTriageEvaluation"><img src="https://public.tableau.com/views/AITicketTriageEvaluationRulesvsMLvsClaudePrachitParikh/AITicketTriageEvaluation.png?:display_static_image=y&:showVizHome=n" alt="Tableau dashboard by Prachit Parikh: AI ticket triage evaluation, eight acceptance criteria for four methods, headline measures, a routing matrix and monthly cost" loading="lazy" width="1300" height="1250"><span class="live">Live on Tableau Public</span></a>
+<div class="in"><span class="kind">AI evaluation</span>
+<h3>AI ticket triage: rules vs ML vs Claude</h3>
+<p>The eight acceptance criteria with a pass or fail for each method, five headline measures side by side, a matrix of where every ticket was routed, and the monthly cost of each option once agent time is counted.</p>
+<div class="btns"><a class="go" href="https://public.tableau.com/app/profile/prachit.parikh/viz/AITicketTriageEvaluationRulesvsMLvsClaudePrachitParikh/AITicketTriageEvaluation">Open the interactive dashboard</a><a href="https://github.com/prachitparikh/ai-ticket-triage-evaluation">Evaluation code on GitHub</a></div>
+</div></div>
+<div class="dash" id="dashboard-revenue-reconciliation">
+<a class="shot" href="https://public.tableau.com/app/profile/prachit.parikh/viz/DashboardvsFinanceRevenueReconciliationinSQLPrachitParikh/RevenueReconciliation"><img src="https://public.tableau.com/views/DashboardvsFinanceRevenueReconciliationinSQLPrachitParikh/RevenueReconciliation.png?:display_static_image=y&:showVizHome=n" alt="Tableau dashboard by Prachit Parikh: a $1,284,500 revenue dashboard against a $1,236,200 finance ledger, with a bridge of the $48,300 gap and the daily gap by cause" loading="lazy" width="1300" height="1250"><span class="live">Live on Tableau Public</span></a>
+<div class="in"><span class="kind">SQL + reporting</span>
+<h3>Dashboard vs finance: where did $48,300 come from?</h3>
+<p>A revenue dashboard says $1,284,500 and the finance ledger says $1,236,200. The bridge splits the $48,300 gap into four causes, and the daily chart shows when each one hit: the time-zone cutoff lands on 1 and 31 October, the JOIN fan-out runs all month. It goes with my video on finding the gap in SQL.</p>
+<div class="btns"><a class="go" href="https://public.tableau.com/app/profile/prachit.parikh/viz/DashboardvsFinanceRevenueReconciliationinSQLPrachitParikh/RevenueReconciliation">Open the interactive dashboard</a><a href="https://www.youtube.com/watch?v=SG-6rtZeizg">Watch the video</a></div>
+</div></div>
 
 <h2>Free templates</h2>
 <div class="post"><a href="https://github.com/prachitparikh/ba-toolkit">BA Toolkit (open source, MIT license)</a><p>UAT plan template, acceptance criteria template, data mapping sheet, traceability matrix, 7 SQL data validation checks and an agent-ready requirements checklist. Plain Markdown, CSV and SQL.</p></div>
