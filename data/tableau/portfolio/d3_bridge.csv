@@ -1,0 +1,7 @@
+step_order,step,amount,running_total,kind,bar_start,bar_size,step_label
+0,"Finance ledger revenue (completed orders, US Eastern date)",1236200.0,1236200.0,Total,0.0,1236200.0,0. Finance ledger revenue
+1,Cancelled orders still counted on the dashboard,9600.0,1245800.0,Adds to dashboard,1236200.0,9600.0,1. Cancelled orders still counted on the dashboard
+2,"Time-zone cutoff (dashboard uses UTC, finance uses US Eastern)",4200.0,1250000.0,Adds to dashboard,1245800.0,4200.0,2. Time-zone cutoff
+3,JOIN fan-out on order_promotions (double counting),41900.0,1291900.0,Adds to dashboard,1250000.0,41900.0,3. JOIN fan-out on order_promotions
+4,Orphan orders dropped by the INNER JOIN to customers,-7400.0,1284500.0,Removes from dashboard,1291900.0,-7400.0,4. Orphan orders dropped by the INNER JOIN to customers
+5,Revenue dashboard,1284500.0,1284500.0,Total,0.0,1284500.0,5. Revenue dashboard

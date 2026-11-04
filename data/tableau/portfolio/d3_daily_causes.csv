@@ -1,0 +1,125 @@
+date,cause_key,amount,cause,cause_order
+2026-10-01,cancelled,0.0,Cancelled orders still counted,1
+2026-10-02,cancelled,0.0,Cancelled orders still counted,1
+2026-10-03,cancelled,1200.0,Cancelled orders still counted,1
+2026-10-04,cancelled,0.0,Cancelled orders still counted,1
+2026-10-05,cancelled,0.0,Cancelled orders still counted,1
+2026-10-06,cancelled,0.0,Cancelled orders still counted,1
+2026-10-07,cancelled,0.0,Cancelled orders still counted,1
+2026-10-08,cancelled,2100.0,Cancelled orders still counted,1
+2026-10-09,cancelled,0.0,Cancelled orders still counted,1
+2026-10-10,cancelled,0.0,Cancelled orders still counted,1
+2026-10-11,cancelled,0.0,Cancelled orders still counted,1
+2026-10-12,cancelled,0.0,Cancelled orders still counted,1
+2026-10-13,cancelled,0.0,Cancelled orders still counted,1
+2026-10-14,cancelled,900.0,Cancelled orders still counted,1
+2026-10-15,cancelled,0.0,Cancelled orders still counted,1
+2026-10-16,cancelled,0.0,Cancelled orders still counted,1
+2026-10-17,cancelled,0.0,Cancelled orders still counted,1
+2026-10-18,cancelled,0.0,Cancelled orders still counted,1
+2026-10-19,cancelled,1800.0,Cancelled orders still counted,1
+2026-10-20,cancelled,0.0,Cancelled orders still counted,1
+2026-10-21,cancelled,0.0,Cancelled orders still counted,1
+2026-10-22,cancelled,0.0,Cancelled orders still counted,1
+2026-10-23,cancelled,2400.0,Cancelled orders still counted,1
+2026-10-24,cancelled,0.0,Cancelled orders still counted,1
+2026-10-25,cancelled,0.0,Cancelled orders still counted,1
+2026-10-26,cancelled,0.0,Cancelled orders still counted,1
+2026-10-27,cancelled,0.0,Cancelled orders still counted,1
+2026-10-28,cancelled,1200.0,Cancelled orders still counted,1
+2026-10-29,cancelled,0.0,Cancelled orders still counted,1
+2026-10-30,cancelled,0.0,Cancelled orders still counted,1
+2026-10-31,cancelled,0.0,Cancelled orders still counted,1
+2026-10-01,timezone,10500.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-02,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-03,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-04,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-05,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-06,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-07,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-08,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-09,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-10,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-11,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-12,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-13,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-14,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-15,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-16,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-17,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-18,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-19,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-20,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-21,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-22,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-23,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-24,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-25,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-26,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-27,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-28,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-29,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-30,timezone,0.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-31,timezone,-6300.0,Time-zone cutoff (UTC vs Eastern),2
+2026-10-01,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-02,fanout,3200.0,JOIN fan-out (double counting),3
+2026-10-03,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-04,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-05,fanout,5000.0,JOIN fan-out (double counting),3
+2026-10-06,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-07,fanout,4100.0,JOIN fan-out (double counting),3
+2026-10-08,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-09,fanout,1800.0,JOIN fan-out (double counting),3
+2026-10-10,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-11,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-12,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-13,fanout,5800.0,JOIN fan-out (double counting),3
+2026-10-14,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-15,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-16,fanout,3600.0,JOIN fan-out (double counting),3
+2026-10-17,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-18,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-19,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-20,fanout,2200.0,JOIN fan-out (double counting),3
+2026-10-21,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-22,fanout,3000.0,JOIN fan-out (double counting),3
+2026-10-23,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-24,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-25,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-26,fanout,4800.0,JOIN fan-out (double counting),3
+2026-10-27,fanout,2700.0,JOIN fan-out (double counting),3
+2026-10-28,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-29,fanout,5700.0,JOIN fan-out (double counting),3
+2026-10-30,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-31,fanout,0.0,JOIN fan-out (double counting),3
+2026-10-01,orphans,0.0,Orphan orders dropped,4
+2026-10-02,orphans,0.0,Orphan orders dropped,4
+2026-10-03,orphans,0.0,Orphan orders dropped,4
+2026-10-04,orphans,0.0,Orphan orders dropped,4
+2026-10-05,orphans,0.0,Orphan orders dropped,4
+2026-10-06,orphans,-1600.0,Orphan orders dropped,4
+2026-10-07,orphans,0.0,Orphan orders dropped,4
+2026-10-08,orphans,0.0,Orphan orders dropped,4
+2026-10-09,orphans,0.0,Orphan orders dropped,4
+2026-10-10,orphans,0.0,Orphan orders dropped,4
+2026-10-11,orphans,0.0,Orphan orders dropped,4
+2026-10-12,orphans,-2200.0,Orphan orders dropped,4
+2026-10-13,orphans,0.0,Orphan orders dropped,4
+2026-10-14,orphans,0.0,Orphan orders dropped,4
+2026-10-15,orphans,0.0,Orphan orders dropped,4
+2026-10-16,orphans,0.0,Orphan orders dropped,4
+2026-10-17,orphans,-900.0,Orphan orders dropped,4
+2026-10-18,orphans,0.0,Orphan orders dropped,4
+2026-10-19,orphans,0.0,Orphan orders dropped,4
+2026-10-20,orphans,0.0,Orphan orders dropped,4
+2026-10-21,orphans,-1300.0,Orphan orders dropped,4
+2026-10-22,orphans,0.0,Orphan orders dropped,4
+2026-10-23,orphans,0.0,Orphan orders dropped,4
+2026-10-24,orphans,0.0,Orphan orders dropped,4
+2026-10-25,orphans,0.0,Orphan orders dropped,4
+2026-10-26,orphans,0.0,Orphan orders dropped,4
+2026-10-27,orphans,0.0,Orphan orders dropped,4
+2026-10-28,orphans,0.0,Orphan orders dropped,4
+2026-10-29,orphans,0.0,Orphan orders dropped,4
+2026-10-30,orphans,-1400.0,Orphan orders dropped,4
+2026-10-31,orphans,0.0,Orphan orders dropped,4
