@@ -1,0 +1,91 @@
+run,entity,stage_order,stage,records,bridge_balances
+Mock cutover 1,customers,1,Legacy source rows,1227,Balances
+Mock cutover 1,customers,2,Merged duplicates,27,Balances
+Mock cutover 1,customers,3,Out of scope,47,Balances
+Mock cutover 1,customers,4,Expected rejects,0,Balances
+Mock cutover 1,customers,5,Expected loads,1153,Balances
+Mock cutover 1,customers,6,Actual loads,1153,Balances
+Mock cutover 1,customers,7,Missing in target,0,Balances
+Mock cutover 1,customers,8,Loaded but not expected,0,Balances
+Mock cutover 1,customers,9,Loaded twice,0,Balances
+Mock cutover 1,subscriptions,1,Legacy source rows,1894,Balances
+Mock cutover 1,subscriptions,2,Merged duplicates,0,Balances
+Mock cutover 1,subscriptions,3,Out of scope,166,Balances
+Mock cutover 1,subscriptions,4,Expected rejects,6,Balances
+Mock cutover 1,subscriptions,5,Expected loads,1722,Balances
+Mock cutover 1,subscriptions,6,Actual loads,1698,Balances
+Mock cutover 1,subscriptions,7,Missing in target,24,Balances
+Mock cutover 1,subscriptions,8,Loaded but not expected,0,Balances
+Mock cutover 1,subscriptions,9,Loaded twice,0,Balances
+Mock cutover 1,invoices,1,Legacy source rows,32631,Balances
+Mock cutover 1,invoices,2,Merged duplicates,0,Balances
+Mock cutover 1,invoices,3,Out of scope,9053,Balances
+Mock cutover 1,invoices,4,Expected rejects,0,Balances
+Mock cutover 1,invoices,5,Expected loads,23578,Balances
+Mock cutover 1,invoices,6,Actual loads,24022,Balances
+Mock cutover 1,invoices,7,Missing in target,0,Balances
+Mock cutover 1,invoices,8,Loaded but not expected,444,Balances
+Mock cutover 1,invoices,9,Loaded twice,0,Balances
+Mock cutover 1,credit notes,1,Legacy source rows,635,Balances
+Mock cutover 1,credit notes,2,Merged duplicates,0,Balances
+Mock cutover 1,credit notes,3,Out of scope,191,Balances
+Mock cutover 1,credit notes,4,Expected rejects,0,Balances
+Mock cutover 1,credit notes,5,Expected loads,444,Balances
+Mock cutover 1,credit notes,6,Actual loads,0,Balances
+Mock cutover 1,credit notes,7,Missing in target,444,Balances
+Mock cutover 1,credit notes,8,Loaded but not expected,0,Balances
+Mock cutover 1,credit notes,9,Loaded twice,0,Balances
+Mock cutover 1,payments,1,Legacy source rows,32339,Balances
+Mock cutover 1,payments,2,Merged duplicates,0,Balances
+Mock cutover 1,payments,3,Out of scope,9167,Balances
+Mock cutover 1,payments,4,Expected rejects,0,Balances
+Mock cutover 1,payments,5,Expected loads,23172,Balances
+Mock cutover 1,payments,6,Actual loads,23172,Balances
+Mock cutover 1,payments,7,Missing in target,0,Balances
+Mock cutover 1,payments,8,Loaded but not expected,0,Balances
+Mock cutover 1,payments,9,Loaded twice,0,Balances
+Mock cutover 2,customers,1,Legacy source rows,1227,Balances
+Mock cutover 2,customers,2,Merged duplicates,27,Balances
+Mock cutover 2,customers,3,Out of scope,47,Balances
+Mock cutover 2,customers,4,Expected rejects,0,Balances
+Mock cutover 2,customers,5,Expected loads,1153,Balances
+Mock cutover 2,customers,6,Actual loads,1153,Balances
+Mock cutover 2,customers,7,Missing in target,0,Balances
+Mock cutover 2,customers,8,Loaded but not expected,0,Balances
+Mock cutover 2,customers,9,Loaded twice,0,Balances
+Mock cutover 2,subscriptions,1,Legacy source rows,1894,Balances
+Mock cutover 2,subscriptions,2,Merged duplicates,0,Balances
+Mock cutover 2,subscriptions,3,Out of scope,166,Balances
+Mock cutover 2,subscriptions,4,Expected rejects,6,Balances
+Mock cutover 2,subscriptions,5,Expected loads,1722,Balances
+Mock cutover 2,subscriptions,6,Actual loads,1722,Balances
+Mock cutover 2,subscriptions,7,Missing in target,0,Balances
+Mock cutover 2,subscriptions,8,Loaded but not expected,0,Balances
+Mock cutover 2,subscriptions,9,Loaded twice,0,Balances
+Mock cutover 2,invoices,1,Legacy source rows,32631,Balances
+Mock cutover 2,invoices,2,Merged duplicates,0,Balances
+Mock cutover 2,invoices,3,Out of scope,9053,Balances
+Mock cutover 2,invoices,4,Expected rejects,0,Balances
+Mock cutover 2,invoices,5,Expected loads,23578,Balances
+Mock cutover 2,invoices,6,Actual loads,23578,Balances
+Mock cutover 2,invoices,7,Missing in target,0,Balances
+Mock cutover 2,invoices,8,Loaded but not expected,0,Balances
+Mock cutover 2,invoices,9,Loaded twice,0,Balances
+Mock cutover 2,credit notes,1,Legacy source rows,635,Balances
+Mock cutover 2,credit notes,2,Merged duplicates,0,Balances
+Mock cutover 2,credit notes,3,Out of scope,191,Balances
+Mock cutover 2,credit notes,4,Expected rejects,0,Balances
+Mock cutover 2,credit notes,5,Expected loads,444,Balances
+Mock cutover 2,credit notes,6,Actual loads,444,Balances
+Mock cutover 2,credit notes,7,Missing in target,0,Balances
+Mock cutover 2,credit notes,8,Loaded but not expected,0,Balances
+Mock cutover 2,credit notes,9,Loaded twice,0,Balances
+Mock cutover 2,payments,1,Legacy source rows,32339,Balances
+Mock cutover 2,payments,2,Merged duplicates,0,Balances
+Mock cutover 2,payments,3,Out of scope,9167,Balances
+Mock cutover 2,payments,4,Expected rejects,0,Balances
+Mock cutover 2,payments,5,Expected loads,23172,Balances
+Mock cutover 2,payments,6,Actual loads,23172,Balances
+Mock cutover 2,payments,7,Missing in target,0,Balances
+Mock cutover 2,payments,8,Loaded but not expected,0,Balances
+Mock cutover 2,payments,9,Loaded twice,0,Balances

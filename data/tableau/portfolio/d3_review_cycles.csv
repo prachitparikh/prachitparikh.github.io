@@ -1,0 +1,97 @@
+project_id,project_key,entity_type,entity_code,submitted_at,decided_at,decision,cycle_hours,submitted_hour,waited_overnight,project_name
+1,IDW,Requirement,REQ-IDW-001,2026-09-17T10:30:00Z,2026-09-17T14:00:00Z,approved,3.5,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-002,2026-09-17T10:33:00Z,2026-09-17T14:13:00Z,approved,3.67,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-003,2026-09-17T10:36:00Z,2026-09-17T14:26:00Z,approved,3.83,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-004,2026-09-17T10:39:00Z,2026-09-17T14:39:00Z,approved,4.0,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-005,2026-09-17T10:42:00Z,2026-09-17T14:52:00Z,approved,4.17,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-006,2026-09-17T10:45:00Z,2026-09-17T15:05:00Z,approved,4.33,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-007,2026-09-17T09:08:00Z,2026-09-17T11:54:00Z,rejected,2.77,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-008,2026-09-17T10:48:00Z,2026-09-17T15:18:00Z,approved,4.5,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-009,2026-09-17T10:51:00Z,2026-09-17T15:31:00Z,approved,4.67,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-010,2026-09-17T10:54:00Z,2026-09-17T15:44:00Z,approved,4.83,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-011,2026-09-17T10:57:00Z,2026-09-17T15:57:00Z,approved,5.0,10,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-012,2026-09-17T09:00:00Z,2026-09-17T11:30:00Z,rejected,2.5,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-013,2026-09-17T11:00:00Z,2026-09-18T09:00:00Z,approved,22.0,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-014,2026-09-17T11:03:00Z,2026-09-18T09:13:00Z,approved,22.17,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-015,2026-09-17T12:00:00Z,2026-09-17T13:15:00Z,approved,1.25,12,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-016,2026-09-17T11:06:00Z,2026-09-18T09:26:00Z,approved,22.33,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-017,2026-09-17T11:09:00Z,2026-09-18T09:39:00Z,approved,22.5,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-018,2026-09-17T11:12:00Z,2026-09-18T09:52:00Z,approved,22.67,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-020,2026-09-17T11:15:00Z,2026-09-18T10:05:00Z,approved,22.83,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-021,2026-09-17T09:02:00Z,2026-09-17T11:36:00Z,rejected,2.57,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-022,2026-09-17T09:06:00Z,2026-09-17T11:48:00Z,rejected,2.7,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-023,2026-09-17T09:04:00Z,2026-09-17T11:42:00Z,rejected,2.63,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-025,2026-09-17T11:18:00Z,2026-09-18T10:18:00Z,approved,23.0,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-026,2026-09-17T11:21:00Z,2026-09-18T10:31:00Z,approved,23.17,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-027,2026-09-17T11:24:00Z,2026-09-18T15:30:00Z,approved,28.1,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-028,2026-09-17T11:27:00Z,2026-09-18T15:39:00Z,approved,28.2,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-029,2026-09-17T11:30:00Z,2026-09-18T15:48:00Z,approved,28.3,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-030,2026-09-17T11:33:00Z,2026-09-18T15:57:00Z,approved,28.4,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-031,2026-09-17T11:36:00Z,2026-09-18T16:06:00Z,approved,28.5,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-032,2026-09-17T11:39:00Z,2026-09-18T16:15:00Z,approved,28.6,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-033,2026-09-17T11:42:00Z,2026-09-18T16:24:00Z,approved,28.7,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-034,2026-09-17T11:45:00Z,2026-09-18T16:33:00Z,approved,28.8,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-035,2026-09-17T11:48:00Z,2026-09-18T16:42:00Z,approved,28.9,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-037,2026-09-18T16:00:00Z,2026-09-19T09:15:00Z,approved,17.25,16,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-038,2026-09-18T16:03:00Z,2026-09-19T09:23:00Z,approved,17.33,16,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Requirement,REQ-IDW-039,2026-09-18T16:06:00Z,2026-09-19T09:31:00Z,approved,17.42,16,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat scenario,SCN-IDW-001,2026-09-25T09:00:00Z,2026-09-25T09:02:00Z,approved,0.03,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Uat scenario,SCN-IDW-002,2026-09-25T09:07:00Z,2026-09-25T09:09:00Z,approved,0.03,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Uat scenario,SCN-IDW-003,2026-09-25T09:14:00Z,2026-09-25T09:16:00Z,approved,0.03,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Uat scenario,SCN-IDW-004,2026-09-25T09:21:00Z,2026-09-25T09:23:00Z,approved,0.03,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Uat scenario,SCN-IDW-005,2026-09-25T09:28:00Z,2026-09-25T09:30:00Z,approved,0.03,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Uat scenario,SCN-IDW-006,2026-09-25T09:35:00Z,2026-09-25T09:37:00Z,approved,0.03,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Uat scenario,SCN-IDW-007,2026-09-25T09:42:00Z,2026-09-25T09:44:00Z,approved,0.03,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Uat scenario,SCN-IDW-008,2026-09-25T09:49:00Z,2026-09-25T09:51:00Z,approved,0.03,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-001,2026-09-25T11:00:00Z,2026-09-26T09:00:00Z,approved,22.0,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-002,2026-09-25T11:02:00Z,2026-09-26T09:07:00Z,approved,22.08,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-003,2026-09-25T11:04:00Z,2026-09-26T09:14:00Z,approved,22.17,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-004,2026-09-25T11:06:00Z,2026-09-26T09:21:00Z,approved,22.25,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-005,2026-09-25T11:08:00Z,2026-09-26T09:28:00Z,approved,22.33,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-006,2026-09-25T11:10:00Z,2026-09-26T09:35:00Z,approved,22.42,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-007,2026-09-25T11:12:00Z,2026-09-26T09:42:00Z,approved,22.5,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-008,2026-09-25T11:14:00Z,2026-09-26T09:49:00Z,approved,22.58,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-009,2026-09-25T11:16:00Z,2026-09-26T09:56:00Z,approved,22.67,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-011,2026-09-25T11:18:00Z,2026-09-26T10:03:00Z,approved,22.75,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-012,2026-09-25T11:20:00Z,2026-09-26T10:10:00Z,approved,22.83,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-013,2026-09-25T11:22:00Z,2026-09-29T09:00:00Z,approved,93.63,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-014,2026-09-25T11:24:00Z,2026-09-29T09:07:00Z,approved,93.72,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-015,2026-09-25T11:26:00Z,2026-09-29T09:14:00Z,approved,93.8,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-016,2026-09-25T11:28:00Z,2026-09-29T09:21:00Z,approved,93.88,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-017,2026-09-25T11:30:00Z,2026-09-29T09:28:00Z,approved,93.97,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-018,2026-09-25T11:32:00Z,2026-09-29T09:35:00Z,approved,94.05,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-019,2026-09-25T11:34:00Z,2026-09-29T09:42:00Z,approved,94.13,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-020,2026-09-25T11:36:00Z,2026-09-29T09:49:00Z,approved,94.22,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-023,2026-09-25T11:42:00Z,2026-09-29T09:56:00Z,approved,94.23,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-024,2026-09-25T11:44:00Z,2026-09-29T10:03:00Z,approved,94.32,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-025,2026-09-25T11:46:00Z,2026-09-29T10:10:00Z,approved,94.4,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-027,2026-09-25T11:48:00Z,2026-09-29T10:17:00Z,approved,94.48,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-028,2026-09-25T11:50:00Z,2026-09-29T10:24:00Z,approved,94.57,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-029,2026-09-25T11:52:00Z,2026-09-29T10:31:00Z,approved,94.65,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,Uat test case,UAT-IDW-032,2026-09-25T11:58:00Z,2026-09-29T10:38:00Z,approved,94.67,11,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-001,2026-09-22T09:00:00Z,2026-09-22T13:00:00Z,approved,4.0,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-002,2026-09-22T09:03:00Z,2026-09-22T13:11:00Z,approved,4.13,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-003,2026-09-22T09:06:00Z,2026-09-22T13:22:00Z,approved,4.27,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-004,2026-09-22T09:09:00Z,2026-09-22T13:33:00Z,approved,4.4,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-005,2026-09-22T09:12:00Z,2026-09-22T13:44:00Z,approved,4.53,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-006,2026-09-22T09:15:00Z,2026-09-22T13:55:00Z,approved,4.67,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-007,2026-09-22T09:18:00Z,2026-09-22T14:06:00Z,approved,4.8,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-008,2026-09-22T09:21:00Z,2026-09-22T14:17:00Z,approved,4.93,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-009,2026-09-22T09:24:00Z,2026-09-22T14:28:00Z,approved,5.07,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-011,2026-09-22T09:27:00Z,2026-09-22T14:39:00Z,approved,5.2,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-012,2026-09-22T09:30:00Z,2026-09-22T14:50:00Z,approved,5.33,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-013,2026-09-22T09:33:00Z,2026-09-22T15:01:00Z,approved,5.47,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-015,2026-09-22T09:36:00Z,2026-09-22T15:12:00Z,approved,5.6,9,Same day,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-016,2026-09-22T09:39:00Z,2026-09-23T10:00:00Z,approved,24.35,9,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-017,2026-09-22T09:42:00Z,2026-09-23T10:00:00Z,approved,24.3,9,Waited overnight,Invoice Dispute & Credit Workflow
+1,IDW,User story,US-IDW-018,2026-09-22T09:45:00Z,2026-09-23T10:00:00Z,approved,24.25,9,Waited overnight,Invoice Dispute & Credit Workflow
+2,PRC,Requirement,REQ-PRC-001,2026-09-23T11:00:00Z,2026-09-23T16:00:00Z,approved,5.0,11,Same day,Partner Referral Commissions
+2,PRC,Requirement,REQ-PRC-002,2026-09-23T11:02:00Z,2026-09-23T16:06:00Z,approved,5.07,11,Same day,Partner Referral Commissions
+2,PRC,Requirement,REQ-PRC-003,2026-09-23T11:04:00Z,2026-09-23T16:12:00Z,approved,5.13,11,Same day,Partner Referral Commissions
+2,PRC,Requirement,REQ-PRC-004,2026-09-23T11:06:00Z,2026-09-23T16:18:00Z,approved,5.2,11,Same day,Partner Referral Commissions
+2,PRC,Requirement,REQ-PRC-005,2026-09-23T11:08:00Z,2026-09-23T16:24:00Z,approved,5.27,11,Same day,Partner Referral Commissions
+2,PRC,Requirement,REQ-PRC-006,2026-09-23T11:10:00Z,2026-09-23T16:30:00Z,approved,5.33,11,Same day,Partner Referral Commissions
+2,PRC,Requirement,REQ-PRC-007,2026-09-23T11:12:00Z,2026-09-23T16:36:00Z,approved,5.4,11,Same day,Partner Referral Commissions
+2,PRC,User story,US-PRC-001,2026-09-24T11:30:00Z,2026-09-25T14:00:00Z,approved,26.5,11,Waited overnight,Partner Referral Commissions
+2,PRC,User story,US-PRC-002,2026-09-24T11:32:00Z,2026-09-25T14:08:00Z,approved,26.6,11,Waited overnight,Partner Referral Commissions
+2,PRC,User story,US-PRC-003,2026-09-24T11:34:00Z,2026-09-25T14:16:00Z,approved,26.7,11,Waited overnight,Partner Referral Commissions

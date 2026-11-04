@@ -1,0 +1,145 @@
+method_order,method,actual_team,predicted_team,tickets,correct
+1,Today's routing rules,Billing Ops,Billing Ops,84,Correct
+1,Today's routing rules,Billing Ops,Customer Success,0,Misrouted
+1,Today's routing rules,Billing Ops,Integrations,0,Misrouted
+1,Today's routing rules,Billing Ops,Tier1,11,Misrouted
+1,Today's routing rules,Billing Ops,Tier2,0,Misrouted
+1,Today's routing rules,Billing Ops,Trust,0,Misrouted
+1,Today's routing rules,Customer Success,Billing Ops,4,Misrouted
+1,Today's routing rules,Customer Success,Customer Success,23,Correct
+1,Today's routing rules,Customer Success,Integrations,5,Misrouted
+1,Today's routing rules,Customer Success,Tier1,22,Misrouted
+1,Today's routing rules,Customer Success,Tier2,0,Misrouted
+1,Today's routing rules,Customer Success,Trust,0,Misrouted
+1,Today's routing rules,Integrations,Billing Ops,2,Misrouted
+1,Today's routing rules,Integrations,Customer Success,0,Misrouted
+1,Today's routing rules,Integrations,Integrations,37,Correct
+1,Today's routing rules,Integrations,Tier1,20,Misrouted
+1,Today's routing rules,Integrations,Tier2,0,Misrouted
+1,Today's routing rules,Integrations,Trust,0,Misrouted
+1,Today's routing rules,Tier1,Billing Ops,2,Misrouted
+1,Today's routing rules,Tier1,Customer Success,1,Misrouted
+1,Today's routing rules,Tier1,Integrations,2,Misrouted
+1,Today's routing rules,Tier1,Tier1,103,Correct
+1,Today's routing rules,Tier1,Tier2,15,Misrouted
+1,Today's routing rules,Tier1,Trust,0,Misrouted
+1,Today's routing rules,Tier2,Billing Ops,7,Misrouted
+1,Today's routing rules,Tier2,Customer Success,1,Misrouted
+1,Today's routing rules,Tier2,Integrations,0,Misrouted
+1,Today's routing rules,Tier2,Tier1,68,Misrouted
+1,Today's routing rules,Tier2,Tier2,70,Correct
+1,Today's routing rules,Tier2,Trust,1,Misrouted
+1,Today's routing rules,Trust,Billing Ops,4,Misrouted
+1,Today's routing rules,Trust,Customer Success,0,Misrouted
+1,Today's routing rules,Trust,Integrations,0,Misrouted
+1,Today's routing rules,Trust,Tier1,2,Misrouted
+1,Today's routing rules,Trust,Tier2,8,Misrouted
+1,Today's routing rules,Trust,Trust,8,Correct
+2,In-house text model,Billing Ops,Billing Ops,74,Correct
+2,In-house text model,Billing Ops,Customer Success,6,Misrouted
+2,In-house text model,Billing Ops,Integrations,1,Misrouted
+2,In-house text model,Billing Ops,Tier1,12,Misrouted
+2,In-house text model,Billing Ops,Tier2,2,Misrouted
+2,In-house text model,Billing Ops,Trust,0,Misrouted
+2,In-house text model,Customer Success,Billing Ops,14,Misrouted
+2,In-house text model,Customer Success,Customer Success,13,Correct
+2,In-house text model,Customer Success,Integrations,0,Misrouted
+2,In-house text model,Customer Success,Tier1,25,Misrouted
+2,In-house text model,Customer Success,Tier2,0,Misrouted
+2,In-house text model,Customer Success,Trust,2,Misrouted
+2,In-house text model,Integrations,Billing Ops,0,Misrouted
+2,In-house text model,Integrations,Customer Success,0,Misrouted
+2,In-house text model,Integrations,Integrations,43,Correct
+2,In-house text model,Integrations,Tier1,6,Misrouted
+2,In-house text model,Integrations,Tier2,9,Misrouted
+2,In-house text model,Integrations,Trust,1,Misrouted
+2,In-house text model,Tier1,Billing Ops,0,Misrouted
+2,In-house text model,Tier1,Customer Success,2,Misrouted
+2,In-house text model,Tier1,Integrations,1,Misrouted
+2,In-house text model,Tier1,Tier1,104,Correct
+2,In-house text model,Tier1,Tier2,9,Misrouted
+2,In-house text model,Tier1,Trust,7,Misrouted
+2,In-house text model,Tier2,Billing Ops,0,Misrouted
+2,In-house text model,Tier2,Customer Success,1,Misrouted
+2,In-house text model,Tier2,Integrations,0,Misrouted
+2,In-house text model,Tier2,Tier1,15,Misrouted
+2,In-house text model,Tier2,Tier2,130,Correct
+2,In-house text model,Tier2,Trust,1,Misrouted
+2,In-house text model,Trust,Billing Ops,3,Misrouted
+2,In-house text model,Trust,Customer Success,0,Misrouted
+2,In-house text model,Trust,Integrations,0,Misrouted
+2,In-house text model,Trust,Tier1,4,Misrouted
+2,In-house text model,Trust,Tier2,0,Misrouted
+2,In-house text model,Trust,Trust,15,Correct
+3,Claude Haiku,Billing Ops,Billing Ops,95,Correct
+3,Claude Haiku,Billing Ops,Customer Success,0,Misrouted
+3,Claude Haiku,Billing Ops,Integrations,0,Misrouted
+3,Claude Haiku,Billing Ops,Tier1,0,Misrouted
+3,Claude Haiku,Billing Ops,Tier2,0,Misrouted
+3,Claude Haiku,Billing Ops,Trust,0,Misrouted
+3,Claude Haiku,Customer Success,Billing Ops,0,Misrouted
+3,Claude Haiku,Customer Success,Customer Success,54,Correct
+3,Claude Haiku,Customer Success,Integrations,0,Misrouted
+3,Claude Haiku,Customer Success,Tier1,0,Misrouted
+3,Claude Haiku,Customer Success,Tier2,0,Misrouted
+3,Claude Haiku,Customer Success,Trust,0,Misrouted
+3,Claude Haiku,Integrations,Billing Ops,0,Misrouted
+3,Claude Haiku,Integrations,Customer Success,0,Misrouted
+3,Claude Haiku,Integrations,Integrations,59,Correct
+3,Claude Haiku,Integrations,Tier1,0,Misrouted
+3,Claude Haiku,Integrations,Tier2,0,Misrouted
+3,Claude Haiku,Integrations,Trust,0,Misrouted
+3,Claude Haiku,Tier1,Billing Ops,0,Misrouted
+3,Claude Haiku,Tier1,Customer Success,0,Misrouted
+3,Claude Haiku,Tier1,Integrations,0,Misrouted
+3,Claude Haiku,Tier1,Tier1,122,Correct
+3,Claude Haiku,Tier1,Tier2,0,Misrouted
+3,Claude Haiku,Tier1,Trust,1,Misrouted
+3,Claude Haiku,Tier2,Billing Ops,0,Misrouted
+3,Claude Haiku,Tier2,Customer Success,0,Misrouted
+3,Claude Haiku,Tier2,Integrations,0,Misrouted
+3,Claude Haiku,Tier2,Tier1,0,Misrouted
+3,Claude Haiku,Tier2,Tier2,147,Correct
+3,Claude Haiku,Tier2,Trust,0,Misrouted
+3,Claude Haiku,Trust,Billing Ops,0,Misrouted
+3,Claude Haiku,Trust,Customer Success,0,Misrouted
+3,Claude Haiku,Trust,Integrations,0,Misrouted
+3,Claude Haiku,Trust,Tier1,0,Misrouted
+3,Claude Haiku,Trust,Tier2,0,Misrouted
+3,Claude Haiku,Trust,Trust,22,Correct
+4,Claude Sonnet,Billing Ops,Billing Ops,95,Correct
+4,Claude Sonnet,Billing Ops,Customer Success,0,Misrouted
+4,Claude Sonnet,Billing Ops,Integrations,0,Misrouted
+4,Claude Sonnet,Billing Ops,Tier1,0,Misrouted
+4,Claude Sonnet,Billing Ops,Tier2,0,Misrouted
+4,Claude Sonnet,Billing Ops,Trust,0,Misrouted
+4,Claude Sonnet,Customer Success,Billing Ops,0,Misrouted
+4,Claude Sonnet,Customer Success,Customer Success,54,Correct
+4,Claude Sonnet,Customer Success,Integrations,0,Misrouted
+4,Claude Sonnet,Customer Success,Tier1,0,Misrouted
+4,Claude Sonnet,Customer Success,Tier2,0,Misrouted
+4,Claude Sonnet,Customer Success,Trust,0,Misrouted
+4,Claude Sonnet,Integrations,Billing Ops,0,Misrouted
+4,Claude Sonnet,Integrations,Customer Success,0,Misrouted
+4,Claude Sonnet,Integrations,Integrations,59,Correct
+4,Claude Sonnet,Integrations,Tier1,0,Misrouted
+4,Claude Sonnet,Integrations,Tier2,0,Misrouted
+4,Claude Sonnet,Integrations,Trust,0,Misrouted
+4,Claude Sonnet,Tier1,Billing Ops,0,Misrouted
+4,Claude Sonnet,Tier1,Customer Success,0,Misrouted
+4,Claude Sonnet,Tier1,Integrations,0,Misrouted
+4,Claude Sonnet,Tier1,Tier1,123,Correct
+4,Claude Sonnet,Tier1,Tier2,0,Misrouted
+4,Claude Sonnet,Tier1,Trust,0,Misrouted
+4,Claude Sonnet,Tier2,Billing Ops,0,Misrouted
+4,Claude Sonnet,Tier2,Customer Success,0,Misrouted
+4,Claude Sonnet,Tier2,Integrations,0,Misrouted
+4,Claude Sonnet,Tier2,Tier1,0,Misrouted
+4,Claude Sonnet,Tier2,Tier2,147,Correct
+4,Claude Sonnet,Tier2,Trust,0,Misrouted
+4,Claude Sonnet,Trust,Billing Ops,0,Misrouted
+4,Claude Sonnet,Trust,Customer Success,0,Misrouted
+4,Claude Sonnet,Trust,Integrations,0,Misrouted
+4,Claude Sonnet,Trust,Tier1,0,Misrouted
+4,Claude Sonnet,Trust,Tier2,0,Misrouted
+4,Claude Sonnet,Trust,Trust,22,Correct

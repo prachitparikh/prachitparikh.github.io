@@ -1,0 +1,65 @@
+run,check_id,dimension,measure,expected_amount,actual_amount,difference,currency
+Mock cutover 1,RC-L4-01,CAD,open AR,331093.7,293798.71,-37294.99,CAD
+Mock cutover 1,RC-L4-01,EUR,open AR,43081.77,42643.79,-437.98,EUR
+Mock cutover 1,RC-L4-01,GBP,open AR,99317.02,88680.41,-10636.61,GBP
+Mock cutover 1,RC-L4-01,USD,open AR,228757.51,353.57,-228403.94,USD
+Mock cutover 1,RC-L4-02,CAD 0 current,amount due,43680.78,43680.77,-0.01,CAD
+Mock cutover 1,RC-L4-02,CAD 1 1-30,amount due,61359.29,61359.29,0.0,CAD
+Mock cutover 1,RC-L4-02,CAD 2 31-60,amount due,101331.28,101331.28,0.0,CAD
+Mock cutover 1,RC-L4-02,CAD 3 61-90,amount due,91.53,91.53,0.0,CAD
+Mock cutover 1,RC-L4-02,CAD 4 90+,amount due,143988.49,87335.84,-56652.65,CAD
+Mock cutover 1,RC-L4-02,EUR 0 current,amount due,10716.65,10716.65,0.0,EUR
+Mock cutover 1,RC-L4-02,EUR 1 1-30,amount due,6383.97,6383.98,0.01,EUR
+Mock cutover 1,RC-L4-02,EUR 2 31-60,amount due,2264.17,2264.17,0.0,EUR
+Mock cutover 1,RC-L4-02,EUR 3 61-90,amount due,1664.42,1664.42,0.0,EUR
+Mock cutover 1,RC-L4-02,EUR 4 90+,amount due,28060.3,21614.57,-6445.73,EUR
+Mock cutover 1,RC-L4-02,GBP 0 current,amount due,20560.31,20560.31,0.0,GBP
+Mock cutover 1,RC-L4-02,GBP 1 1-30,amount due,25853.36,25853.36,0.0,GBP
+Mock cutover 1,RC-L4-02,GBP 2 31-60,amount due,10375.46,10375.46,0.0,GBP
+Mock cutover 1,RC-L4-02,GBP 3 61-90,amount due,7029.12,7029.12,0.0,GBP
+Mock cutover 1,RC-L4-02,GBP 4 90+,amount due,41282.88,24862.16,-16420.72,GBP
+Mock cutover 1,RC-L4-02,USD 0 current,amount due,104106.67,104106.52,-0.15,USD
+Mock cutover 1,RC-L4-02,USD 1 1-30,amount due,77174.35,77174.22,-0.13,USD
+Mock cutover 1,RC-L4-02,USD 2 31-60,amount due,26835.85,26835.82,-0.03,USD
+Mock cutover 1,RC-L4-02,USD 3 61-90,amount due,1549.93,1549.93,0.0,USD
+Mock cutover 1,RC-L4-02,USD 4 90+,amount due,96440.95,-100813.16,-197254.11,USD
+Mock cutover 1,RC-L4-04,CAD,net billing,208861.56,208861.53,-0.03,CAD
+Mock cutover 1,RC-L4-04,EUR,net billing,69817.97,62726.75,-7091.22,EUR
+Mock cutover 1,RC-L4-04,GBP,net billing,192203.78,195705.4,3501.62,GBP
+Mock cutover 1,RC-L4-04,USD,net billing,706311.22,684383.53,-21927.69,USD
+Mock cutover 1,RC-L4-05,CAD,cash received,217300.2,0.0,-217300.2,CAD
+Mock cutover 1,RC-L4-05,EUR,cash received,76911.74,0.0,-76911.74,EUR
+Mock cutover 1,RC-L4-05,GBP,cash received,165793.68,0.0,-165793.68,GBP
+Mock cutover 1,RC-L4-05,USD,cash received,891453.69,1324613.46,433159.77,USD
+Mock cutover 2,RC-L4-01,CAD,open AR,331093.7,331093.7,0.0,CAD
+Mock cutover 2,RC-L4-01,EUR,open AR,43081.77,43081.77,0.0,EUR
+Mock cutover 2,RC-L4-01,GBP,open AR,99317.02,99317.02,0.0,GBP
+Mock cutover 2,RC-L4-01,USD,open AR,228757.51,228757.51,0.0,USD
+Mock cutover 2,RC-L4-02,CAD 0 current,amount due,43680.78,43680.78,0.0,CAD
+Mock cutover 2,RC-L4-02,CAD 1 1-30,amount due,61359.29,61359.29,0.0,CAD
+Mock cutover 2,RC-L4-02,CAD 2 31-60,amount due,101331.28,101331.28,0.0,CAD
+Mock cutover 2,RC-L4-02,CAD 3 61-90,amount due,91.53,91.53,0.0,CAD
+Mock cutover 2,RC-L4-02,CAD 4 90+,amount due,143988.49,143988.49,0.0,CAD
+Mock cutover 2,RC-L4-02,EUR 0 current,amount due,10716.65,10716.65,0.0,EUR
+Mock cutover 2,RC-L4-02,EUR 1 1-30,amount due,6383.97,6383.97,0.0,EUR
+Mock cutover 2,RC-L4-02,EUR 2 31-60,amount due,2264.17,2264.17,0.0,EUR
+Mock cutover 2,RC-L4-02,EUR 3 61-90,amount due,1664.42,1664.42,0.0,EUR
+Mock cutover 2,RC-L4-02,EUR 4 90+,amount due,28060.3,28060.3,0.0,EUR
+Mock cutover 2,RC-L4-02,GBP 0 current,amount due,20560.31,20560.31,0.0,GBP
+Mock cutover 2,RC-L4-02,GBP 1 1-30,amount due,25853.36,25853.36,0.0,GBP
+Mock cutover 2,RC-L4-02,GBP 2 31-60,amount due,10375.46,10375.46,0.0,GBP
+Mock cutover 2,RC-L4-02,GBP 3 61-90,amount due,7029.12,7029.12,0.0,GBP
+Mock cutover 2,RC-L4-02,GBP 4 90+,amount due,41282.88,41282.88,0.0,GBP
+Mock cutover 2,RC-L4-02,USD 0 current,amount due,104106.67,104106.67,0.0,USD
+Mock cutover 2,RC-L4-02,USD 1 1-30,amount due,77174.35,77174.35,0.0,USD
+Mock cutover 2,RC-L4-02,USD 2 31-60,amount due,26835.85,26835.85,0.0,USD
+Mock cutover 2,RC-L4-02,USD 3 61-90,amount due,1549.93,1549.93,0.0,USD
+Mock cutover 2,RC-L4-02,USD 4 90+,amount due,96440.95,96440.95,0.0,USD
+Mock cutover 2,RC-L4-04,CAD,net billing,208861.56,208861.56,0.0,CAD
+Mock cutover 2,RC-L4-04,EUR,net billing,69817.97,69817.97,0.0,EUR
+Mock cutover 2,RC-L4-04,GBP,net billing,192203.78,192203.78,0.0,GBP
+Mock cutover 2,RC-L4-04,USD,net billing,706311.22,706311.22,0.0,USD
+Mock cutover 2,RC-L4-05,CAD,cash received,217300.2,217049.57,-250.63,CAD
+Mock cutover 2,RC-L4-05,EUR,cash received,76911.74,59957.08,-16954.66,EUR
+Mock cutover 2,RC-L4-05,GBP,cash received,165793.68,167818.64,2024.96,GBP
+Mock cutover 2,RC-L4-05,USD,cash received,891453.69,879788.17,-11665.52,USD
