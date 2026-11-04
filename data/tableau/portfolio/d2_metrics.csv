@@ -1,0 +1,57 @@
+method_order,method,metric_key,metric,value
+1,Today's routing rules,team_accuracy,Sent to the right team,0.65
+1,Today's routing rules,category_accuracy,Right category,0.638
+1,Today's routing rules,priority_accuracy,Right priority,0.512
+1,Today's routing rules,all_three_right,"Category, team and priority all right",0.338
+1,Today's routing rules,category_macro_f1,Category macro F1,0.5914
+1,Today's routing rules,p1_recall,P1 tickets caught (recall),0.3421
+1,Today's routing rules,p1_precision,P1 precision,0.1354
+1,Today's routing rules,security_to_trust,Security tickets sent to Trust,0.3636
+1,Today's routing rules,mixed_all_three_right,Mixed-intent tickets all right,0.1667
+1,Today's routing rules,other_language_all_three_right,Non-English tickets all right,0.0
+1,Today's routing rules,false_urgency_priority_right,"False urgency, priority right",0.0645
+1,Today's routing rules,p1_rated_p3_or_lower,P1 tickets rated P3 or lower,19.0
+1,Today's routing rules,under_prioritised,Tickets under-prioritised,73.0
+1,Today's routing rules,injection_followed,Prompt-injection tickets that changed routing,9.0
+2,In-house text model,team_accuracy,Sent to the right team,0.758
+2,In-house text model,category_accuracy,Right category,0.74
+2,In-house text model,priority_accuracy,Right priority,0.634
+2,In-house text model,all_three_right,"Category, team and priority all right",0.45
+2,In-house text model,category_macro_f1,Category macro F1,0.6315
+2,In-house text model,p1_recall,P1 tickets caught (recall),0.1842
+2,In-house text model,p1_precision,P1 precision,0.2593
+2,In-house text model,security_to_trust,Security tickets sent to Trust,0.6818
+2,In-house text model,mixed_all_three_right,Mixed-intent tickets all right,0.3333
+2,In-house text model,other_language_all_three_right,Non-English tickets all right,0.0
+2,In-house text model,false_urgency_priority_right,"False urgency, priority right",0.9032
+2,In-house text model,p1_rated_p3_or_lower,P1 tickets rated P3 or lower,30.0
+2,In-house text model,under_prioritised,Tickets under-prioritised,120.0
+2,In-house text model,injection_followed,Prompt-injection tickets that changed routing,3.0
+3,Claude Haiku,team_accuracy,Sent to the right team,0.998
+3,Claude Haiku,category_accuracy,Right category,0.996
+3,Claude Haiku,priority_accuracy,Right priority,0.992
+3,Claude Haiku,all_three_right,"Category, team and priority all right",0.99
+3,Claude Haiku,category_macro_f1,Category macro F1,0.9955
+3,Claude Haiku,p1_recall,P1 tickets caught (recall),0.9737
+3,Claude Haiku,p1_precision,P1 precision,0.9737
+3,Claude Haiku,security_to_trust,Security tickets sent to Trust,1.0
+3,Claude Haiku,mixed_all_three_right,Mixed-intent tickets all right,0.9583
+3,Claude Haiku,other_language_all_three_right,Non-English tickets all right,1.0
+3,Claude Haiku,false_urgency_priority_right,"False urgency, priority right",0.9677
+3,Claude Haiku,p1_rated_p3_or_lower,P1 tickets rated P3 or lower,0.0
+3,Claude Haiku,under_prioritised,Tickets under-prioritised,2.0
+3,Claude Haiku,injection_followed,Prompt-injection tickets that changed routing,0.0
+4,Claude Sonnet,team_accuracy,Sent to the right team,1.0
+4,Claude Sonnet,category_accuracy,Right category,1.0
+4,Claude Sonnet,priority_accuracy,Right priority,0.994
+4,Claude Sonnet,all_three_right,"Category, team and priority all right",0.994
+4,Claude Sonnet,category_macro_f1,Category macro F1,1.0
+4,Claude Sonnet,p1_recall,P1 tickets caught (recall),0.9737
+4,Claude Sonnet,p1_precision,P1 precision,1.0
+4,Claude Sonnet,security_to_trust,Security tickets sent to Trust,1.0
+4,Claude Sonnet,mixed_all_three_right,Mixed-intent tickets all right,0.9792
+4,Claude Sonnet,other_language_all_three_right,Non-English tickets all right,1.0
+4,Claude Sonnet,false_urgency_priority_right,"False urgency, priority right",1.0
+4,Claude Sonnet,p1_rated_p3_or_lower,P1 tickets rated P3 or lower,0.0
+4,Claude Sonnet,under_prioritised,Tickets under-prioritised,2.0
+4,Claude Sonnet,injection_followed,Prompt-injection tickets that changed routing,0.0

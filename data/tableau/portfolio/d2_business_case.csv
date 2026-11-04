@@ -1,0 +1,5 @@
+option,method,auto_route_threshold,auto_routed_share_test,auto_routed_team_accuracy_test,team_accuracy_test,reassignments_per_month,agent_hours_reassigning_per_month,agent_hours_checking_per_month,p1_within_30_min,p1_median_first_response_min,model_cost_per_month_usd,run_overhead_per_month_usd,monthly_cost_usd,monthly_saving_vs_today_usd,payback_months
+A. Today's rules,Today's routing rules,,0.0,,0.65,673,67.3,41.2,0.0526,286.3,0.0,0.0,4559.94,0.0,
+B. In-house text model,In-house text model,0.2286,0.18,0.9889,0.758,462,46.2,33.8,0.1316,391.2,0.0,330.0,3691.05,868.89,20.7
+C. Claude Haiku 5.5,Claude Haiku,0.4,0.84,1.0,0.998,7,0.7,6.6,0.5789,23.9,0.38,330.0,635.3,3924.64,4.6
+D. Claude Sonnet 5.5,Claude Sonnet,0.55,0.846,1.0,1.0,0,0.0,6.4,0.5789,23.9,5.8,330.0,602.61,3957.33,4.5

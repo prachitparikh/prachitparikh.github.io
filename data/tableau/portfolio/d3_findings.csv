@@ -1,0 +1,17 @@
+finding_id,project_id,project_key,finding_code,finding_type,severity,status,ai_generated,ai_confidence,affected_req_code,related_req_code,source_intake_codes,created_at,resolved_at,hours_to_close,decision_code,project_name,origin
+1,1,IDW,FND-IDW-001,Conflict,High,Resolved,1,0.96,REQ-IDW-001,REQ-IDW-012,"IN-IDW-001,IN-IDW-002,IN-IDW-004",2026-09-15T11:00:00Z,2026-09-16T16:30:00Z,29.5,DEC-IDW-001,Invoice Dispute & Credit Workflow,Found by AI review
+2,1,IDW,FND-IDW-002,Conflict,High,Resolved,1,0.94,REQ-IDW-021,REQ-IDW-005,"IN-IDW-004,IN-IDW-001",2026-09-15T11:00:00Z,2026-09-16T16:34:00Z,29.57,DEC-IDW-002,Invoice Dispute & Credit Workflow,Found by AI review
+3,1,IDW,FND-IDW-003,Ambiguity,Medium,Resolved,1,0.92,REQ-IDW-016,,IN-IDW-002,2026-09-15T11:00:00Z,2026-09-16T16:38:00Z,29.63,DEC-IDW-004,Invoice Dispute & Credit Workflow,Found by AI review
+4,1,IDW,FND-IDW-004,Ambiguity,Medium,Resolved,1,0.88,REQ-IDW-003,,IN-IDW-001,2026-09-15T11:00:00Z,2026-09-18T10:00:00Z,71.0,DEC-IDW-005,Invoice Dispute & Credit Workflow,Found by AI review
+5,1,IDW,FND-IDW-005,Missing Information,High,Resolved,1,0.9,REQ-IDW-001,REQ-IDW-012,"IN-IDW-002,IN-IDW-001",2026-09-15T11:00:00Z,2026-09-18T10:04:00Z,71.07,DEC-IDW-007,Invoice Dispute & Credit Workflow,Found by AI review
+6,1,IDW,FND-IDW-006,Missing Information,Medium,Resolved,1,0.85,REQ-IDW-005,REQ-IDW-023,"IN-IDW-001,IN-IDW-004",2026-09-15T11:00:00Z,2026-09-16T16:42:00Z,29.7,DEC-IDW-002,Invoice Dispute & Credit Workflow,Found by AI review
+7,1,IDW,FND-IDW-007,Conflict,Medium,Resolved,1,0.91,REQ-IDW-018,REQ-IDW-022,"IN-IDW-002,IN-IDW-004",2026-09-15T11:00:00Z,2026-09-16T16:46:00Z,29.77,DEC-IDW-003,Invoice Dispute & Credit Workflow,Found by AI review
+8,1,IDW,FND-IDW-008,Missing Information,Low,Resolved,1,0.7,REQ-IDW-030,,"IN-IDW-005,IN-IDW-001",2026-09-15T11:00:00Z,2026-09-18T10:08:00Z,71.13,DEC-IDW-011,Invoice Dispute & Credit Workflow,Found by AI review
+9,1,IDW,FND-IDW-009,Duplicate,Low,Resolved,1,0.93,REQ-IDW-007,REQ-IDW-029,"IN-IDW-001,IN-IDW-005",2026-09-15T11:00:00Z,2026-09-18T10:12:00Z,71.2,,Invoice Dispute & Credit Workflow,Found by AI review
+10,1,IDW,FND-IDW-010,Missing Information,Medium,Resolved,1,0.9,REQ-IDW-011,,IN-IDW-002,2026-09-15T11:00:00Z,2026-09-18T10:16:00Z,71.27,DEC-IDW-006,Invoice Dispute & Credit Workflow,Found by AI review
+11,1,IDW,FND-IDW-011,Missing Information,Medium,Resolved,1,0.9,REQ-IDW-011,,IN-IDW-002,2026-09-15T11:00:00Z,2026-09-18T10:20:00Z,71.33,DEC-IDW-008,Invoice Dispute & Credit Workflow,Found by AI review
+12,1,IDW,FND-IDW-012,Ambiguity,Low,Resolved,1,0.8,REQ-IDW-034,,IN-IDW-005,2026-09-15T11:00:00Z,2026-09-18T10:24:00Z,71.4,DEC-IDW-010,Invoice Dispute & Credit Workflow,Found by AI review
+13,1,IDW,FND-IDW-013,Missing Information,Medium,Waived,1,0.82,REQ-IDW-017,,IN-IDW-002,2026-09-15T11:00:00Z,2026-09-18T10:28:00Z,71.47,,Invoice Dispute & Credit Workflow,Found by AI review
+14,2,PRC,FND-PRC-001,Missing Information,Medium,Open,1,0.85,REQ-PRC-003,REQ-PRC-007,IN-PRC-001,2026-09-22T15:30:00Z,,,,Partner Referral Commissions,Found by AI review
+15,2,PRC,FND-PRC-002,Ambiguity,Low,Open,1,0.8,REQ-PRC-003,,IN-PRC-001,2026-09-22T15:30:00Z,,,,Partner Referral Commissions,Found by AI review
+16,2,PRC,FND-PRC-003,Missing Information,Medium,Open,1,0.82,REQ-PRC-004,,IN-PRC-001,2026-09-22T15:30:00Z,,,,Partner Referral Commissions,Found by AI review
