@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Metric View Relationships for BAs: Test the Join | Prachit Parikh</title>
+<meta name="description" content="Databricks now lets teams declare joins between metric views for AI and BI tools, but nothing checks the data. Here&#x27;s what BAs should test first.">
+<meta name="author" content="Prachit Parikh">
+<link rel="canonical" href="https://prachitparikh.github.io/blog/metric-view-relationships.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Metric View Relationships for BAs: Test the Join | Prachit Parikh">
+<meta property="og:description" content="Databricks now lets teams declare joins between metric views for AI and BI tools, but nothing checks the data. Here&#x27;s what BAs should test first.">
+<meta property="og:url" content="https://prachitparikh.github.io/blog/metric-view-relationships.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D">
+<meta property="og:image:alt" content="Laptop screen showing analytics charts and graphs">
+<meta property="og:site_name" content="Prachit Parikh">
+<meta property="article:published_time" content="2026-11-05">
+<meta property="article:author" content="https://prachitparikh.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f1834">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Metric view relationships: the join your AI agent now trusts, and the three checks that make it safe", "description": "Databricks now lets teams declare joins between metric views for AI and BI tools, but nothing checks the data. Here's what BAs should test first.", "datePublished": "2026-11-05", "dateModified": "2026-11-05", "author": {"@id": "https://prachitparikh.github.io/#person", "@type": "Person", "name": "Prachit Parikh", "url": "https://prachitparikh.github.io/"}, "publisher": {"@id": "https://prachitparikh.github.io/#person"}, "url": "https://prachitparikh.github.io/blog/metric-view-relationships.html", "mainEntityOfPage": "https://prachitparikh.github.io/blog/metric-view-relationships.html", "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?fm=jpg&q=60&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D", "keywords": "metric view relationships, business analysis, data quality, semantic layer, SQL, AI agents, UAT, Prachit Parikh"}</script>
+<style>
+:root{
+  --navy:#0f1834;--navy2:#1b2560;--ink:#141a2b;--muted:#5a6378;--line:#e3e7f0;--bg:#f6f7fb;--card:#fff;
+  --blue:#3b5bdb;--teal:#15aabf;--rose:#d6336c;--radius:16px;
+  --sans:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.65 var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(15,24,52,.86);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{color:#fff;font-weight:700;letter-spacing:-.01em;font-size:1.05rem}
+.brand:hover{text-decoration:none}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav ul a{color:#c9d2ef;font-size:.93rem;font-weight:500}
+.nav ul a:hover{color:#fff;text-decoration:none}
+@media(max-width:820px){.nav ul{display:none}}
+
+
+/* article */
+.post-hero{background:linear-gradient(120deg,var(--navy),var(--navy2) 60%,#145a7a);color:#fff;padding:64px 0 56px}
+.post-hero .inner{max-width:760px;margin:0 auto;padding:0 16px}
+.post-hero .eyebrow{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9fd8ff;margin-bottom:14px}
+.post-hero h1{font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.12;letter-spacing:-.03em;margin:0 0 18px;font-weight:800}
+.post-hero .meta{color:#cfd7f3;font-size:.95rem}
+.post-hero .meta a{color:#fff;font-weight:600}
+article{max-width:760px;margin:0 auto;padding:48px 16px 24px;font-size:1.06rem;line-height:1.75}
+article h2{font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.2;letter-spacing:-.02em;margin:48px 0 12px}
+article h3{font-size:1.2rem;line-height:1.3;margin:34px 0 8px}
+article p,article ul,article ol{margin:0 0 18px}
+article li{margin:0 0 8px}
+article code{font:.9em/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#eef1f8;border:1px solid var(--line);border-radius:6px;padding:1px 5px}
+article pre{background:#0f1834;color:#e6ebff;border-radius:12px;padding:18px 20px;overflow-x:auto;margin:0 0 22px;font-size:.88rem;line-height:1.55}
+article pre code{background:none;border:0;padding:0;color:inherit;font-size:inherit}
+.tbl{overflow-x:auto;margin:0 0 22px;border:1px solid var(--line);border-radius:12px;background:#fff}
+article table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+article th,article td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
+article th{background:#f0f3fb;font-weight:700}
+article tr:last-child td{border-bottom:0}
+article td:first-child{font-weight:600;white-space:nowrap}
+@media(max-width:600px){article td:first-child{white-space:normal}}
+figure{margin:30px 0}
+figure img{display:block;width:100%;border-radius:var(--radius);aspect-ratio:3/2;object-fit:cover}
+figcaption,.credit{font-size:.85rem;color:var(--muted)}
+figcaption{margin-top:8px}
+.video{margin:24px 0 10px}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000 center/cover no-repeat;cursor:pointer;border:0;padding:0;box-shadow:0 18px 40px rgba(15,24,52,.18)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55))}
+.yt .play{position:absolute;z-index:1;left:50%;top:50%;width:78px;height:54px;margin:-27px 0 0 -39px;border-radius:16px;background:#e5383b;display:grid;place-items:center;transition:transform .15s ease}
+.yt:hover .play{transform:scale(1.08)}
+.yt .play::before{content:"";border-style:solid;border-width:11px 0 11px 19px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#about-me{padding-top:28px;border-top:1px solid var(--line)}
+.back{max-width:760px;margin:0 auto;padding:0 16px 40px}
+footer{padding:40px 0 60px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+@media(max-width:600px){.wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+<div class="wrap">
+<a class="brand" href="/">Prachit Parikh</a>
+<ul>
+<li><a href="/#work">What I do</a></li>
+<li><a href="/#videos">Videos</a></li>
+<li><a href="/portfolio.html">Portfolio</a></li>
+<li><a href="/#toolkit">Toolkit</a></li>
+<li><a href="/#writing">Writing</a></li>
+<li><a href="/#about">About</a></li>
+<li><a href="/everything.html">Everything</a></li>
+</ul>
+</div>
+</nav>
+
+<main>
+<header class="post-hero">
+<div class="inner">
+<span class="eyebrow">This week, explained</span>
+<h1>Metric view relationships: the join your AI agent now trusts, and the three checks that make it safe</h1>
+<div class="meta">By <a href="/">Prachit Parikh</a>, business analyst &middot; <time datetime="2026-11-05">5 November 2026</time> &middot; 18 min read</div>
+</div>
+</header>
+<article>
+<p>On 30 October 2026, Databricks added a feature to its release notes with a plain title: <a href="https://docs.databricks.com/aws/en/release-notes/product/2026/october">relationships between metric views (Beta)</a>. You run an <code>ALTER VIEW ... ADD CONSTRAINT ... RELATIONSHIP</code> statement, and it records "join paths, cardinality, and join conditions so AI and BI tools pick the right path."</p>
+<p>That sentence matters more to business analysts than most of this autumn's AI announcements. Here's why. The join between two business objects, and whether it's one-to-one or many-to-one, is where most of my report reconciliation time goes. It's where order revenue doubles. It's where a customer count quietly turns into a count of customer history rows. Until now that knowledge lived in a few places: the SQL a developer wrote, the data model diagram (if anyone kept it current) and the BA's data mapping document. Now it can live as metadata in the catalog, where an AI assistant reads it and uses it to build queries for people who will never see the SQL.</p>
+<p>And the documentation says, in so many words, that nobody checks whether it's true.</p>
+<p>This post walks through what shipped, what it changes for people who write requirements and sign off reports, and a small worked example on fictional Northstar Systems data with three checks I ran myself. You'll also find a sign-off sheet you can copy.</p>
+<h2>Why now: two announcements in one week</h2>
+<p>The Databricks release didn't land on its own. Four days earlier, on 26 October, Oracle used its AI World conference to <a href="https://www.oracle.com/news/announcement/ai-world-oracle-advances-autonomous-ai-lakehouse-with-business-semantic-layer-and-expanded-support-for-iceberg-data-2026-10-26/">announce a Business Semantic Layer</a> for its Autonomous AI Lakehouse. Oracle says it "helps users and AI agents gain consistent business context to accurately query, reason over" enterprise data. <a href="https://www.infoworld.com/article/4240304/oracle-adds-a-semantic-layer-to-ground-ai-agents-in-the-business-context.html">InfoWorld's write-up</a> describes models that capture dimensions, measures, hierarchies, calculations and KPIs, which feed Oracle's natural-language query tools. Oracle's own release says the capabilities "will be available within the next 12 months", so that one is a direction of travel, not something you can switch on today.</p>
+<p>The Databricks piece is live (in Beta) right now. And it sits inside a month where Databricks shipped a run of related features. On 15 October its AI/BI release notes added <a href="https://docs.databricks.com/aws/en/ai-bi/release-notes/2026">import of Power BI <code>.tmdl</code> files</a> to create metric views. On 22 October came bulk import, where its coding agent "can import up to 100 files at once as dashboards and metric views" from Power BI and Tableau. On 29 October, dashboard relationships went generally available.</p>
+<p>Put those together and the direction is clear. Metric definitions and join rules are moving out of individual reports and into a shared layer that machines read. The vendors are converging on formats too: the Open Semantic Interchange project, which <a href="https://www.getdbt.com/blog/osi-is-now-apache-ossie">dbt Labs says</a> has contributors from Snowflake, Salesforce, Databricks, dbt Labs and others, joined the Apache Incubator this summer as Apache Ossie and "defines a vendor-neutral format for expressing business metrics, dimensions, relationships."</p>
+<p>There's evidence that the context layer is where agents go wrong. A VentureBeat Pulse survey fielded in August and <a href="https://venturebeat.com/resources/agentic-context-layers-64-of-enterprises-traced-a-confidently-wrong-ai-agent-answer-to-problems-in-their-own-company-data-in-the-past-six-months">published 5 October</a> found that 64% of 130 respondents traced at least one confidently wrong agent answer to missing or inconsistent business context in the past six months. Two caveats from the article itself: the respondents are self-selected VentureBeat readers, not a random sample, and the survey didn't establish why teams with semantic layers reported more failures (78% against 37%). Better detection is one possible reading. I'd still take the 64% as a signal worth acting on.</p>
+<figure><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?fm=jpg&amp;q=60&amp;w=1600&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D" alt="Laptop screen showing analytics charts and graphs" loading="lazy" width="1600" height="1067"><figcaption>Photo by Luke Chesser, <a href="https://unsplash.com/photos/graphs-of-performance-analytics-on-a-laptop-screen-JKUTrJ4vK00">Unsplash License</a>.</figcaption></figure>
+<h2>What actually changed</h2>
+<p>Here's the feature, from the <a href="https://docs.databricks.com/aws/en/uc-semantics/metric-views/relationships">Databricks documentation on metric view relationships</a>. A relationship is named metadata on a Unity Catalog metric view. It points from a source metric view to a target metric view and records two things: the cardinality and the join condition. The documentation's example looks like this:</p>
+<pre><code class="language-sql">ALTER VIEW main.sales.orders_mv ADD CONSTRAINT orders_customer
+  MANY TO ONE RELATIONSHIP TO main.sales.customers_mv
+  USING (customer_id);
+</code></pre>
+<p>Cardinality can be <code>MANY TO ONE</code>, <code>ONE TO MANY</code>, <code>ONE TO ONE</code> or <code>MANY TO MANY</code>. The join is either <code>USING (columns)</code> or an <code>ON</code> condition, which can't reference a measure or an aggregate. You can declare a self-join (employee to manager) and more than one path between the same two views (a flight's departure city and arrival city both point at the cities view).</p>
+<p>Two things in the documentation are worth reading slowly.</p>
+<p>First, how tools use it. "AI assistants and BI tools read the relationship from Unity Catalog and choose joins freely for each analysis." The relationship doesn't lock in one join. It tells the tool which joins are legal and what shape they have, and the tool decides per question. Databricks' dashboard-authoring agent reads relationships and adds the ones an analysis needs.</p>
+<p>Second, what's checked. The page is blunt: "Databricks doesn't enforce relationships, check data against the declared cardinality." At creation time it validates the join condition the way it would validate a join's <code>ON</code> clause, so a column that doesn't resolve will fail. The data itself is never compared against the declared shape. The documentation also says a relationship, unlike a foreign key, has no requirement on the target. A foreign key needs a primary key or unique constraint on the other side. A relationship doesn't.</p>
+<p>So you can declare <code>MANY TO ONE</code> to a customers view that has two rows for the same customer, and nothing will stop you. What the AI tools do with that mismatch isn't documented.</p>
+<p>A few smaller limits from the same page that matter for change control:</p>
+<ul>
+<li>Relationships can only be declared with <code>ALTER VIEW</code>, not in the metric view's YAML definition. If your team reviews metric views as YAML in pull requests, the relationship sits outside that review unless someone puts the SQL in the same change.</li>
+<li>Renaming a metric view doesn't update an <code>ON</code> condition that names the old view. You drop and re-add.</li>
+<li>A target view doesn't list its inbound relationships. To find everything that points at <code>customers_mv</code>, you check each source.</li>
+<li>Relationships aren't in the REST API or SDKs yet. SQL only.</li>
+</ul>
+<h2>What it means for the work</h2>
+<p>Picture a Monday sign-off meeting at Northstar Systems, a fictional B2B software company. The data team has published an orders metric view and a customers metric view, declared <code>orders MANY TO ONE customers</code>, and pointed the company's AI assistant at both. A sales director types "October revenue by region." The assistant joins the views using the declared relationship, groups by region and returns a table. Nobody in the room wrote that SQL. Nobody in the room will read it.</p>
+<p>What used to be a developer's private decision inside one report is now a shared claim the whole company's question-answering depends on. "Each order belongs to exactly one customer row" is a statement about the business and about the data load. That makes it a requirement. It has an owner, an acceptance test and a way to break.</p>
+<p>I've written before that you should <a href="https://dev.to/ontomato/comment/3joab">name the grain first</a>, a lesson I took from a reader called ontomato: "one row = one order line." A relationship declaration is a grain statement for two tables at once. <code>MANY TO ONE</code> says: one row on the target side per key. If the person writing that line doesn't know the target's grain, the line is a guess.</p>
+<p>panditshivam made a related point in a post on <a href="https://dev.to/panditshivam/defining-revenue-for-an-sql-agent-one-row-at-a-time-a4h">defining revenue for an SQL agent</a>: a metric definition an agent will use has to state its grain, which statuses count, how joins behave and what the empty-set result is. Metric views cover the measure. Relationships now cover the join behaviour. What neither covers is whether the data agrees.</p>
+<h2>Worked example: Northstar's October revenue</h2>
+<p>Here's the fixture. All of it is fictional. One row in <code>orders</code> is one order. One row in <code>customers</code> is supposed to be one customer, but Pine Street Dental (C-02) moved from East to South on 10 October and the history load kept both rows. Order O-1006 belongs to a customer, C-09, who hasn't arrived in the customer table yet.</p>
+<pre><code class="language-sql">-- Northstar Systems (fictional). One row in orders = one order.
+CREATE TABLE orders (order_id TEXT PRIMARY KEY, customer_id TEXT, order_date TEXT, net_amount REAL);
+INSERT INTO orders VALUES
+ ('O-1001','C-01','2026-10-01',1200.00),
+ ('O-1002','C-02','2026-10-03', 450.00),
+ ('O-1003','C-03','2026-10-07', 980.00),
+ ('O-1004','C-02','2026-10-12', 300.00),
+ ('O-1005','C-04','2026-10-19', 760.00),
+ ('O-1006','C-09','2026-10-28', 210.00);
+
+CREATE TABLE customers (customer_id TEXT, customer_name TEXT, region TEXT, valid_from TEXT);
+INSERT INTO customers VALUES
+ ('C-01','Harbor Labs','East','2025-01-01'),
+ ('C-02','Pine Street Dental','East','2025-03-01'),
+ ('C-02','Pine Street Dental','South','2026-10-10'),
+ ('C-03','Brightwell Foods','West','2025-06-01'),
+ ('C-04','Kestrel Freight','South','2026-02-01');
+</code></pre>
+<p>The declared relationship is the one from the documentation: <code>orders MANY TO ONE customers USING (customer_id)</code>.</p>
+<p>I write each check as a query that returns rows only when something is wrong. That habit came from Manuel Diaz, who commented on my <a href="https://dev.to/prachitparikh/7-sql-checks-i-run-before-uat-sign-off-with-queries-you-can-copy-38h5">Dev.to post on SQL checks before UAT sign-off</a>. An empty result means pass. Anything else is a finding with the evidence attached.</p>
+<h3>Check 1: is the "one" side actually one?</h3>
+<pre><code class="language-sql">SELECT 'orders_customer' AS relationship, customer_id, COUNT(*) AS rows_on_one_side
+FROM customers
+GROUP BY customer_id
+HAVING COUNT(*) &gt; 1;
+</code></pre>
+<p>Output (run in SQLite 3.53.1 through Python's <code>sqlite3</code> module):</p>
+<pre><code>relationship     customer_id  rows_on_one_side
+---------------  -----------  ----------------
+orders_customer  C-02         2
+</code></pre>
+<p>The declaration says many-to-one. The data says C-02 is many-to-many. This is the check the platform doesn't run.</p>
+<h3>Check 2: orphans on the source side</h3>
+<pre><code class="language-sql">SELECT o.order_id, o.customer_id, o.net_amount
+FROM orders o
+LEFT JOIN customers c ON c.customer_id = o.customer_id
+WHERE c.customer_id IS NULL;
+</code></pre>
+<pre><code>order_id  customer_id  net_amount
+--------  -----------  ----------
+O-1006    C-09         210.0
+</code></pre>
+<p>A relationship says nothing about whether every order has a customer. If the agent builds an inner join, O-1006's $210 disappears from "revenue by region" without a trace. If it builds a left join, you get a region called NULL. Either could be right. The requirement has to say which.</p>
+<h3>Check 3: control total before and after the join</h3>
+<p>Alex Shev, in a <a href="https://dev.to/alexshev/comment/3jng3">comment on control totals</a>, argued for comparing a known total at every step where rows can multiply or vanish. Here's that applied to the declared join:</p>
+<pre><code class="language-sql">WITH base AS (SELECT SUM(net_amount) AS revenue, COUNT(*) AS n FROM orders),
+joined AS (SELECT SUM(o.net_amount) AS revenue, COUNT(*) AS n
+           FROM orders o LEFT JOIN customers c ON c.customer_id = o.customer_id)
+SELECT base.revenue AS revenue_base, joined.revenue AS revenue_after_join,
+       base.n AS rows_base, joined.n AS rows_after_join,
+       ROUND(joined.revenue - base.revenue, 2) AS inflation
+FROM base, joined
+WHERE base.revenue &lt;&gt; joined.revenue OR base.n &lt;&gt; joined.n;
+</code></pre>
+<pre><code>revenue_base  revenue_after_join  rows_base  rows_after_join  inflation
+------------  ------------------  ---------  ---------------  ---------
+3900.0        4650.0              6          8                750.0
+</code></pre>
+<p>Six orders became eight rows, and $3,900 became $4,650. The $750 is Pine Street Dental's two orders ($450 + $300), counted once for each of its customer rows. Here's what the sales director would see:</p>
+<pre><code>region         revenue
+-------------  -------
+(no customer)  210.0
+East           1950.0
+South          1510.0
+West           980.0
+</code></pre>
+<p>Both of C-02's orders show up in East and in South. The total is 19% too high, and nothing on the screen looks broken. That's the kind of number that survives a meeting.</p>
+<h3>The fix is a business decision</h3>
+<p>There are two reasonable fixes, and the SQL doesn't pick between them. A person does.</p>
+<p>Option A joins orders to the customer's current row. Option B joins each order to the customer row that was valid on the order date. I built a versioned view with a <code>valid_to</code> column (the next row's <code>valid_from</code>, or 9999-12-31), then a current-row view on top. Check 1 against the current view, and a per-order fan-out check against the point-in-time join, both returned no rows. Then the two answers:</p>
+<pre><code>--- Revenue by region, Option A (current region)
+region         revenue
+-------------  -------
+(no customer)  210.0
+East           1200.0
+South          1510.0
+West           980.0
+
+--- Revenue by region, Option B (region on the order date)
+region         revenue
+-------------  -------
+(no customer)  210.0
+East           1650.0
+South          1060.0
+West           980.0
+</code></pre>
+<p>Both total $3,900. They disagree by $450 on East and South, because Option A credits O-1002 (placed on 3 October, while Pine Street was still in East) to South.</p>
+<p>Which is right depends on the question. If regional managers are paid on what their region booked that month, Option B is right and Option A moves $450 of East's commission to South. If the question is "where is our revenue coming from today," Option A is fine. In Databricks terms, Option B is an <code>ON</code> condition with a date range in it, and the documentation allows that, since the condition only has to be a deterministic boolean over both views' columns.</p>
+<p>This is the part I keep coming back to. The relationship line looks like plumbing. It's actually where "which region does this order belong to" gets decided, for every question anyone ever asks the agent. Somebody should write that decision down in words a sales director can read and agree to.</p>
+<h2>The sign-off sheet</h2>
+<p>Here's the artifact I'd attach to any change that adds or alters a declared relationship. One row per relationship. It's filled in for Northstar so you can see the level of detail I mean.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Northstar <code>orders_customer</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relationship name</td>
+<td><code>orders_customer</code></td>
+</tr>
+<tr>
+<td>Source view and its grain</td>
+<td><code>orders_mv</code>. One row = one order.</td>
+</tr>
+<tr>
+<td>Target view and its grain</td>
+<td><code>customers_mv</code>. Intended: one row = one customer. Actual today: one row = one customer version.</td>
+</tr>
+<tr>
+<td>Declared cardinality</td>
+<td>MANY TO ONE</td>
+</tr>
+<tr>
+<td>Join condition</td>
+<td>Proposed: <code>ON o.customer_id = c.customer_id AND o.order_date &gt;= c.valid_from AND o.order_date &lt; c.valid_to</code></td>
+</tr>
+<tr>
+<td>Business rule in plain words</td>
+<td>"An order belongs to the region the customer was in on the order date."</td>
+</tr>
+<tr>
+<td>Rule owner (who can change it)</td>
+<td>Sales operations lead (fictional role)</td>
+</tr>
+<tr>
+<td>Orphan behaviour</td>
+<td>Orders with no matching customer are kept and shown as "(no customer)". Never dropped.</td>
+</tr>
+<tr>
+<td>Check 1 (one side is one)</td>
+<td>Query attached. Must return 0 rows.</td>
+</tr>
+<tr>
+<td>Check 2 (orphans)</td>
+<td>Query attached. Rows allowed, but count and amount reported each load.</td>
+</tr>
+<tr>
+<td>Check 3 (control total)</td>
+<td>Total before join = total after join, to the cent.</td>
+</tr>
+<tr>
+<td>When to rerun</td>
+<td>Every customer history load, every rename of either view, every change to the condition</td>
+</tr>
+<tr>
+<td>Known questions this changes</td>
+<td>Revenue by region, customer count by region, average order value by region</td>
+</tr>
+<tr>
+<td>UAT case IDs</td>
+<td>Trace to the <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/traceability-matrix-template.csv">traceability matrix</a></td>
+</tr>
+<tr>
+<td>Signed off by / date</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>A few notes on using it.</p>
+<p>The "actual today" line under target grain is the one people skip. Writing the intended grain is easy. Writing what the table holds this week is what catches the C-02 problem before the agent does.</p>
+<p>"Orphan behaviour" needs a decision even though the relationship syntax has nowhere to put it. That's panditshivam's point about the empty set and join behaviour again: if it isn't written down, the tool picks, and it might pick differently next month.</p>
+<p>"Known questions this changes" is how you find your UAT cases. If a relationship feeds revenue by region, that's a question you test with a known answer, the same way you'd test a report. I described the golden-set approach for agents in <a href="https://www.youtube.com/watch?v=IBteCgiXc6Q">my video on AI agent testing for business analysts</a>: fixed questions, known answers, run more than once. Relationship checks belong in that same set.</p>
+<figure><img src="https://images.unsplash.com/photo-1758873268998-2f77c2d38862?fm=jpg&amp;q=60&amp;w=1600&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D" alt="Team collaborating around a whiteboard during a meeting" loading="lazy" width="1600" height="1067"><figcaption>Photo by Vitaly Gariev, <a href="https://unsplash.com/photos/team-collaborating-around-a-whiteboard-during-a-meeting-rgKX4o2xSqI">Unsplash License</a>.</figcaption></figure>
+<h2>Impact checklist: what to change in requirements, UAT and report sign-off</h2>
+<p>If your company is adopting declared relationships, or any semantic layer that AI tools read (Oracle's when it ships, a dbt semantic model, an Ossie export), here's what I'd change in each part of the BA's work.</p>
+<p><strong>In requirements</strong></p>
+<ul>
+<li>For every report or agent use case that combines two business objects, add a line stating the cardinality in business words. "Each order has exactly one customer at the time it's placed." If nobody can say it, that's an open question, not a detail.</li>
+<li>State orphan behaviour explicitly. Kept, dropped or flagged.</li>
+<li>For any dimension with history (customers, products, employees, price lists), say whether the report uses current values or values as at the transaction date. This is the decision Option A vs Option B forces.</li>
+<li>Record the relationship name in the data mapping. My <a href="https://prachitparikh.hashnode.dev/data-mapping-document-template">data mapping template</a> has a column for join logic; put the relationship name and cardinality there so the mapping and the catalog can be compared.</li>
+</ul>
+<p><strong>In UAT</strong></p>
+<ul>
+<li>Add the three checks as test cases with expected result "0 rows" (or a reported count for orphans).</li>
+<li>Test at least one agent question per relationship against a known answer built by hand. Revenue by region with a hand-calculated total.</li>
+<li>Include a boundary record on purpose. A customer who changed region mid-period is the Northstar case; a product that changed category works too. Alex Shev's list of control totals, idempotent reruns and boundary records is a good prompt here.</li>
+<li>If the relationship was imported (from a Power BI <code>.tmdl</code> file, for instance), test it again. An import carries the declaration across. It doesn't carry across whatever made it true in the old model.</li>
+</ul>
+<p><strong>In report and agent sign-off</strong></p>
+<ul>
+<li>Don't sign off a dashboard or agent answer that uses a relationship until its sign-off sheet row has a date on it.</li>
+<li>Ask who gets told when the checks fail after go-live. The checks have to run on every load, because the data that made them pass in UAT will change.</li>
+<li>Check that the relationship SQL is in the same change request as the metric view YAML. Since relationships can't live in the YAML, they're easy to leave out of review.</li>
+</ul>
+<p>My <a href="https://prachitparikh.substack.com/p/what-a-good-uat-plan-actually-looks">Substack post on UAT plans</a> covers where test cases like these sit in a plan, and the <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/uat-plan-template.md">UAT plan template</a> has a data checks section they fit into.</p>
+<h2>My take</h2>
+<p>Here's the part you might disagree with. I think a declared relationship should be treated as a business requirement with a named business owner, and a BA should be able to block an agent go-live on a relationship whose checks haven't been run. It shouldn't be a data engineering detail that's reviewed for syntax.</p>
+<p>The reasonable objection is that this slows things down, and that data engineers understand joins better than most BAs. Both are true. But the thing at stake is the meaning of the answer. "Revenue by region" with Option A and Option B are two different business rules that happen to be written in SQL. The engineer can write either. Only the business can say which one it meant, and the BA is the person whose job is getting that written down and tested.</p>
+<p>The other objection: "The vendor will add validation soon, so why build process around a Beta gap?" Maybe they will. Even then, a platform can tell you C-02 has two rows. It can't tell you whether sales operations wants O-1002 credited to East. That choice stays with people.</p>
+<p><strong>A declared join is a promise about your data that the platform won't check, so somebody in the room has to.</strong></p>
+<h2>What the method misses</h2>
+<p>A sharp commenter would raise a few things, so here they are up front.</p>
+<p><strong>The checks pass today and fail on Thursday.</strong> Cardinality is a property of this week's data. C-02's second row arrived with a history load. If the checks only run in UAT, they prove nothing about next month. Schedule them after every load of either side. Databricks made <a href="https://docs.databricks.com/aws/en/release-notes/product/2026/october">data quality anomaly detection generally available on 29 October</a> for table freshness and completeness, but that's a different test from cardinality, so don't assume it covers this.</p>
+<p><strong>MANY TO MANY isn't automatically safe.</strong> You might think declaring <code>MANY TO MANY</code> when you're unsure is the cautious choice. It only tells the tool to expect fan-out. Whether the tool then aggregates correctly (summing each order once) is a separate behaviour, and I haven't seen it documented.</p>
+<p><strong>I didn't test this on Databricks.</strong> Everything above ran in SQLite on a six-row fixture. I haven't observed how Genie or the dashboard agent behaves when a declared <code>MANY TO ONE</code> is false in the data, and the documentation doesn't say. My example shows what a naive join does. A tool might be smarter, or it might not. Testing that is exactly the UAT case I'm recommending you write.</p>
+<p><strong>Point-in-time joins have their own edge cases.</strong> Option B uses <code>order_date &gt;= valid_from AND order_date &lt; valid_to</code>. If two history rows share a <code>valid_from</code>, or a load leaves a gap between versions, you get fan-out or orphans again. Run Check 1 on the versioned view grouped by key and <code>valid_from</code>, and a gap check, before trusting it.</p>
+<p><strong>Composite keys.</strong> Northstar uses a single <code>customer_id</code>. If your key is <code>(customer_id, company_code)</code>, Check 1 has to group by both columns. A grouping on one column will report false duplicates, or worse, hide real ones.</p>
+<h2>What I'd do on Monday</h2>
+<ol>
+<li>Ask the data team for a list of every declared relationship, or every join your AI assistant or semantic layer is allowed to use. On Databricks, <code>DESCRIBE TABLE EXTENDED</code> on each source metric view shows them. Remember the target doesn't list inbound ones.</li>
+<li>For the three relationships behind your most-used revenue or headcount numbers, write the grain of each side in one sentence. Note where "intended" and "actual" differ.</li>
+<li>Run the three checks against each. Use the queries above, or the patterns in my <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/sql/data-validation-checks.sql">data validation checks SQL file</a>.</li>
+<li>For any dimension with history, get a written answer to "current value or value at transaction date?" from the person who owns the number.</li>
+<li>Fill one row of the sign-off sheet per relationship and attach it to the next change request that touches them.</li>
+<li>Add one agent question per relationship to your golden set, with a hand-calculated answer.</li>
+</ol>
+<p>If you're writing requirements for an agent from scratch, my <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/checklists/agent-ready-requirements.md">agent-ready requirements checklist</a> has a section on data definitions where these lines belong.</p>
+<h2>Watch: finding the gap when numbers don't match</h2>
+<p>The fan-out in check 3 is the same failure I walk through in my video on reconciliation, which covers definitions, calendar and time zone, grain and fan-out, and orphans.</p>
+<div class="video"><button class="yt" data-id="SG-6rtZeizg" style="background-image:url(https://i.ytimg.com/vi/SG-6rtZeizg/hqdefault.jpg)" aria-label="Play video: Dashboard Numbers Don't Match? Find the Gap in SQL"><span class="play"></span></button></div>
+
+<p class="credit"><em>Video: <a href="https://www.youtube.com/watch?v=SG-6rtZeizg">"Dashboard Numbers Don't Match? Find the Gap in SQL"</a>, Prachit Parikh. More on <a href="https://www.youtube.com/@PrachitParikh1">my YouTube channel</a>.</em></p>
+<p>If you want a full worked reconciliation with fixture data, the <a href="https://github.com/prachitparikh/ba-toolkit/tree/main/examples/revenue-reconciliation">revenue reconciliation example</a> in my toolkit is the long version of Check 3.</p>
+<h2>Discussion questions</h2>
+<ul>
+<li>Who owns the cardinality line at your company today: data engineering, BI, the BA, or nobody in particular?</li>
+<li>For your customer or product dimension, does reporting use current values or values at transaction date? Is that written down anywhere a stakeholder would see?</li>
+<li>Would you block an AI assistant go-live on an untested relationship, or ship and monitor?</li>
+<li>Has a vendor import (Power BI to another tool, or the reverse) ever changed a join's behaviour on you without anyone noticing?</li>
+</ul>
+<p><strong>Comment prompt:</strong> Tell me about the worst fan-out you've found in a "trusted" number, and how long it had been live before someone spotted it. If you've tested how an AI assistant behaves when a declared relationship is wrong in the data, I'd really like to hear what it did.</p>
+<h2>References</h2>
+<ol>
+<li>Databricks, <a href="https://docs.databricks.com/aws/en/release-notes/product/2026/october">Platform release notes, October 2026</a>: "Relationships between metric views (Beta)", 30 Oct 2026; data quality anomaly detection GA, 29 Oct 2026.</li>
+<li>Databricks, <a href="https://docs.databricks.com/aws/en/uc-semantics/metric-views/relationships">Relationships between metric views</a> (documentation, Beta).</li>
+<li>Databricks, <a href="https://docs.databricks.com/aws/en/ai-bi/release-notes/2026">AI/BI and Genie One release notes 2026</a>: <code>.tmdl</code> import (15 Oct), bulk import from Power BI and Tableau (22 Oct), dashboard relationships GA (29 Oct).</li>
+<li>Oracle, <a href="https://www.oracle.com/news/announcement/ai-world-oracle-advances-autonomous-ai-lakehouse-with-business-semantic-layer-and-expanded-support-for-iceberg-data-2026-10-26/">Oracle advances Autonomous AI Lakehouse with Business Semantic Layer and expanded support for Iceberg data</a>, press release, 26 Oct 2026.</li>
+<li>Anirban Ghoshal, <a href="https://www.infoworld.com/article/4240304/oracle-adds-a-semantic-layer-to-ground-ai-agents-in-the-business-context.html">Oracle adds a semantic layer to ground AI agents in the business context</a>, InfoWorld, 26 Oct 2026.</li>
+<li>VentureBeat, <a href="https://venturebeat.com/resources/agentic-context-layers-64-of-enterprises-traced-a-confidently-wrong-ai-agent-answer-to-problems-in-their-own-company-data-in-the-past-six-months">Agentic context layers: 64% of enterprises traced a confidently wrong AI agent answer to problems in their own company data</a>, 5 Oct 2026.</li>
+<li>dbt Labs, <a href="https://www.getdbt.com/blog/osi-is-now-apache-ossie">OSI is now Apache Ossie</a> (last edited 13 Jul 2026).</li>
+</ol>
+<p>Reader lessons used: ontomato, <a href="https://dev.to/ontomato/comment/3joab">name the grain first</a>; panditshivam, <a href="https://dev.to/panditshivam/defining-revenue-for-an-sql-agent-one-row-at-a-time-a4h">defining revenue for an SQL agent</a>; Alex Shev, <a href="https://dev.to/alexshev/comment/3jng3">control totals, idempotent reruns and boundary records</a>; Manuel Diaz, checks that return rows only when something is wrong (comment on my Dev.to post).</p>
+<p>More of my work, including worked case studies, is on my <a href="https://prachitparikh.github.io/portfolio.html">portfolio page</a>.</p>
+<h2 id="about-me">About me</h2>
+<p>I'm Prachit Parikh, a business analyst. I turn what stakeholders ask for into requirements a team can test, check the data with SQL, and see changes through UAT. I keep free templates, including the <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/sql/data-validation-checks.sql">SQL data validation checks</a> and <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/traceability-matrix-template.csv">traceability matrix</a> that pair with the sign-off sheet above, in my <a href="https://github.com/prachitparikh/ba-toolkit">BA Toolkit</a> on <a href="https://github.com/prachitparikh">GitHub</a>, and I make short animated explainers on <a href="https://www.youtube.com/@PrachitParikh1">YouTube</a>. Besides this site, I write on <a href="https://prachitparikh.substack.com">Substack</a>, <a href="https://medium.com/@prachit.parikh">Medium</a>, <a href="https://prachitparikh.hashnode.dev">Hashnode</a>, <a href="https://dev.to/prachitparikh">Dev.to</a>, <a href="https://prachitparikh-ba.blogspot.com">Blogger</a> and <a href="https://prachitparikhblog.wordpress.com">WordPress</a>, and I answer questions on <a href="https://www.quora.com/profile/Prachit-Parikh-2">Quora</a>. You can also find me on <a href="https://www.linkedin.com/in/prachitp">LinkedIn</a>, <a href="https://bsky.app/profile/prachitparikh.bsky.social">Bluesky</a>, <a href="https://www.kaggle.com/prachitparikh">Kaggle</a>, <a href="https://www.credly.com/users/prachit-parikh">Credly</a>, <a href="https://www.crunchbase.com/person/prachit-parikh-ct">Crunchbase</a> and <a href="https://gravatar.com/prachitparikhba">Gravatar</a>. Everything is collected on <a href="https://prachitparikh.github.io/">my website</a> and <a href="https://sites.google.com/view/prachit-parikh">my profile hub</a>.</p>
+</article>
+<p class="back"><a href="/#writing">&larr; More articles by Prachit Parikh</a></p>
+</main>
+
+<footer>
+<div class="wrap">
+<span>&copy; 2026 Prachit Parikh. Business analyst writing on AI, data, requirements and UAT.</span>
+<span><a href="/everything.html">Everything</a> &middot; <a href="/portfolio.html">Portfolio</a> &middot; <a href="https://github.com/prachitparikh/ba-toolkit">BA Toolkit</a> &middot; <a href="https://www.youtube.com/@PrachitParikh1">YouTube</a></span>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('.yt').forEach(function(b){
+  b.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';
+    f.title=b.getAttribute('aria-label');
+    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    f.allowFullscreen=true;
+    b.innerHTML='';b.appendChild(f);b.style.cursor='default';
+  },{once:true});
+});
+</script>
+</body>
+</html>
