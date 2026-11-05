@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Assumptions Log: Requirement, Test or Risk | Prachit Parikh</title>
+<meta name="description" content="How to run an assumptions log: every assumption gets an owner and a date, then leaves as a requirement, a test or a named risk before sign-off.">
+<meta name="author" content="Prachit Parikh">
+<link rel="canonical" href="https://prachitparikh.github.io/blog/assumptions-log.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Assumptions Log: Requirement, Test or Risk | Prachit Parikh">
+<meta property="og:description" content="How to run an assumptions log: every assumption gets an owner and a date, then leaves as a requirement, a test or a named risk before sign-off.">
+<meta property="og:url" content="https://prachitparikh.github.io/blog/assumptions-log.html">
+<meta property="og:image" content="https://images.unsplash.com/photo-1641355527446-232d7f1f2c10?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<meta property="og:image:alt" content="A wall covered in sticky notes from a planning session">
+<meta property="og:site_name" content="Prachit Parikh">
+<meta property="article:published_time" content="2026-11-05">
+<meta property="article:author" content="https://prachitparikh.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Assumptions Log: Requirement, Test or Risk | Prachit Parikh">
+<meta name="twitter:description" content="How to run an assumptions log: every assumption gets an owner and a date, then leaves as a requirement, a test or a named risk before sign-off.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1641355527446-232d7f1f2c10?fm=jpg&amp;q=60&amp;w=1200&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<meta name="theme-color" content="#0f1834">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Assumptions log: how to turn every assumption into a requirement, a test or a risk before sign-off", "description": "How to run an assumptions log: every assumption gets an owner and a date, then leaves as a requirement, a test or a named risk before sign-off.", "datePublished": "2026-11-05", "dateModified": "2026-11-05", "author": {"@id": "https://prachitparikh.github.io/#person", "@type": "Person", "name": "Prachit Parikh", "url": "https://prachitparikh.github.io/"}, "publisher": {"@id": "https://prachitparikh.github.io/#person"}, "url": "https://prachitparikh.github.io/blog/assumptions-log.html", "mainEntityOfPage": "https://prachitparikh.github.io/blog/assumptions-log.html", "image": "https://images.unsplash.com/photo-1641355527446-232d7f1f2c10?fm=jpg&q=60&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "keywords": "assumptions log, requirements, business analysis, UAT entry criteria, traceability matrix, risk management, AI meeting notes, Prachit Parikh"}</script>
+<style>
+:root{
+  --navy:#0f1834;--navy2:#1b2560;--ink:#141a2b;--muted:#5a6378;--line:#e3e7f0;--bg:#f6f7fb;--card:#fff;
+  --blue:#3b5bdb;--teal:#15aabf;--rose:#d6336c;--radius:16px;
+  --sans:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.65 var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(15,24,52,.86);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{color:#fff;font-weight:700;letter-spacing:-.01em;font-size:1.05rem}
+.brand:hover{text-decoration:none}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav ul a{color:#c9d2ef;font-size:.93rem;font-weight:500}
+.nav ul a:hover{color:#fff;text-decoration:none}
+@media(max-width:820px){.nav ul{display:none}}
+
+
+/* article */
+.post-hero{background:linear-gradient(120deg,var(--navy),var(--navy2) 60%,#145a7a);color:#fff;padding:64px 0 56px}
+.post-hero .inner{max-width:760px;margin:0 auto;padding:0 16px}
+.post-hero .eyebrow{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9fd8ff;margin-bottom:14px}
+.post-hero h1{font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.12;letter-spacing:-.03em;margin:0 0 18px;font-weight:800}
+.post-hero .meta{color:#cfd7f3;font-size:.95rem}
+.post-hero .meta a{color:#fff;font-weight:600}
+article{max-width:760px;margin:0 auto;padding:48px 16px 24px;font-size:1.06rem;line-height:1.75}
+article h2{font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.2;letter-spacing:-.02em;margin:48px 0 12px}
+article h3{font-size:1.2rem;line-height:1.3;margin:34px 0 8px}
+article p,article ul,article ol{margin:0 0 18px}
+article li{margin:0 0 8px}
+article code{font:.9em/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#eef1f8;border:1px solid var(--line);border-radius:6px;padding:1px 5px}
+article pre{background:#0f1834;color:#e6ebff;border-radius:12px;padding:18px 20px;overflow-x:auto;margin:0 0 22px;font-size:.88rem;line-height:1.55}
+article pre code{background:none;border:0;padding:0;color:inherit;font-size:inherit}
+.tbl{overflow-x:auto;margin:0 0 22px;border:1px solid var(--line);border-radius:12px;background:#fff}
+article table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+article th,article td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
+article th{background:#f0f3fb;font-weight:700}
+article tr:last-child td{border-bottom:0}
+article td:first-child{font-weight:600;white-space:nowrap}
+@media(max-width:600px){article td:first-child{white-space:normal}}
+figure{margin:30px 0}
+figure img{display:block;width:100%;border-radius:var(--radius);aspect-ratio:3/2;object-fit:cover}
+figcaption,.credit{font-size:.85rem;color:var(--muted)}
+figcaption{margin-top:8px}
+.video{margin:24px 0 10px}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000 center/cover no-repeat;cursor:pointer;border:0;padding:0;box-shadow:0 18px 40px rgba(15,24,52,.18)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55))}
+.yt .play{position:absolute;z-index:1;left:50%;top:50%;width:78px;height:54px;margin:-27px 0 0 -39px;border-radius:16px;background:#e5383b;display:grid;place-items:center;transition:transform .15s ease}
+.yt:hover .play{transform:scale(1.08)}
+.yt .play::before{content:"";border-style:solid;border-width:11px 0 11px 19px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#about-me{padding-top:28px;border-top:1px solid var(--line)}
+.back{max-width:760px;margin:0 auto;padding:0 16px 40px}
+footer{padding:40px 0 60px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+@media(max-width:600px){.wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+<div class="wrap">
+<a class="brand" href="/">Prachit Parikh</a>
+<ul>
+<li><a href="/#work">What I do</a></li>
+<li><a href="/#videos">Videos</a></li>
+<li><a href="/portfolio.html">Portfolio</a></li>
+<li><a href="/#toolkit">Toolkit</a></li>
+<li><a href="/#writing">Writing</a></li>
+<li><a href="/#about">About</a></li>
+<li><a href="/everything.html">Everything</a></li>
+</ul>
+</div>
+</nav>
+
+<main>
+<header class="post-hero">
+<div class="inner">
+<span class="eyebrow">BA practice</span>
+<h1>Assumptions log: how to turn every assumption into a requirement, a test or a risk before sign-off</h1>
+<div class="meta">By <a href="/">Prachit Parikh</a>, business analyst &middot; <time datetime="2026-11-05">5 November 2026</time> &middot; 17 min read</div>
+</div>
+</header>
+<article>
+<p>Picture the last requirements sign-off before the holidays. The document is forty pages long, the sponsor has twenty minutes, and on page six there's a section called Assumptions. "The client will provide test data." "Existing user roles will be reused." "The vendor API supports bulk updates." Nobody objects. Everyone signs. Three weeks into the build, one of those lines turns out to be false, and it was holding up half the design.</p>
+<p>Writing assumptions isn't the mistake. You have to write them, because nobody can wait for every fact before starting. The mistake is treating the assumptions section as a disclaimer, a polite list of things you didn't get round to checking. It works far better as a work queue. This post is how I'd run one, with a template, a filled example on a fictional client, and an AI pass for the assumptions nobody wrote down.</p>
+<p>The short version fits on a sticky note. Every assumption becomes a question with a named owner and a date. Before sign-off, every one of them leaves the log as a confirmed requirement, a test or a named risk. There's no fourth option.</p>
+
+<h2>Why assumptions sink projects</h2>
+<p>The biggest dataset I know of on this is Bent Flyvbjerg's. He and Dan Gardner built <em>How Big Things Get Done</em> on a database of more than 16,000 projects. In <a href="https://www.mindtools.com/an0e922/how-big-things-get-done">an interview with Mind Tools</a>, Gardner gives the numbers: a little under half come in on budget, about 8.5% come in on budget and on time, and only 0.5% hit budget, schedule and the promised benefits. Their prescription is "think slow, act fast": slow, careful planning that reveals problems while they're cheap. An unexamined assumption is exactly that kind of problem.</p>
+<p>PMI's 2026 Pulse of the Profession, <em>Driving Success in Complex Projects</em>, was <a href="https://www.businesswire.com/news/home/20260512300475/en/Why-Complex-Projects-Fail-Best-Practices-Are-Not-Enough-System-Thinking-Gives-Your-Team-the-Edge">announced in May 2026</a>. It says 31% of complex projects fail to achieve the full scope of their intended benefits, and that "only one in five practitioners" use scenario planning. Scenario planning is, at heart, asking "what if this thing we believe is wrong?" before it's expensive. Most teams skip it.</p>
+<p>On the requirements side, the NaPiRE survey (Naming the Pain in Requirements Engineering) asked practitioners what hurts. In <a href="https://arxiv.org/pdf/1710.04630">the summary paper by Méndez Fernández and colleagues</a>, covering 228 companies in 10 countries, incomplete requirements are "the most frequently stated problem", ahead of communication flaws with the customer. The data is from 2014/15, so read it as a long-standing pattern. I'd argue many incomplete requirements started life as assumptions: things someone was so sure about that nobody wrote them down.</p>
+<p>None of these sources says "assumptions caused X% of failures," and I won't claim it. What they show is that most projects miss a promise, teams rarely test their beliefs early, and missing requirements are the top complaint. A worked assumptions log is a cheap fix for all of that.</p>
+<figure><img src="https://images.unsplash.com/photo-1641355527446-232d7f1f2c10?fm=jpg&amp;q=60&amp;w=1600&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="A wall covered in sticky notes from a planning session" loading="lazy" width="1600" height="1067"><figcaption>Every one of these notes is a claim somebody believed. Photo by Annie Vo, <a href="https://unsplash.com/photos/a-large-amount-of-post-it-notes-on-a-wall-HUuWNQmW58A">Unsplash License</a>.</figcaption></figure>
+
+<h2>An assumption is a question nobody has asked yet</h2>
+<p>Start by rewriting each assumption as a question. "The vendor API supports bulk updates" becomes "Does the vendor API accept more than one record per call, and what's the limit?" A question looks unfinished in a way a statement doesn't, and it tells you who can answer it.</p>
+<p>The rewrite usually exposes that one assumption is really two or three. "Credits over a threshold need manager approval" hides at least three questions. What's the threshold? Is it per credit or per customer per month? Who approves when the manager is on leave?</p>
+<p>Then give the question an owner and a date.</p>
+<p>The owner is a named person, never a team. "IT" can't answer a question. Dana from integrations can, and Dana can be chased. If you can't find a person, that's a finding: nobody owns this fact, so nobody will notice when it changes.</p>
+<p>The date is when you need the answer, worked back from the moment a wrong answer starts costing rework. If the bulk-update question decides whether you design a batch screen, the date falls before design review, not before UAT. Next to it, write why that date: the decision that depends on the answer. It's the column people skip, and it matters most when you're chasing a late reply. "Please reply" gets ignored. "Design review is Thursday and this decides the approval screen" gets an answer.</p>
+<p>Question, owner, date, reason. That's the method. The rest is bookkeeping.</p>
+
+<h2>Three exits, and only three</h2>
+<p>Before sign-off, every row in the log has to leave by one of three doors.</p>
+<h3>It becomes a confirmed requirement</h3>
+<p>The owner answered, the answer is something the system has to do or respect, and it moves into the requirements set with a trace back to the log row. "The API accepts up to 200 records per call" is now a constraint the design must honour. If the answer is "no," that's still this exit: the corrected fact becomes the requirement, and the design gets a change note.</p>
+<h3>It becomes a test</h3>
+<p>Some assumptions can't be confirmed by asking, only by trying. "Records migrated from the old system have no duplicate customer IDs" is one. The data owner can say yes in good faith and still be wrong. So it becomes a check in the test plan, with an expected result and an agreed action if it fails. My post on <a href="https://prachitparikh.hashnode.dev/sql-data-profiling">SQL data profiling on a brand-new table</a> is full of assumptions that should have been tests.</p>
+<h3>It becomes a named risk</h3>
+<p>Some questions can't be answered in time, or the honest answer is "we won't know until go-live." That's fine, as long as it's written down as a risk with an owner, a likely impact and a fallback. A sponsor who signs off on a named risk has made a decision. A sponsor who signs off on an unexamined assumption has just signed.</p>
+<p>There's no fourth door marked "still assumed." If a row is open at sign-off, either the sign-off waits or the row is reclassified as a risk in front of the people signing.</p>
+
+<h2>Which exit? A decision table</h2>
+<p>People get stuck choosing between test and risk, or quietly park everything as a risk because it's less work. Read this table top to bottom and take the first rule that matches. (I used the same first-match style for <a href="https://prachitparikhblog.wordpress.com/2026/11/04/how-to-split-user-stories/">choosing a split pattern for user stories</a>.)</p>
+<div class="tbl"><table>
+<thead><tr><th>Rule</th><th>Owner's answer</th><th>Can it only be proven by running something (data, interface, volume)?</th><th>Impact if wrong</th><th>Exit</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>"No, that's not true"</td><td>Any</td><td>Any</td><td>Requirement (the corrected fact), plus a change note on the affected design and estimate</td></tr>
+<tr><td>2</td><td>Confirmed, with evidence</td><td>No</td><td>Any</td><td>Requirement, traced to the log row</td></tr>
+<tr><td>3</td><td>Confirmed, with evidence</td><td>Yes</td><td>Any</td><td>Requirement plus a test that proves the answer holds in the real data or interface</td></tr>
+<tr><td>4</td><td>Can't be known until it's tried</td><td>Yes</td><td>Any</td><td>Test, run before the decision date if it drives design, otherwise before UAT entry</td></tr>
+<tr><td>5</td><td>Can't be answered before the needed-by date</td><td>No</td><td>High</td><td>Named risk with owner, impact and fallback, raised at sign-off</td></tr>
+<tr><td>6</td><td>Can't be answered before the needed-by date</td><td>No</td><td>Low</td><td>Risk, accepted, with the sponsor's name on it</td></tr>
+</tbody>
+</table></div>
+<p>"Confirmed, with evidence" means something checkable: a sample file, a query result, a versioned policy. For anything expensive, an email saying "yes, that's fine" gets rule 3 and a test anyway. For "impact if wrong," ask one blunt question: if this is false in week six, do we redesign something or just fix a value? Redesign is high.</p>
+
+<h2>The assumptions log template</h2>
+<p>These columns fit in any spreadsheet, Confluence table or Jira issue type.</p>
+<div class="tbl"><table>
+<thead><tr><th>Column</th><th>What goes in it</th></tr></thead>
+<tbody>
+<tr><td>ID</td><td>ASM-01, ASM-02. Never reuse one.</td></tr>
+<tr><td>Assumption as stated</td><td>The original words and where they came from.</td></tr>
+<tr><td>Rewritten as a question</td><td>One question per row.</td></tr>
+<tr><td>Owner</td><td>A named person, not a team.</td></tr>
+<tr><td>Answer needed by</td><td>A date, worked back from the decision.</td></tr>
+<tr><td>Why that date</td><td>The decision that depends on the answer.</td></tr>
+<tr><td>Impact if wrong</td><td>High (redesign) or low (fix a value).</td></tr>
+<tr><td>Answer and evidence</td><td>What the owner said, plus a link to the proof.</td></tr>
+<tr><td>Exit</td><td>Requirement, test or risk.</td></tr>
+<tr><td>Linked ID</td><td>The requirement, test or risk ID it became.</td></tr>
+<tr><td>Status</td><td>Open or closed.</td></tr>
+<tr><td>Date closed</td><td>When it left the log.</td></tr>
+</tbody>
+</table></div>
+<p>Twelve columns sounds heavy, but most rows take two minutes once the owner answers. The columns that take thought are the ones doing the work.</p>
+<p>If you'd rather paste it straight into a sheet, here's the header row:</p>
+<pre><code>id,assumption_as_stated,source,question,owner,needed_by,why_that_date,impact_if_wrong,answer_and_evidence,exit,linked_id,status,date_closed
+</code></pre>
+
+<h2>A filled example: Northstar Systems</h2>
+<p>Here's an invented example. Northstar Systems is a fictional company, and none of these people, figures or events describe a real project or client.</p>
+<p>Northstar wants to replace a spreadsheet its billing team uses to approve customer credits. The draft requirements carry four assumptions: a manager approves credits over a threshold, finance can take a nightly file, every billing user already has an account, and the credit reasons won't change. Two more turned up later (see the AI section). Here's the log on sign-off day.</p>
+<div class="tbl"><table>
+<thead><tr><th>ID</th><th>Question</th><th>Owner</th><th>Needed by (why)</th><th>Answer and evidence</th><th>Exit</th><th>Linked ID</th></tr></thead>
+<tbody>
+<tr><td>ASM-01</td><td>What's the approval threshold, is it per credit or per customer per month, and who approves when the manager is out?</td><td>Maya Chen, billing manager</td><td>14 Jan (design review decides the approval screen and routing)</td><td>$500 per credit; deputy approves when Maya is out. Policy v3 attached.</td><td>Requirement</td><td>REQ-011, REQ-012</td></tr>
+<tr><td>ASM-02</td><td>Does the finance system accept a nightly credit file, in what format, and what's the cutoff?</td><td>Tom Alvarez, finance systems lead</td><td>14 Jan (decides export file or API build)</td><td>Yes. CSV per spec v2, 9 PM ET cutoff. Sample file loaded in test.</td><td>Requirement + test</td><td>REQ-020, TC-031</td></tr>
+<tr><td>ASM-03</td><td>Does everyone on the billing roster have an active account with the right role?</td><td>Priya Nair, billing operations lead</td><td>1 Feb (UAT entry)</td><td>Only checkable by comparing roster to user list. First run found 2 missing; fixed, rerun clean.</td><td>Test</td><td>TC-044</td></tr>
+<tr><td>ASM-04</td><td>Will the credit reason codes change before go-live?</td><td>Tom Alvarez</td><td>21 Jan (reason list build)</td><td>Unknown. Finance's code review ends in March, after go-live.</td><td>Risk</td><td>RSK-03</td></tr>
+<tr><td>ASM-05</td><td>Can a manager approve a credit they requested themselves?</td><td>Sam Okafor, controller</td><td>14 Jan (approval routing)</td><td>Never. Audit requirement; policy section 4.2.</td><td>Requirement + test</td><td>REQ-013, TC-022</td></tr>
+<tr><td>ASM-06</td><td>What's peak daily credit volume, including month-end?</td><td>Priya Nair</td><td>21 Jan (performance test sizing)</td><td>Past peak 140 a day; future unknown, but far below the tool's limits.</td><td>Risk, accepted</td><td>RSK-05 (accepted by Lena Ward, VP Finance)</td></tr>
+</tbody>
+</table></div>
+<p>ASM-01 became two requirements because the rewrite split it. Requirement counts usually go up after an assumptions review. That isn't scope creep. The scope was always there; it just wasn't written down.</p>
+<p>ASM-04 is the interesting one. Nobody could answer it before go-live and the impact is real, so it's rule 5. RSK-03 names the owner, what breaks, and the fallback: go live with today's list and add codes as configuration later. The sponsor read that at sign-off and agreed. That's a decision. "Credit reasons will stay the same" would have been a hope.</p>
+<p>ASM-06 shows the lighter path: low impact, straight to "risk, accepted" with a name on it.</p>
+<p>Six assumptions went in. None were still assumptions at sign-off.</p>
+
+<h3>A check that returns rows only when something's wrong</h3>
+<p>Manuel Diaz, commenting on my <a href="https://dev.to/prachitparikh/7-sql-checks-i-run-before-uat-sign-off-with-queries-you-can-copy-38h5">Dev.to post on SQL checks before UAT sign-off</a>, suggested writing every check as a query that returns rows only when something is wrong. It works for the log too. If yours lives anywhere you can query, this is the sign-off gate:</p>
+<pre><code class="language-sql">SELECT id,
+       CASE
+         WHEN owner IS NULL THEN 'no owner'
+         WHEN owner LIKE '%team%' THEN 'owner is a team, not a person'
+         WHEN exit_type IS NULL THEN 'no exit chosen'
+         WHEN linked_id IS NULL THEN 'exit has no linked ID'
+         WHEN status = 'open' THEN 'still open'
+       END AS blocks_signoff_because,
+       needed_by
+FROM assumptions_log
+WHERE owner IS NULL OR owner LIKE '%team%' OR exit_type IS NULL
+   OR linked_id IS NULL OR status = 'open'
+ORDER BY needed_by, id;
+</code></pre>
+<p>Here's the output against Northstar's log as it stood at the walkthrough on 8 January, a week before design review (run in SQLite 3.53.1 through Python's <code>sqlite3</code> module):</p>
+<pre><code>id      blocks_signoff_because         needed_by
+------  -----------------------------  ----------
+ASM-02  no exit chosen                 2027-01-14
+ASM-05  no owner                       2027-01-14
+ASM-04  owner is a team, not a person  2027-01-21
+ASM-03  still open                     2027-02-01
+</code></pre>
+<p>Four rows, sorted by the date they're needed: the agenda for the next stand-up. On sign-off day the same query returned nothing, which is the only result that should let a sign-off go ahead. The <code>LIKE '%team%'</code> line is crude (add your own team-shaped names), but it caught ASM-04 being owned by "Finance team."</p>
+
+<h2>How the log plugs into UAT and the traceability matrix</h2>
+<p>A log in its own spreadsheet gets forgotten the week after sign-off. Wire its exits into documents people already use.</p>
+<h3>The traceability matrix</h3>
+<p>Every requirement that came from the log should say so. My <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/traceability-matrix-template.csv">traceability matrix template</a> has a <code>source</code> column. For REQ-011, the source is "ASM-01, credit policy v3" rather than "billing workshop." When someone asks in month four why the threshold is per credit, the trace takes them to the question, the owner and the evidence. Tests from the log go in <code>test_case_ids</code>, so TC-031 sits next to REQ-020.</p>
+<p>Requirements from the log need acceptance criteria like any other. "Credits over $500 route to a manager" needs criteria for exactly $500, $500.01 and the deputy path. My <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/acceptance-criteria-template.md">acceptance criteria template</a> has the format, and I walk through how to write criteria a tester can't misread in this video:</p>
+<div class="video"><button class="yt" data-id="puLtC-dnP1E" style="background-image:url(https://i.ytimg.com/vi/puLtC-dnP1E/hqdefault.jpg)" aria-label="Play video: How to Write Acceptance Criteria Testers Can't Misread"><span class="play"></span></button></div>
+<p class="credit"><em>Video: <a href="https://www.youtube.com/watch?v=puLtC-dnP1E">"How to Write Acceptance Criteria Testers Can't Misread"</a>, Prachit Parikh. More on <a href="https://www.youtube.com/@PrachitParikh1">my YouTube channel</a>.</em></p>
+<h3>UAT entry criteria</h3>
+<p>My <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/uat-plan-template.md">UAT plan template</a> lists entry criteria that must all be true before UAT starts. I'd add two:</p>
+<ul>
+<li>Every log test due before UAT (like ASM-03) has passed or has a logged defect.</li>
+<li>No row in the assumptions log is open. The sign-off query returns zero rows.</li>
+</ul>
+<p>The second matters more than it looks. New assumptions slip in after sign-off, and if they're open at UAT entry, testers will test the requirements and miss the beliefs underneath.</p>
+<h3>UAT exit criteria</h3>
+<p>And two for the exit side:</p>
+<ul>
+<li>Every log test has run, and each failure is a defect with a fix date or a named risk the sponsor has seen.</li>
+<li>Every risk that started as an assumption has been reviewed again, because UAT often answers the question it was waiting on.</li>
+</ul>
+<p>My <a href="https://prachitparikh.substack.com/p/what-a-good-uat-plan-actually-looks">Substack post on what a good UAT plan actually looks like</a> covers why those criteria get decided up front.</p>
+<figure><img src="https://images.unsplash.com/photo-1754548930574-6a995e5eb5a7?fm=jpg&amp;q=60&amp;w=1600&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.1.0&amp;ixid=NHwxMjA3fDA%3D" alt="A hand marking off items on a paper checklist" loading="lazy" width="1600" height="1067"><figcaption>An entry criterion is a checkbox that someone has to be able to tick honestly. Photo by Jakub Żerdzicki, <a href="https://unsplash.com/photos/a-hand-marks-off-items-on-a-checklist-yKnIbJV0RbY">Unsplash License</a>.</figcaption></figure>
+
+<h2>Using an AI assistant to surface hidden assumptions</h2>
+<p>The assumptions in the document are the easy ones. The dangerous ones are in the meeting notes, said once and never written down. "Obviously managers won't approve their own credits." Nobody logs those, because they didn't sound like assumptions when they were said.</p>
+<p>An AI assistant is decent at this job, with limits. Here's the prompt I'd start from. Paste one meeting's notes at a time, and only into a tool your company has approved for that content.</p>
+<pre><code>You are helping a business analyst find unstated assumptions in meeting notes.
+
+Read the notes below. List every statement that someone treated as true
+but that nobody confirmed, and every decision that depends on something
+outside this team's control.
+
+For each one, give:
+1. A verbatim quote from the notes (copy it exactly, no paraphrase)
+2. The assumption it reveals, in one sentence
+3. The assumption rewritten as a question someone could answer
+4. Whether it's about a business rule, data, an interface, people, or volume
+
+Rules:
+- If you can't point to a verbatim quote, don't list it.
+- Don't suggest owners, dates or answers.
+- Don't add numbers, names or thresholds that aren't in the notes.
+- If two items are the same assumption, merge them.
+
+Notes:
+[paste one meeting's notes here]
+</code></pre>
+<p>In the Northstar example, that's how ASM-05 turned up. Somebody said managers "obviously" wouldn't approve their own credits, and nobody had asked the controller. As a question it went to Sam and came back as an audit rule, a requirement and a negative test. ASM-06 came from a throwaway line about month-end being "busy but fine."</p>
+<h3>The checks to run on what it gives you</h3>
+<p>Don't paste the output into the log. Run these first.</p>
+<p><strong>Find every quote.</strong> Search the notes for each verbatim quote. If you can't find it, delete the item. A model told to quote will sometimes produce something quote-shaped that nobody said.</p>
+<p><strong>Check the transcript itself.</strong> If the notes came from automatic transcription, the source can be wrong before the assistant sees it. A Cornell-led study presented at FAccT 2024, <a href="https://www.news.cornell.edu/stories/2024/06/ai-speech-text-can-hallucinate-violent-language">"Careless Whisper"</a>, ran more than 13,000 speech clips through OpenAI's Whisper and found that roughly 1% of transcriptions contained entire hallucinated phrases. One percent is small until it's the sentence your threshold rests on. For anything about to become a requirement, check the recording or ask the speaker.</p>
+<p><strong>Assume it missed things.</strong> In <a href="https://arxiv.org/html/2602.18306v1">ReqElicitGym</a>, a February 2026 evaluation of how well LLMs draw out users' implicit requirements in elicitation interviews, the best model managed an implicit-requirement elicitation score of only 0.32 across 101 scenarios and 632 annotated implicit requirements. That's a different task from reading notes, so don't carry the number across. But the direction is clear: these models find some of what's unsaid, not most. Read the notes yourself first, then run the assistant, then compare lists.</p>
+<p><strong>Keep owners and dates human.</strong> An assistant will happily write "Owner: IT" and "Needed by: before UAT," the exact vagueness this method exists to kill.</p>
+<p><strong>Check the rewrite kept the meaning.</strong> A question that adds a number or narrows the scope has changed the assumption. "Will reason codes change?" is fine. "Will finance add the three new reason codes in February?" invented two facts.</p>
+<p><strong>Run it again on the same notes.</strong> If the second list is very different, treat both as prompts, not findings. Same idea as in <a href="https://www.youtube.com/watch?v=IBteCgiXc6Q">AI agent testing</a>: a result that changes between runs isn't a result yet.</p>
+<p>Used this way, the assistant is a second reader with no memory of what was "obvious" in the room. It doesn't replace asking the questions.</p>
+
+<h2>The take you might disagree with</h2>
+<p><strong>An assumption with no owner is a requirement you've already agreed to without reading it.</strong> And by sign-off day, the assumptions section of a requirements document should be empty.</p>
+<p>Plenty of analysts treat the assumptions list as a courtesy. But look at what happens once the document is approved. Every unowned assumption gets built as if it were true. Developers design around it. Testers don't test it, because it isn't a requirement. And when it breaks, catching it was nobody's job. It was a requirement all along that never got reviewed like one.</p>
+<p>The fair counterargument: on a two-week change, chasing every row is overhead. Half right. Keep the log, move low-impact rows straight to "risk, accepted" with the sponsor's name (rule 6), and chase only the rows that would force a redesign. Another objection is that an empty assumptions section looks overconfident. I'd say the opposite. A document whose assumptions all became requirements, tests or named risks is showing its working. A long "we assume" list shows the work wasn't done.</p>
+
+<h2>What the method misses</h2>
+<p><strong>Owners can be confidently wrong.</strong> That's why rule 3 exists. "Yes, that's fine" in an email is an answer, not evidence.</p>
+<p><strong>The log goes stale.</strong> New assumptions arrive in change requests and build questions. Arjun Sharma asked a question on my Dev.to post that led to the same rule for data checks: rerun them after every refresh, not once. Same here. Review the log at every walkthrough, at UAT entry and before go-live.</p>
+<p><strong>It can become theatre.</strong> If every row goes to "risk, accepted" because it's quicker, the log is the old section with more columns. The real check is the sponsor reading the risk rows out loud. If they can't explain a risk, they didn't accept it.</p>
+<p><strong>Some assumptions are about people.</strong> "The billing team will stop using the spreadsheet" can't be fully tested. It ends up as a risk with a change management fallback, and that's honest.</p>
+<p><strong>It doesn't catch what nobody said at all.</strong> The AI pass only covers things said in meetings. Gary Klein's pre-mortem ("it's six months from now and this failed; why?") is the best tool I know for that, and its output goes straight into the log as new rows.</p>
+
+<h2>What I'd do on Monday</h2>
+<ol>
+<li>Copy every assumption from the document you're closest to signing off into a sheet with the twelve columns above.</li>
+<li>Rewrite each as a question. Split the compound ones. Expect the count to go up.</li>
+<li>Put a person's name, a needed-by date and the reason for that date on every row. No person? Flag it today.</li>
+<li>Run your last two workshops' notes through the prompt, do the quote check, and add the survivors.</li>
+<li>Run the decision table on every answered row, and put the log ID in your traceability matrix's <code>source</code> column.</li>
+<li>Add the two entry criteria and two exit criteria to your UAT plan.</li>
+<li>At the next walkthrough, read the open rows out loud, earliest date first.</li>
+</ol>
+<p>That's a morning's work, and it turns a page nobody reads into the list of things most likely to hurt you.</p>
+<p>If you're splitting stories too, watch for assumptions hiding in the slices; my post on <a href="https://prachitparikhblog.wordpress.com/2026/11/04/how-to-split-user-stories/">how to split user stories</a> covers that. My <a href="https://prachitparikh.github.io/portfolio.html">portfolio page</a> has case studies on the same fictional Northstar client.</p>
+
+<h2>Discussion questions</h2>
+<ul>
+<li>Where does your team's assumptions list live today, and who reads it after sign-off?</li>
+<li>Have you ever seen a sponsor refuse to sign off because of an open assumption? What happened next?</li>
+<li>Would you hold a sign-off for one open row, or reclassify it as a risk in the meeting and move on?</li>
+<li>What's the most expensive assumption you've seen turn out false, and when did anyone first have a chance to ask about it?</li>
+</ul>
+<p><strong>Comment prompt:</strong> Tell me the one column you'd add to this template, or the one you'd cut. If you run an assumptions log already, I'd really like to know how you stop it going stale after sign-off.</p>
+
+<h2>References</h2>
+<ol>
+<li>Dan Gardner interviewed by Mind Tools, <a href="https://www.mindtools.com/an0e922/how-big-things-get-done">How Big Things Get Done</a> (on Bent Flyvbjerg and Dan Gardner's book and the 16,000-project database).</li>
+<li>Project Management Institute, <a href="https://www.businesswire.com/news/home/20260512300475/en/Why-Complex-Projects-Fail-Best-Practices-Are-Not-Enough-System-Thinking-Gives-Your-Team-the-Edge">Why Complex Projects Fail: Best Practices Are Not Enough, System Thinking Gives Your Team the Edge</a>, press release for Pulse of the Profession 2026, <em>Driving Success in Complex Projects</em>, Business Wire, May 2026.</li>
+<li>Daniel Méndez Fernández et al., <a href="https://arxiv.org/pdf/1710.04630">Supporting Requirements Engineering Research that Industry Needs: The Naming the Pain in Requirements Engineering Initiative</a>, arXiv:1710.04630 (NaPiRE data from 2014/15).</li>
+<li>Louis DiPietro, <a href="https://www.news.cornell.edu/stories/2024/06/ai-speech-text-can-hallucinate-violent-language">AI speech-to-text can hallucinate violent language</a>, Cornell Chronicle, 11 June 2024, on Koenecke et al., "Careless Whisper: Speech-to-Text Hallucination Harms," ACM FAccT 2024.</li>
+<li>Dongming Jin, Zhi Jin et al., <a href="https://arxiv.org/html/2602.18306v1">ReqElicitGym: An Evaluation Environment for Interview Competence in Conversational Requirements Elicitation</a>, arXiv:2602.18306, 20 February 2026.</li>
+</ol>
+<p>Reader lessons used: Manuel Diaz, checks that return rows only when something is wrong; Arjun Sharma, <a href="https://dev.to/sgaggjhkjh/comment/3jlpi">a question that led to rerunning checks after every refresh</a> (both on my Dev.to post).</p>
+<p>All my links in one place: <a href="https://sites.google.com/view/prachit-parikh">my profile hub</a> and <a href="https://prachitparikh.github.io/portfolio.html">my portfolio</a>.</p>
+<h2 id="about-me">About me</h2>
+<p>I'm Prachit Parikh, a business analyst. I turn what stakeholders ask for into requirements a team can test, check the data with SQL, and see changes through UAT. I keep free templates, including the <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/uat-plan-template.md">UAT plan</a> and <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/traceability-matrix-template.csv">traceability matrix</a> this log plugs into, in my <a href="https://github.com/prachitparikh/ba-toolkit">BA Toolkit</a> on <a href="https://github.com/prachitparikh">GitHub</a>, and I make short animated explainers on <a href="https://www.youtube.com/@PrachitParikh1">YouTube</a>. Besides this site, I write on <a href="https://prachitparikh.substack.com">Substack</a>, <a href="https://medium.com/@prachit.parikh">Medium</a>, <a href="https://prachitparikh.hashnode.dev">Hashnode</a>, <a href="https://dev.to/prachitparikh">Dev.to</a>, <a href="https://prachitparikh-ba.blogspot.com">Blogger</a> and <a href="https://prachitparikhblog.wordpress.com">WordPress</a>, and I answer questions on <a href="https://www.quora.com/profile/Prachit-Parikh-2">Quora</a>. You can also find me on <a href="https://www.linkedin.com/in/prachitp">LinkedIn</a>, <a href="https://bsky.app/profile/prachitparikh.bsky.social">Bluesky</a>, <a href="https://www.kaggle.com/prachitparikh">Kaggle</a>, <a href="https://www.credly.com/users/prachit-parikh">Credly</a>, <a href="https://www.crunchbase.com/person/prachit-parikh-ct">Crunchbase</a> and <a href="https://gravatar.com/prachitparikhba">Gravatar</a>. Everything is collected on <a href="https://prachitparikh.github.io/">my website</a> and <a href="https://sites.google.com/view/prachit-parikh">my profile hub</a>.</p>
+</article>
+<p class="back"><a href="/#writing">&larr; More articles by Prachit Parikh</a></p>
+</main>
+
+<footer>
+<div class="wrap">
+<span>&copy; 2026 Prachit Parikh. Business analyst writing on AI, data, requirements and UAT.</span>
+<span><a href="/everything.html">Everything</a> &middot; <a href="/portfolio.html">Portfolio</a> &middot; <a href="https://github.com/prachitparikh/ba-toolkit">BA Toolkit</a> &middot; <a href="https://www.youtube.com/@PrachitParikh1">YouTube</a></span>
+</div>
+</footer>
+
+<script>
+document.querySelectorAll('.yt').forEach(function(b){
+  b.addEventListener('click',function(){
+    var f=document.createElement('iframe');
+    f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';
+    f.title=b.getAttribute('aria-label');
+    f.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    f.allowFullscreen=true;
+    b.innerHTML='';b.appendChild(f);b.style.cursor='default';
+  },{once:true});
+});
+</script>
+</body>
+</html>
