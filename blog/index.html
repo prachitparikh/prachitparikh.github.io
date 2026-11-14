@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog by Prachit Parikh | Business Analysis, SQL, UAT and AI</title>
+<meta name="description" content="Articles by business analyst Prachit Parikh on requirements, SQL data checks, UAT and using AI safely at work, with free templates and worked examples.">
+<link rel="canonical" href="https://prachitparikh.github.io/blog/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Blog by Prachit Parikh | Business Analysis, SQL, UAT and AI">
+<meta property="og:description" content="Articles by business analyst Prachit Parikh on requirements, SQL data checks, UAT and using AI safely at work, with free templates and worked examples.">
+<meta property="og:url" content="https://prachitparikh.github.io/blog/">
+<meta property="og:image" content="https://prachitparikh.github.io/img/prachit-parikh-share-card-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Prachit Parikh, business analyst">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://prachitparikh.github.io/img/prachit-parikh-share-card-1200x630.jpg">
+<meta name="theme-color" content="#0f1834">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Blog", "@id": "https://prachitparikh.github.io/blog/#blog", "url": "https://prachitparikh.github.io/blog/", "name": "Prachit Parikh's blog: business analysis, SQL, UAT and AI", "author": {"@id": "https://prachitparikh.github.io/#person", "@type": "Person", "name": "Prachit Parikh", "url": "https://prachitparikh.github.io/"}, "blogPost": [{"@type": "BlogPosting", "headline": "Metric view relationships: the join your AI agent now trusts, and the three checks that make it safe", "url": "https://prachitparikh.github.io/blog/metric-view-relationships.html", "datePublished": "2026-11-05", "author": {"@id": "https://prachitparikh.github.io/#person"}}, {"@type": "BlogPosting", "headline": "Assumptions log: how to turn every assumption into a requirement, a test or a risk before sign-off", "url": "https://prachitparikh.github.io/blog/assumptions-log.html", "datePublished": "2026-11-05", "author": {"@id": "https://prachitparikh.github.io/#person"}}]}</script>
+<style>
+:root{
+  --navy:#0f1834;--navy2:#1b2560;--ink:#141a2b;--muted:#5a6378;--line:#e3e7f0;--bg:#f6f7fb;--card:#fff;
+  --blue:#3b5bdb;--teal:#15aabf;--rose:#d6336c;--radius:16px;
+  --sans:Inter,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.65 var(--sans);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(15,24,52,.86);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{color:#fff;font-weight:700;letter-spacing:-.01em;font-size:1.05rem}
+.brand:hover{text-decoration:none}
+.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0}
+.nav ul a{color:#c9d2ef;font-size:.93rem;font-weight:500}
+.nav ul a:hover{color:#fff;text-decoration:none}
+@media(max-width:820px){.nav ul{display:none}}
+
+
+/* article */
+.post-hero{background:linear-gradient(120deg,var(--navy),var(--navy2) 60%,#145a7a);color:#fff;padding:64px 0 56px}
+.post-hero .inner{max-width:760px;margin:0 auto;padding:0 16px}
+.post-hero .eyebrow{display:inline-block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#9fd8ff;margin-bottom:14px}
+.post-hero h1{font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.12;letter-spacing:-.03em;margin:0 0 18px;font-weight:800}
+.post-hero .meta{color:#cfd7f3;font-size:.95rem}
+.post-hero .meta a{color:#fff;font-weight:600}
+article{max-width:760px;margin:0 auto;padding:48px 16px 24px;font-size:1.06rem;line-height:1.75}
+article h2{font-size:clamp(1.45rem,2.6vw,1.85rem);line-height:1.2;letter-spacing:-.02em;margin:48px 0 12px}
+article h3{font-size:1.2rem;line-height:1.3;margin:34px 0 8px}
+article p,article ul,article ol{margin:0 0 18px}
+article li{margin:0 0 8px}
+article code{font:.9em/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#eef1f8;border:1px solid var(--line);border-radius:6px;padding:1px 5px}
+article pre{background:#0f1834;color:#e6ebff;border-radius:12px;padding:18px 20px;overflow-x:auto;margin:0 0 22px;font-size:.88rem;line-height:1.55}
+article pre code{background:none;border:0;padding:0;color:inherit;font-size:inherit}
+.tbl{overflow-x:auto;margin:0 0 22px;border:1px solid var(--line);border-radius:12px;background:#fff}
+article table{border-collapse:collapse;width:100%;font-size:.93rem;line-height:1.5}
+article th,article td{text-align:left;vertical-align:top;padding:10px 14px;border-bottom:1px solid var(--line)}
+article th{background:#f0f3fb;font-weight:700}
+article tr:last-child td{border-bottom:0}
+article td:first-child{font-weight:600;white-space:nowrap}
+@media(max-width:600px){article td:first-child{white-space:normal}}
+figure{margin:30px 0}
+figure img{display:block;width:100%;border-radius:var(--radius);aspect-ratio:3/2;object-fit:cover}
+figcaption,.credit{font-size:.85rem;color:var(--muted)}
+figcaption{margin-top:8px}
+.video{margin:24px 0 10px}
+.yt{position:relative;display:block;width:100%;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;background:#000 center/cover no-repeat;cursor:pointer;border:0;padding:0;box-shadow:0 18px 40px rgba(15,24,52,.18)}
+.yt::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.55))}
+.yt .play{position:absolute;z-index:1;left:50%;top:50%;width:78px;height:54px;margin:-27px 0 0 -39px;border-radius:16px;background:#e5383b;display:grid;place-items:center;transition:transform .15s ease}
+.yt:hover .play{transform:scale(1.08)}
+.yt .play::before{content:"";border-style:solid;border-width:11px 0 11px 19px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+#about-me{padding-top:28px;border-top:1px solid var(--line)}
+.back{max-width:760px;margin:0 auto;padding:0 16px 40px}
+footer{padding:40px 0 60px;color:var(--muted);font-size:.88rem;border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+@media(max-width:600px){.wrap{padding:0 16px}}
+
+.list{max-width:760px;margin:0 auto;padding:40px 16px 8px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin:0 0 18px}
+.card h2{font-size:1.25rem;line-height:1.3;margin:0 0 8px;letter-spacing:-.01em}
+.card p{margin:0 0 6px;color:var(--muted)}
+.card time{font-size:.88rem;color:var(--muted)}
+.else{max-width:760px;margin:0 auto;padding:8px 16px 48px}
+.else ul{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:12px 0 0}
+.else li a{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:600}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+<div class="wrap">
+<a class="brand" href="/">Prachit Parikh</a>
+<ul>
+<li><a href="/#work">What I do</a></li>
+<li><a href="/#videos">Videos</a></li>
+<li><a href="/portfolio.html">Portfolio</a></li>
+<li><a href="/#toolkit">Toolkit</a></li>
+<li><a href="/#writing">Writing</a></li>
+<li><a href="/#about">About</a></li>
+<li><a href="/everything.html">Everything</a></li>
+</ul>
+</div>
+</nav>
+
+<main>
+<header class="post-hero">
+<div class="inner">
+<span class="eyebrow">Blog</span>
+<h1>Prachit Parikh's blog</h1>
+<div class="meta">Long-form guides on requirements, SQL data checks, UAT and AI at work, by <a href="/">Prachit Parikh</a>, business analyst. Every post comes with a template, a worked example or SQL you can copy.</div>
+</div>
+</header>
+<section class="list" aria-label="Articles on this site">
+<div class="card"><h2><a href="/blog/metric-view-relationships.html">Metric view relationships: the join your AI agent now trusts, and the three checks that make it safe</a></h2><p>Databricks now lets teams declare joins between metric views for AI and BI tools, but nothing checks the data. Here's what BAs should test first.</p><time datetime="2026-11-05">5 November 2026</time></div>
+<div class="card"><h2><a href="/blog/assumptions-log.html">Assumptions log: how to turn every assumption into a requirement, a test or a risk before sign-off</a></h2><p>How to run an assumptions log: every assumption gets an owner and a date, then leaves as a requirement, a test or a named risk before sign-off.</p><time datetime="2026-11-05">5 November 2026</time></div>
+</section>
+<section class="else">
+<h2>More of my writing</h2>
+<p>I publish a different article on each of these every few weeks. The full list of every article, video and template is on <a href="/everything.html">everything by Prachit Parikh</a>.</p>
+<ul>
+<li><a href="https://prachitparikh.substack.com">Substack</a></li>
+<li><a href="https://medium.com/@prachit.parikh">Medium</a></li>
+<li><a href="https://prachitparikh.hashnode.dev">Hashnode</a></li>
+<li><a href="https://dev.to/prachitparikh">Dev.to</a></li>
+<li><a href="https://prachitparikh-ba.blogspot.com">Blogger</a></li>
+<li><a href="https://prachitparikhblog.wordpress.com">WordPress</a></li>
+</ul>
+</section>
+</main>
+
+<footer>
+<div class="wrap">
+<span>&copy; 2026 Prachit Parikh. Business analyst writing on AI, data, requirements and UAT.</span>
+<span><a href="/everything.html">Everything</a> &middot; <a href="/portfolio.html">Portfolio</a> &middot; <a href="https://github.com/prachitparikh/ba-toolkit">BA Toolkit</a> &middot; <a href="https://www.youtube.com/@PrachitParikh1">YouTube</a></span>
+</div>
+</footer>
+</body>
+</html>
