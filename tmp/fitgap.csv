@@ -1,0 +1,9 @@
+step_id,process_step,agent_out_of_box_on_our_cases,evidence,undo_possible,fit_level,effort,requirement_or_decision,owner
+S1,Read the customer's return request and find the order,Found the right order in 118 of 120 cases; 2 misses were guest orders,our cases,yes,Configure,S,Match guest orders by email + order number (AC-RET-01),Ops lead
+S2,Check the return is inside the 30-day window,Used ship date; policy counts from delivery date,our cases,yes,Configure,S,Window counts from delivery date (AC-RET-02); test day 30 and day 31,Refunds lead
+S3,Check the item is returnable (no final-sale items),Correct in all final-sale cases in the set,our cases,yes,Fit,,Test in UAT,Refunds lead
+S4,Create the return label,Calls a carrier API Northstar doesn't use,our cases,yes,Extend,M,Build a tool for Northstar's carrier (REQ-RET-07),IT integration lead
+S5,Issue refunds under $50 automatically,Issued them; 1 wrong amount on a partial return with a promo code,our cases,no,Gap,,A person approves partial returns with a promo applied; agent handles the rest after the UAT pass mark is met,Refunds lead
+S6,Route refunds over $200 to a person,Routed every one in the set but the limit lives only in the prompt (gate G2),our cases,no,Gap,,Blocked by G2 until the payment API enforces the limit,Head of customer ops
+S7,Email the customer a confirmation,Sends its own template,vendor demo,partly,Change our process,S,Use the vendor template after brand review; retire the old one,Marketing ops
+S8,Flag repeat returners for fraud review,Not supported,none,yes,Gap,,Keep the weekly fraud report a person runs,Fraud analyst
