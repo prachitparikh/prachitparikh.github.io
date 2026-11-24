@@ -1,0 +1,393 @@
+<p>"The system must be fast." Plenty of requirements documents have that sentence in them, usually in a section near the end called Non-Functional Requirements, usually written the week before sign-off, usually by whoever drew the short straw.</p>
+<p>Then UAT starts. A tester submits a return on the new portal, waits four seconds, and logs a defect: "too slow." The developer replies that it's fast. Both of them are right, because nobody ever wrote down what fast means, measured how, for whom, under what load.</p>
+<p>This is a long practical guide to fixing that. You'll get a template that turns any quality wish into a test, a list of the vague words I rewrite on sight, a filled catalog for a fictional returns portal (including the AI feature on it), and a small SQL fixture you can run yourself that shows why "average response time under 500 ms" is a requirement that can pass while users suffer. The example client is fictional: Northstar Systems, which I use for every example on this blog.</p>
+<blockquote>
+<p>Prefer to watch? The same idea for functional requirements, how to write criteria a tester can't misread, is in my video <a href="https://www.youtube.com/watch?v=puLtC-dnP1E">How to Write Acceptance Criteria Testers Can't Misread</a>. Non-functional requirements follow the same rule: if a stranger couldn't write the test, it isn't done.</p>
+</blockquote>
+<h2>What non-functional requirements are (the short version)</h2>
+<p>A functional requirement says what the system does: "A customer can request a refund for an order delivered in the last 30 days." A non-functional requirement says how well it does it, or under what constraints: how fast the request goes through, how many customers can do it at once, who can see the refund history, what happens when the payment service is down.</p>
+<p>People also call them quality attributes, quality requirements or "the -ilities". The names matter less than the habit. The functional requirement gets a user story, acceptance criteria and a test. The non-functional one gets a sentence. That's the gap this guide closes.</p>
+<h2>Why this matters more this year</h2>
+<p>Two reasons, one old and one new.</p>
+<p>The old one: there's a current international standard for what "quality" even covers, and most requirements templates I see predate its latest version. ISO/IEC 25010, the product quality model, was revised in November 2023. The <a href="https://www.iso.org/standard/78176.html">ISO listing</a> says the model "is composed of nine characteristics" (the 2011 version had eight). According to <a href="https://quality.arc42.org/articles/iso-25010-update-2023">arc42's summary of the update</a>, safety was added as its own characteristic, usability was renamed interaction capability, portability was renamed flexibility, and scalability now sits under flexibility as a sub-characteristic. If your NFR template still has a "Portability" heading and no "Safety" heading, it's using the 2011 map.</p>
+<p>The new one: AI features. A returns portal in 2026 might classify the customer's free-text reason with a model, suggest a refund amount, or summarize a case for an agent. That feature has quality requirements nobody had to write ten years ago. What's the accuracy bar? What happens when the model provider is down? What does each call cost, and what's the monthly ceiling? These are non-functional requirements, and if the BA doesn't write them, they get decided by default in a config file.</p>
+<h2>Who searches for this</h2>
+<p>If you've typed "non-functional requirements examples", "how to write NFRs", "measurable non-functional requirements" or "NFR template" into a search bar, you're in the right place. So are testers who keep inheriting "the system shall be user-friendly" and want something to send back.</p>
+<h2>The take: most NFRs shouldn't be in a separate section at all</h2>
+<p>Here's where I part ways with a lot of templates. I think the separate "Non-Functional Requirements" section at the end of a requirements document is where quality goes to die.</p>
+<p>It's written last, by one person, in general terms, and it applies to "the system". Nobody owns it. Nobody tests it until performance testing, if there is any. And because it's general, it's vague: "the system shall be available 99.9% of the time" says nothing about which part, which hours, or what counts as available.</p>
+<p>What works better: attach each quality requirement to the user story or feature it's about, with its own acceptance criteria and its own test, exactly like a functional one. "Submit a return" gets a response-time requirement. "View refund history" gets an access requirement. The AI reason classifier gets an accuracy requirement and a fallback requirement. A short system-wide list remains (things like data retention and browser support that genuinely apply everywhere), but it's short.</p>
+<p>You might disagree. Architects often prefer one place to see every quality attribute, and that's a fair need. My answer is that a catalog view (like the one later in this post) can be built from the story-level requirements, but you can't build story-level tests from a general paragraph. Write them where they're tested. Roll them up for the architect.</p>
+<h2>The anatomy of a testable NFR</h2>
+<p>Every non-functional requirement I write has the same eight parts. It looks like a lot. Most of them are one line.</p>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>What it answers</th>
+<th>Example (submit a return)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>How do we trace it?</td>
+<td>NFR-PERF-01, linked to story RET-12</td>
+</tr>
+<tr>
+<td>Quality</td>
+<td>Which ISO/IEC 25010 characteristic?</td>
+<td>Performance efficiency (time behavior)</td>
+</tr>
+<tr>
+<td>Scope</td>
+<td>Which feature, user, or path?</td>
+<td>Customer submits a return on the portal, web and mobile</td>
+</tr>
+<tr>
+<td>Measure</td>
+<td>What exactly is counted?</td>
+<td>Time from tapping Submit to the confirmation screen, measured at the server</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>What number, at what percentile?</td>
+<td>95% of submits complete in 1,000 ms or less</td>
+</tr>
+<tr>
+<td>Conditions</td>
+<td>Under what load, data, time window?</td>
+<td>Up to 200 concurrent submits; any 28-day window</td>
+</tr>
+<tr>
+<td>Fail line</td>
+<td>What's clearly unacceptable?</td>
+<td>Any 1-hour window where fewer than 90% complete in 1,000 ms</td>
+</tr>
+<tr>
+<td>Owner and test</td>
+<td>Who signs, how is it checked?</td>
+<td>Product owner, returns; load test LT-03 plus production monitoring</td>
+</tr>
+</tbody>
+</table>
+<p>Four of those parts do most of the work.</p>
+<p><strong>Measure</strong> removes the argument about what's being timed. "Response time" can mean the server's processing time, the time until the page starts drawing, or the time until the confirmation appears. Each is a different number. Pick one and write it down.</p>
+<p><strong>Target with a percentile</strong> removes the averaging trap (more on this in the SQL section). Google's Site Reliability Engineering book is blunt about it: "We generally prefer to work with percentiles rather than the mean (arithmetic average) of a set of values." The <a href="https://sre.google/sre-book/service-level-objectives/">SRE book's chapter on service level objectives</a> explains why: "it's entirely possible for most of the requests to be fast, but for a long tail of requests to be much, much slower."</p>
+<p><strong>Conditions</strong> stop the requirement from being met in a quiet test environment and failed in production on a Monday morning. A response time with no load attached isn't a requirement. It's a hope.</p>
+<p><strong>Fail line</strong> is the one most templates skip, and it's the one stakeholders understand fastest. The target is what you aim for. The fail line is what makes you stop a release or open an incident. Having both lets people disagree about the target without disagreeing about what's broken.</p>
+<h2>Borrowing from SRE: SLIs, SLOs and error budgets for BAs</h2>
+<p>Site reliability engineers solved a version of this problem years ago, and their vocabulary is worth stealing.</p>
+<p>The <a href="https://sre.google/workbook/implementing-slos/">SRE Workbook</a> describes a service level indicator as "an indicator of the level of service that you are providing", and recommends "treating the SLI as the ratio of two numbers: the number of good events divided by the total number of events." A service level objective then sets a target for that ratio. And the error budget is simple: "the SLO is a target percentage and the error budget is 100% minus the SLO."</p>
+<p>Translate that into requirements language and you get a pattern that fits almost any quality attribute:</p>
+<blockquote>
+<p>[Percentage] of [events] must be [good, defined precisely] over [time window], measured by [method].</p>
+</blockquote>
+<p>So "the portal must be fast" becomes "99% of return submissions must complete in 1,000 ms or less over any 28-day window, measured at the server." Now you can do arithmetic with it. If the portal handles 200,000 submissions in 28 days, the error budget is 1%, which is 2,000 slow submissions. Spend them on a bad deploy and you know you're out. That's a conversation a product owner can have, which is the point.</p>
+<p>The ratio pattern works well beyond speed. Availability: good events are successful requests. Data freshness: good events are reports whose data is less than an hour old. AI accuracy: good events are classifications a reviewer agrees with. One pattern, one test shape, every time.</p>
+<h2>The vague-word list</h2>
+<p>These are the words I rewrite on sight in any NFR. Each one hides a decision someone hasn't made yet.</p>
+<table>
+<thead>
+<tr>
+<th>If the requirement says</th>
+<th>Ask</th>
+<th>Rewrite as (example)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fast, quick, responsive</td>
+<td>Which action, measured where, at what percentile?</td>
+<td>95% of return submits complete in 1,000 ms or less, measured at the server</td>
+</tr>
+<tr>
+<td>scalable</td>
+<td>From what load to what load, by when?</td>
+<td>Handles 200 concurrent submits at launch and 600 by next peak season with the same response target</td>
+</tr>
+<tr>
+<td>available 24/7, always up</td>
+<td>Which service, which hours, what counts as down?</td>
+<td>Returns API answers 99.5% of health checks successfully per calendar month, excluding announced maintenance up to 4 hours</td>
+</tr>
+<tr>
+<td>secure</td>
+<td>Against what, for which data, who may do what?</td>
+<td>Only the customer and returns agents can view a refund's bank details; every view is logged with user and time</td>
+</tr>
+<tr>
+<td>user-friendly, intuitive</td>
+<td>Which users, doing what task, measured how?</td>
+<td>8 of 10 first-time test users submit a return without help in under 3 minutes</td>
+</tr>
+<tr>
+<td>robust, reliable</td>
+<td>Which failure, what should happen?</td>
+<td>If the payment service doesn't respond in 10 seconds, the return is saved as Pending and the customer sees "We've got your return"</td>
+</tr>
+<tr>
+<td>accessible</td>
+<td>To what standard and which screens?</td>
+<td>Return flow screens meet the team's accessibility checklist; tested with a screen reader and keyboard only</td>
+</tr>
+<tr>
+<td>accurate (for AI features)</td>
+<td>Agreeing with whom, on what sample, how often?</td>
+<td>On the held-out set of 400 labelled reasons, the classifier matches the reviewer on at least 90%</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that every rewrite has a number someone has to choose. That's deliberate. The BA's job isn't to invent the number. It's to make sure somebody with the authority chooses it, out loud, before the build.</p>
+<p>And when nobody knows the right number yet? Write the requirement with "TBD by [name], [date]" in the target field and put it in your assumptions log. A visible TBD beats an invisible "fast" every time, because a TBD has an owner and a deadline.</p>
+<h2>The SQL fixture: why "average under 500 ms" is a trap</h2>
+<p>This is the part I'd most like you to run yourself, because it changes how people read NFRs.</p>
+<p>Picture a stakeholder who writes: "Average response time for return submission must be under 500 ms." It sounds strict. Here's a fictional log of 1,000 submissions to show what it allows.</p>
+<p>First, make the data. This Python script builds a SQLite table where most submissions take 120 to 320 ms and 6% hit a slow path (say, a fraud check timing out) and take 3.2 to 4.8 seconds:</p>
+<pre><code class="language-python">import random, sqlite3
+
+random.seed(48)
+con = sqlite3.connect(&quot;portal.db&quot;)
+con.execute(&quot;DROP TABLE IF EXISTS request_log&quot;)
+con.execute(&quot;&quot;&quot;CREATE TABLE request_log (
+    request_id INTEGER PRIMARY KEY, endpoint TEXT,
+    duration_ms INTEGER, status INTEGER)&quot;&quot;&quot;)
+rows = []
+for i in range(1, 1001):
+    slow = i % 100 in (7, 19, 33, 48, 61, 74)   # 6 in every 100
+    d = random.randint(3200, 4800) if slow else random.randint(120, 320)
+    rows.append((i, &quot;/returns/submit&quot;, d, 200))
+con.executemany(&quot;INSERT INTO request_log VALUES (?, ?, ?, ?)&quot;, rows)
+con.commit()
+</code></pre>
+<p>Now check the stakeholder's requirement:</p>
+<pre><code class="language-sql">SELECT COUNT(*) AS requests, ROUND(AVG(duration_ms)) AS avg_ms
+FROM request_log;
+</code></pre>
+<p>On my run that returns 1,000 requests and an average of 450 ms. The requirement passes.</p>
+<p>Now look at the 95th percentile (nearest-rank method: sort, take the 950th value):</p>
+<pre><code class="language-sql">SELECT duration_ms AS p95_ms
+FROM request_log
+ORDER BY duration_ms
+LIMIT 1 OFFSET (SELECT CAST(0.95 * COUNT(*) AS INT) - 1 FROM request_log);
+</code></pre>
+<p>That returns 3,495 ms. The median (change 0.95 to 0.50) is 226 ms. So the typical customer gets a fast portal, and about one in seventeen waits more than three seconds. The average sits in the middle and describes nobody.</p>
+<p>Finally, the SLO-style version of the requirement:</p>
+<pre><code class="language-sql">SELECT COUNT(*) AS requests,
+       SUM(CASE WHEN duration_ms &lt;= 1000 THEN 1 ELSE 0 END) AS good,
+       ROUND(100.0 * SUM(CASE WHEN duration_ms &lt;= 1000 THEN 1 ELSE 0 END)
+             / COUNT(*), 1) AS pct_good
+FROM request_log;
+</code></pre>
+<p>940 of 1,000 are good: 94.0%. Against "95% of submits in 1,000 ms or less", that's a fail, and it should be. The same log, the same users, opposite verdicts, depending only on how the requirement was written.</p>
+<p>This is the SRE book's point in one table. Their own example: "although a typical request is served in about 50 ms, 5% of requests are 20 times slower!" A requirement written as an average can't see that. A percentile or a good-events ratio can.</p>
+<p>Two notes before you take this to a performance tester. Percentile functions differ between databases (PostgreSQL has <code>percentile_cont</code>, others have their own), and different methods give slightly different answers on small samples. Say which method the test uses. And a percentile over the whole month can hide one terrible hour, which is what the fail line is for.</p>
+<p><img alt="Diagram comparing mean, median and mode on skewed distributions" src="https://commons.wikimedia.org/wiki/Special:FilePath/Comparison_mean_median_mode.svg?width=1280" /></p>
+<p><em>On a skewed distribution the mean drifts toward the tail while the median stays with the typical value, which is exactly what happens to response times. Image: "Comparison mean median mode.svg" by Cmglee, CC BY-SA 3.0, via Wikimedia Commons.</em></p>
+<h2>A filled NFR catalog: the Northstar returns portal</h2>
+<p>Here's a catalog for the fictional Northstar returns portal, organized by the 2023 ISO/IEC 25010 characteristics. Each row is attached to a story, so it rolls up from the backlog rather than living on its own. All numbers are examples a product owner would choose, not recommendations.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Quality (ISO 25010:2023)</th>
+<th>Story</th>
+<th>Requirement</th>
+<th>Fail line</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-PERF-01</td>
+<td>Performance efficiency</td>
+<td>RET-12 Submit a return</td>
+<td>95% of submits complete in 1,000 ms or less at the server, at up to 200 concurrent submits, any 28-day window</td>
+<td>Under 90% in any 1-hour window</td>
+<td>Load test LT-03; production monitoring</td>
+</tr>
+<tr>
+<td>NFR-PERF-02</td>
+<td>Performance efficiency</td>
+<td>RET-20 Agent case view</td>
+<td>Case view loads in 2 s or less for 95% of opens during 9 AM-6 PM ET</td>
+<td>Under 85% on any business day</td>
+<td>Synthetic check every 5 min</td>
+</tr>
+<tr>
+<td>NFR-CAP-01</td>
+<td>Flexibility (scalability)</td>
+<td>RET-12</td>
+<td>NFR-PERF-01 still holds at 600 concurrent submits</td>
+<td>Target missed at 400</td>
+<td>Load test LT-04 before peak season</td>
+</tr>
+<tr>
+<td>NFR-AVL-01</td>
+<td>Reliability (availability)</td>
+<td>All return APIs</td>
+<td>99.5% of health checks succeed per calendar month, excluding announced maintenance up to 4 h</td>
+<td>Below 99.0%</td>
+<td>Uptime monitor, monthly report</td>
+</tr>
+<tr>
+<td>NFR-REC-01</td>
+<td>Reliability (recoverability)</td>
+<td>RET-12</td>
+<td>If the payment service doesn't answer in 10 s, the return saves as Pending and is retried within 15 min; no return is lost</td>
+<td>Any submitted return missing from the database</td>
+<td>Kill-the-dependency test in UAT; daily SQL count match</td>
+</tr>
+<tr>
+<td>NFR-SEC-01</td>
+<td>Security (confidentiality)</td>
+<td>RET-31 Refund history</td>
+<td>Bank details visible only to the customer and agents with the Returns role; every view logged with user ID and time</td>
+<td>Any view by another role</td>
+<td>Role-based UAT cases; log review</td>
+</tr>
+<tr>
+<td>NFR-SEC-02</td>
+<td>Security (accountability)</td>
+<td>RET-33 Agent overrides refund</td>
+<td>Every override records agent, old amount, new amount, reason, time; logs kept 7 years</td>
+<td>Override without a log row</td>
+<td>SQL: overrides without audit rows = 0</td>
+</tr>
+<tr>
+<td>NFR-INT-01</td>
+<td>Interaction capability</td>
+<td>RET-12</td>
+<td>8 of 10 first-time test users submit a return without help in under 3 minutes</td>
+<td>Fewer than 6 of 10</td>
+<td>Moderated usability test, 10 users</td>
+</tr>
+<tr>
+<td>NFR-SAF-01</td>
+<td>Safety</td>
+<td>RET-40 Hazardous item return</td>
+<td>Returns flagged as hazardous (batteries, chemicals) never show the drop-off option; the customer sees collection instructions</td>
+<td>Drop-off option shown for any flagged item</td>
+<td>UAT cases for each hazard category</td>
+</tr>
+<tr>
+<td>NFR-MNT-01</td>
+<td>Maintainability (testability)</td>
+<td>All</td>
+<td>Every refund rule has an automated test referencing its rule ID</td>
+<td>Any rule ID with no test</td>
+<td>Traceability matrix check</td>
+</tr>
+</tbody>
+</table>
+<p>The safety row is new for a lot of teams, and it's one reason to update to the 2023 model. In the 2011 version there was nowhere obvious to put "the system must never offer a drop-off for a battery return". It isn't security, it isn't usability. Under 25010:2023 it has a home, and once it has a home it gets written.</p>
+<h2>NFRs for the AI feature</h2>
+<p>Northstar's portal has one AI feature: a classifier that reads the customer's free-text return reason ("arrived cracked", "wrong size, my fault") and sorts it into a reason code that drives the refund rule. Here are the quality requirements it needs. None of them are exotic. They're the same eight-part shape.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Quality</th>
+<th>Requirement</th>
+<th>Fail line</th>
+<th>Test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NFR-AI-01</td>
+<td>Functional suitability (correctness)</td>
+<td>On a held-out set of 400 labelled reasons, the classifier matches the reviewer's code on at least 90%, and on at least 97% for the two codes that trigger a full refund</td>
+<td>Below 85% overall or below 95% on full-refund codes</td>
+<td>Run the held-out set before release and after any model or prompt change</td>
+</tr>
+<tr>
+<td>NFR-AI-02</td>
+<td>Reliability (fault tolerance)</td>
+<td>If the model doesn't answer in 3 s or returns no valid code, the return goes to the "Needs review" queue with no reason code; the customer flow doesn't stop</td>
+<td>Any customer sees an error because the classifier failed</td>
+<td>Kill-the-model test in UAT</td>
+</tr>
+<tr>
+<td>NFR-AI-03</td>
+<td>Performance efficiency (resource utilization)</td>
+<td>Average model cost per return stays under a ceiling the product owner sets; monthly spend alerts at 80% of budget</td>
+<td>Spend over budget with no alert</td>
+<td>Monthly cost report vs return count</td>
+</tr>
+<tr>
+<td>NFR-AI-04</td>
+<td>Security (accountability)</td>
+<td>Every classification stores the input text, model version, output code and time</td>
+<td>Any classified return with no stored model version</td>
+<td>SQL: classified returns without model_version = 0</td>
+</tr>
+<tr>
+<td>NFR-AI-05</td>
+<td>Maintainability (testability)</td>
+<td>A model or prompt change is a change request that reruns NFR-AI-01 before release</td>
+<td>Model version changed in production with no rerun record</td>
+<td>Release checklist</td>
+</tr>
+</tbody>
+</table>
+<p>Two of these deserve a word.</p>
+<p>NFR-AI-01 has two thresholds, overall and on the codes that cost money. A classifier that's 92% accurate overall but weak on the "damaged on arrival" code, the one that triggers a full refund, is a finance problem dressed up as a good score. Split the bar by consequence.</p>
+<p>NFR-AI-02 is the one teams forget. The AI feature fails gracefully or it fails in front of the customer. Write which one you want.</p>
+<p>And on sample size: 400 held-out cases sounds like a lot until you ask how confident you can be about the rare codes. If a code appears 20 times in the set, a perfect score on it still leaves real room for error. I went through that arithmetic in <a href="https://prachitparikh.hashnode.dev/ai-uat-sample-size">a post on AI UAT sample sizes</a>; it applies here too.</p>
+<h2>Where NFRs go in the traceability matrix</h2>
+<p>An NFR that isn't traced doesn't get tested. Each one needs a row like any other requirement: ID, the story it's attached to, the test that proves it, the result, and who signed.</p>
+<p><img alt="V-model diagram showing requirements on the left matched to tests on the right" src="https://commons.wikimedia.org/wiki/Special:FilePath/V-model.svg?width=1280" /></p>
+<p><em>The V-model pairs each level of definition on the left with a level of testing on the right. Non-functional requirements belong on the left side too, each with its partner test on the right. Image: "V-model.svg" by Herman Bruyninckx, CC BY-SA 3.0, via Wikimedia Commons.</em></p>
+<p>The pairing in that diagram is the whole argument. Functional requirements get matched with tests as a matter of course. NFRs often get matched with "performance testing (TBD)". Give each one a named test with an ID, and put it in the matrix. If you use the <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/traceability-matrix-template.csv">traceability matrix template in my BA Toolkit</a>, NFRs go in the same sheet with a type column, not a separate tab nobody opens.</p>
+<h2>How to run an NFR workshop in 45 minutes</h2>
+<p>The fastest way I know to get real numbers is a short, focused session with the product owner, a developer or architect, and a tester. Bring the vague-word list and the eight-part template.</p>
+<ol>
+<li><strong>10 minutes: pick the five stories that matter most.</strong> Usually the ones customers touch most, the ones that move money, and anything with an AI step.</li>
+<li><strong>15 minutes: for each story, ask the four questions.</strong> How fast, for whom? What happens when a dependency fails? Who can see or change what? What would make you stop a release?</li>
+<li><strong>10 minutes: write targets and fail lines.</strong> Get a number, even a provisional one. Mark provisional ones TBD with an owner and a date.</li>
+<li><strong>10 minutes: name the test for each.</strong> If nobody can say how it'll be tested, the requirement goes back for rewording, not into the document.</li>
+</ol>
+<p>Questions that get past "fast" quickly:</p>
+<ul>
+<li>"If this took four seconds for one customer in twenty, would you hold the release?"</li>
+<li>"If the payment provider went down for ten minutes, what should a customer see?"</li>
+<li>"Who, by job title, should never see this field?"</li>
+<li>"If the AI got this wrong once in fifty, what would it cost us?"</li>
+</ul>
+<p>Numbers come out of questions like these because they're about consequences, which stakeholders know, rather than milliseconds, which they don't.</p>
+<h2>Mistakes I see most</h2>
+<p><strong>Writing NFRs about "the system".</strong> The system is a dozen services with different users and different stakes. Scope every NFR to a feature or a path.</p>
+<p><strong>Copying numbers from another project.</strong> "99.9% availability" from the last project's document is meaningless without knowing what was measured there. Choose your own, from consequences.</p>
+<p><strong>No conditions.</strong> A response time without a load is met in the test lab and failed on launch day.</p>
+<p><strong>Untestable verbs.</strong> "Support", "handle", "allow for" and "be capable of" all need a measure behind them.</p>
+<p><strong>Treating security as one NFR.</strong> "The system shall be secure" is a category, not a requirement. Break it into who can see what, who can change what, and what gets logged.</p>
+<p><strong>Forgetting the AI feature has a fallback.</strong> If you write one AI NFR, write NFR-AI-02.</p>
+<h2>What I'd do on Monday</h2>
+<ol>
+<li>Open your current requirements document and search for the words in the vague-word list. Count them.</li>
+<li>Pick the three NFRs attached to the most-used customer action and rewrite each in the eight-part shape.</li>
+<li>For any performance NFR written as an average, rewrite it as a percentile or a good-events ratio. Run the fixture above if you need to convince someone.</li>
+<li>Check your template's headings against the nine ISO/IEC 25010:2023 characteristics. Add Safety if it's missing.</li>
+<li>If there's an AI feature in scope, write at least NFR-AI-01 (accuracy with a split bar) and NFR-AI-02 (fallback).</li>
+<li>Add every NFR to the traceability matrix with a test ID. Anything without a test ID goes on the agenda for the 45-minute workshop.</li>
+</ol>
+<p>If you want the same discipline for the functional side, my <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/acceptance-criteria-template.md">acceptance criteria template</a> runs five checks before a story goes to the team, and my earlier post on <a href="https://prachitparikhblog.wordpress.com/2026/11/04/how-to-split-user-stories/">how to split user stories without slicing them into useless layers</a> helps when a story's NFRs turn out to be bigger than the story. And <a href="https://prachitparikh.substack.com/p/writing-requirements-people-can-actually">writing requirements people can actually test</a> on Substack has the one-question test I use for all of it.</p>
+<h2>Questions for you</h2>
+<ul>
+<li>Where do NFRs live on your team: in a separate section, attached to stories, or in the architect's head?</li>
+<li>What's the vaguest NFR you've inherited, and what did it turn into after someone asked the right question?</li>
+<li>If your product has an AI feature, who decided its accuracy bar, and was it written down before the first test run?</li>
+</ul>
+<p>Leave a comment. I read them all, and the sharpest ones end up improving the next post.</p>
+<h2>References</h2>
+<ul>
+<li>ISO, "ISO/IEC 25010:2023 Systems and software engineering, Systems and software Quality Requirements and Evaluation (SQuaRE), Product quality model", Edition 2, published November 2023: https://www.iso.org/standard/78176.html</li>
+<li>arc42 Quality, "Update on ISO 25010, version 2023": https://quality.arc42.org/articles/iso-25010-update-2023</li>
+<li>Sonar, "ISO/IEC 25010 explained", 6 July 2026 (sub-characteristic lists for the 2023 model): https://www.sonarsource.com/resources/library/iso-iec-25010-explained/</li>
+<li>Google, Site Reliability Engineering, Chapter 4, "Service Level Objectives": https://sre.google/sre-book/service-level-objectives/</li>
+<li>Google, The Site Reliability Workbook, Chapter 2, "Implementing SLOs": https://sre.google/workbook/implementing-slos/</li>
+<li>Images: "Comparison mean median mode.svg" by Cmglee, CC BY-SA 3.0; "V-model.svg" by Herman Bruyninckx, CC BY-SA 3.0; both via Wikimedia Commons.</li>
+</ul>
+<h2>About me</h2>
+<p>I'm Prachit Parikh, a business analyst. I turn what stakeholders ask for into requirements a team can test, check the data with SQL, and see changes through UAT. I keep free templates, including an acceptance criteria template and a traceability matrix you can drop NFRs straight into, in my <a href="https://github.com/prachitparikh/ba-toolkit">BA Toolkit</a> on <a href="https://github.com/prachitparikh">GitHub</a>, and I make short animated explainers on <a href="https://www.youtube.com/@PrachitParikh1">YouTube</a>. Besides WordPress, I write on <a href="https://prachitparikh.substack.com">Substack</a>, <a href="https://medium.com/@prachit.parikh">Medium</a>, <a href="https://prachitparikh.hashnode.dev">Hashnode</a>, <a href="https://dev.to/prachitparikh">Dev.to</a> and <a href="https://prachitparikh-ba.blogspot.com">Blogger</a>, and I answer questions on <a href="https://www.quora.com/profile/Prachit-Parikh-2">Quora</a>. You can also find me on <a href="https://www.linkedin.com/in/prachitp">LinkedIn</a>, <a href="https://bsky.app/profile/prachitparikh.bsky.social">Bluesky</a>, <a href="https://www.kaggle.com/prachitparikh">Kaggle</a>, <a href="https://www.credly.com/users/prachit-parikh">Credly</a>, <a href="https://www.crunchbase.com/person/prachit-parikh-ct">Crunchbase</a> and <a href="https://gravatar.com/prachitparikhba">Gravatar</a>. Everything is collected on <a href="https://prachitparikh.github.io/">my website</a>, <a href="https://prachitparikh.github.io/portfolio.html">my portfolio page</a> and <a href="https://sites.google.com/view/prachit-parikh">my profile hub</a>.</p>

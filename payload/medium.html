@@ -1,0 +1,426 @@
+<p>Somewhere in your company this quarter, a person with a workforce-planning template is going to type your job title into a row. Next to it goes a number: how "exposed" that title is to AI. The number will come from a study you've never read, built on tasks you may not even do.</p>
+<p>I'd rather you got there first, with a list of what you actually do all week: how long each piece takes, where its inputs live, who checks it, and what happens if it's wrong. That list is an AI task audit, and it's the most useful hour I know of for anyone trying to work out what AI changes about their job.</p>
+<p>This post gives you the method, a sheet you can copy, a filled example on a fictional business analyst's week, and a query that adds it all up. The example is fictional (a BA on the returns team at Northstar Systems, a made-up client I use for all my examples). The sources are real and linked.</p>
+<h2>Why now: the planning is happening, and it's mostly happening badly</h2>
+<p>The Conference Board published a survey on 18 November of 775 business leaders, plus 35 interviews, on how companies plan their workforce around AI. Canadian HR Reporter's <a href="https://www.hrreporter.com/focus-areas/automation-ai/just-1-in-10-employers-factor-ais-impact-into-workforce-plans-report/395177">write-up from 19 November</a> leads with the number that matters: just 11% of organizations have factored AI's impact into their workforce plans across the whole enterprise. Another 35% have done it for some functions, roles or regions. About a third are still discussing it.</p>
+<p>Two other numbers from the same piece tell you what that planning will look like when it arrives. Asked to name their most significant AI-related workforce actions, 70% picked redesigning jobs, tasks or workflows, and 68% picked upskilling. Only 17% named cutting headcount in AI-affected areas. And one of the Conference Board's researchers, Matt Rosenbaum, said the quiet part plainly: "AI's impact on jobs is more complicated than simply calculating how many tasks can be automated."</p>
+<p>So the plan is task redesign, and the people doing it already suspect that counting automatable tasks isn't enough. Good. Neither do I. The audit below counts something else as well: the checking, the hand-offs, and the decisions nobody can delegate.</p>
+<p>The hiring side is moving too. Northeastern University's AI and Society survey asked 8,174 people who have a say in hiring about AI, and Northeastern's <a href="https://news.northeastern.edu/2026/11/02/ai-hiring-entry-level-jobs/">2 November article</a> reports that roughly half said AI had made a difference to their decisions. Of those, 26% are hiring fewer entry-level candidates, 7% are hiring more, and 28% expect entry-level staff to deliver more output or higher-level work. If you're early in your career, "what do you do that AI doesn't?" is no longer a philosophical question. It's an interview question.</p>
+<h2>Who this is for</h2>
+<p>If you've searched "how will AI affect my job", "which of my tasks can AI do" or "AI skills for business analysts", this is for you. It's also for managers who've been handed the redesign exercise and a template with job titles down the side. The method works for any knowledge job. I'll use BA work because that's what I know.</p>
+<h2>The take: job-level AI exposure scores are close to useless for you</h2>
+<p>Here's where I'll lose some readers. The job-level exposure numbers that get quoted in headlines are fine for economists and nearly useless for a person deciding what to do on Monday.</p>
+<p>That's not me dunking on the research. The researchers say it themselves. Microsoft Research's "Working with AI" paper (<a href="https://arxiv.org/abs/2507.07935v5">Tomlinson, Jaffe, Wang, Counts and Suri, arXiv 2507.07935</a>) measured how 200,000 anonymized Bing Copilot conversations map onto the work activities of US occupations. The score combines whether Copilot assists or performs an activity, how often it succeeds, and how much of the activity it covers. In its table of occupation groups, Business Operations Specialists (the group that holds management analysts, which is the closest official title to most BA jobs) scored 0.24, against 0.38 for Media and Communication Workers.</p>
+<p>Then the same authors wrote a <a href="https://www.microsoft.com/en-us/research/blog/applicability-vs-job-displacement-further-notes-on-our-recent-research-on-ai-and-occupations/">follow-up post</a> because people kept reading the scores as layoff predictions. Their words: "Our data do not indicate, nor did we suggest, that certain jobs will be replaced by AI." And the line I'd put on a sticky note: "A job is far more than the collection of tasks that make it up."</p>
+<p>A 0.24 tells you nothing about whether your Tuesday is mostly SQL or mostly calming down a finance director. Two people with the same title can have weeks that share maybe half their tasks. The score averages across all of them, then across a whole group of titles. It's a weather map of the country. You need the forecast for your street.</p>
+<p>The other big public source, Anthropic's Economic Index, measures from the other direction: what people actually ask Claude to do. Its <a href="https://anthropic.com/research/economic-index-june-2026-report">June 2026 report</a> found that 93% of Claude conversations produce some kind of artifact, with documents and reports at 15% of them. In its survey of about 9,700 users, over a third expected AI to be able to do most or nearly all of their work tasks next year. That's a striking expectation. It's also a self-assessment by people who already use the tool, which is exactly the group most likely to say yes.</p>
+<p>Neither source can tell you which of your tasks leave and which stay. Only your own list can. So let's make it.</p>
+<p><img alt="A person working at a desk with a laptop and a notebook" src="https://commons.wikimedia.org/wiki/Special:FilePath/Woman_studies_at_a_desk_with_a_laptop_notebook_and_drink_in_a_bright_room.jpg?width=1280" /></p>
+<p><em>The audit starts with a notebook and one honest week, not with a job title. Photo: "Woman studies at a desk with a laptop notebook and drink in a bright room" by Shixart1985, CC BY 2.0, via Wikimedia Commons.</em></p>
+<h2>What an AI task audit is (and what it isn't)</h2>
+<p>An AI task audit is a list of the tasks in one real week, each with five facts attached:</p>
+<ol>
+<li><strong>Hours.</strong> How long it took this week, not how long it should take.</li>
+<li><strong>Where the input lives.</strong> In a document, a system, or someone's head.</li>
+<li><strong>Whether it commits the business.</strong> A sign-off, money, a promise to a customer, a decision other teams will build on.</li>
+<li><strong>What you'd check it against.</strong> A source that can prove the output right or wrong: transcript quotes, a control total, a test log. Or nothing.</li>
+<li><strong>Whether a mistake can be undone.</strong> A wrong status report is a correction email. A wrong refund rule is a customer problem.</li>
+</ol>
+<p>From those five facts you assign each task a mode. Then you estimate, honestly, how much of your time stays with it, and how much of that remaining time is checking.</p>
+<p>It isn't a productivity forecast. You can't promise anyone the hours. It isn't a list of tools either. "Use Copilot for emails" is a tool choice; the audit comes before that and tells you which emails are even candidates.</p>
+<p>And it isn't secret. If you do it well, it's the most useful document you can bring to your manager's redesign exercise, because it's built from the work instead of the title.</p>
+<h2>The four modes</h2>
+<p>I use four, and the names are deliberately boring:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>What it means</th>
+<th>Who's accountable for the output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep</td>
+<td>You do it. AI might help you prepare, but the task itself stays human.</td>
+<td>You</td>
+</tr>
+<tr>
+<td>Assist</td>
+<td>You do it, and AI does a piece of it (summarizing, formatting, a first pass at one section).</td>
+<td>You</td>
+</tr>
+<tr>
+<td>Draft</td>
+<td>AI produces the first full version. You check it against a source every time and rewrite what's wrong.</td>
+<td>You</td>
+</tr>
+<tr>
+<td>Hand over</td>
+<td>AI does it end to end. You spot-check on a schedule.</td>
+<td>Still you</td>
+</tr>
+</tbody>
+</table>
+<p>Look at the last column. It doesn't change. That's the whole point of the audit, and it's the part the exposure scores can't see. A task can move from Keep to Hand over and the accountability doesn't move an inch. Somebody's name stays on it. Usually yours.</p>
+<h2>The decision table</h2>
+<p>Assigning modes by gut feel is how people end up handing over the wrong things. So here's a first-match decision table. Read it top to bottom and stop at the first row that's true.</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>If this is true about the task</th>
+<th>Mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>It commits the business (a sign-off, money, a customer promise, a decision others build on)</td>
+<td>Keep</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Its main input lives in people's heads and only comes out in conversation</td>
+<td>Keep (AI can help you prepare)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>There's no source you could check the output against</td>
+<td>Assist</td>
+</tr>
+<tr>
+<td>4</td>
+<td>You can check the output against a source, and a mistake is easy to undo and cheap</td>
+<td>Hand over</td>
+</tr>
+<tr>
+<td>5</td>
+<td>You can check the output against a source, but a mistake is costly or hard to undo</td>
+<td>Draft</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Anything else</td>
+<td>Assist</td>
+</tr>
+</tbody>
+</table>
+<p>Two rows deserve a defense, because people push back on both.</p>
+<p>Row 1 puts "commits the business" above everything, even above "AI would be good at this." An AI can draft a sign-off summary perfectly well. But the moment that summary is what a product owner signs, the task is a decision, and decisions stay with a named person. You can still use AI to prepare the summary. That's Keep with preparation, not Draft.</p>
+<p>Row 3 says that if there's nothing to check against, the best you can do is Assist. This is the rule I'd fight hardest for. A draft you can't verify isn't a draft. It's a guess that reads well. If the only way to check an AI-written process map is to walk it with the subject-matter expert, then the walkthrough is the source, and you'd better schedule it. If there's no walkthrough, there's no Draft.</p>
+<p>The table is close in spirit to the five questions in my <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/checklists/should-this-be-an-ai-agent.md">should-this-be-an-AI-agent checklist</a> in the BA Toolkit, especially the undo test. The checklist asks it about a business process; the audit asks it about your own week.</p>
+<h2>The sheet</h2>
+<p>Here's the template. One row per task. Copy it into a spreadsheet or keep it as a CSV.</p>
+<pre><code class="language-csv">task_id,task,hours_now,input_lives_in,commits_business,check_source,reversible,mode,hours_after,check_hours,checker
+</code></pre>
+<p>What each column means:</p>
+<ul>
+<li><code>hours_now</code>: hours spent on it this week, from your calendar and your memory, rounded to the quarter hour.</li>
+<li><code>input_lives_in</code>: transcript, Jira, database, inbox, "people's heads".</li>
+<li><code>commits_business</code>: yes or no, using row 1's definition.</li>
+<li><code>check_source</code>: the thing that would prove the output right or wrong. Write "none" if there isn't one. Don't skip this column; it does most of the work.</li>
+<li><code>reversible</code>: can a mistake be undone cheaply?</li>
+<li><code>mode</code>: from the decision table.</li>
+<li><code>hours_after</code>: your honest estimate of the time you'd still spend on the task in its new mode, including checking.</li>
+<li><code>check_hours</code>: the part of <code>hours_after</code> that's checking.</li>
+<li><code>checker</code>: who checks. If it's not you, they need to know.</li>
+</ul>
+<p>That last pair, <code>hours_after</code> and <code>check_hours</code>, is where most "AI will save us X hours" claims fall apart. They count the time the AI takes off a task and forget the time the checking puts back.</p>
+<h2>A filled example: one fictional BA's week at Northstar Systems</h2>
+<p>Picture a business analyst on the returns team at Northstar Systems. It's a normal week: a refund-rules change is in UAT, a new returns portal is in discovery, and finance wants last month's refund numbers reconciled. Here's her audit, with the modes assigned from the decision table. All the hours are invented for the example.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Task</th>
+<th>Hrs now</th>
+<th>Input lives in</th>
+<th>Commits?</th>
+<th>Check against</th>
+<th>Undo?</th>
+<th>Mode</th>
+<th>Hrs after</th>
+<th>Of which checking</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T01</td>
+<td>Turn workshop transcripts into draft user stories</td>
+<td>4</td>
+<td>transcript</td>
+<td>no</td>
+<td>transcript quotes</td>
+<td>yes</td>
+<td>Draft</td>
+<td>1.5</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>T02</td>
+<td>Write acceptance criteria and edge cases</td>
+<td>3</td>
+<td>stories + rules</td>
+<td>no</td>
+<td>business rules doc</td>
+<td>yes</td>
+<td>Draft</td>
+<td>2.0</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>T03</td>
+<td>Run stakeholder interviews and workshops</td>
+<td>6</td>
+<td>people's heads</td>
+<td>no</td>
+<td>none</td>
+<td>n/a</td>
+<td>Keep</td>
+<td>6.0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>T04</td>
+<td>Write the weekly status report</td>
+<td>2</td>
+<td>Jira</td>
+<td>no</td>
+<td>Jira board</td>
+<td>yes</td>
+<td>Hand over</td>
+<td>0.25</td>
+<td>0.25</td>
+</tr>
+<tr>
+<td>T05</td>
+<td>Write SQL validation queries</td>
+<td>4</td>
+<td>database</td>
+<td>no</td>
+<td>control totals</td>
+<td>yes</td>
+<td>Draft</td>
+<td>2.0</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>T06</td>
+<td>Reconcile report numbers with finance</td>
+<td>3</td>
+<td>ledger + people</td>
+<td>yes</td>
+<td>ledger</td>
+<td>no</td>
+<td>Keep</td>
+<td>3.0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>T07</td>
+<td>Plan UAT and triage defects</td>
+<td>5</td>
+<td>test results + people</td>
+<td>no</td>
+<td>test log</td>
+<td>yes</td>
+<td>Assist</td>
+<td>4.0</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>T08</td>
+<td>Answer developer questions in chat</td>
+<td>4</td>
+<td>people's heads</td>
+<td>no</td>
+<td>none</td>
+<td>yes</td>
+<td>Keep</td>
+<td>4.0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>T09</td>
+<td>Draft as-is process maps from notes</td>
+<td>2</td>
+<td>notes</td>
+<td>no</td>
+<td>walkthrough with SME</td>
+<td>yes</td>
+<td>Draft</td>
+<td>1.0</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>T10</td>
+<td>Update the traceability matrix</td>
+<td>2</td>
+<td>Jira + test log</td>
+<td>no</td>
+<td>test IDs</td>
+<td>yes</td>
+<td>Hand over</td>
+<td>0.5</td>
+<td>0.5</td>
+</tr>
+<tr>
+<td>T11</td>
+<td>Run sign-off and decision meetings</td>
+<td>2</td>
+<td>people's heads</td>
+<td>yes</td>
+<td>none</td>
+<td>no</td>
+<td>Keep</td>
+<td>2.0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>T12</td>
+<td>Email and meeting admin</td>
+<td>3</td>
+<td>inbox</td>
+<td>no</td>
+<td>none</td>
+<td>yes</td>
+<td>Assist</td>
+<td>2.0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>A few calls worth explaining.</p>
+<p>T02 is Draft, not Hand over, even though the rules doc is a fine source. A wrong acceptance criterion gets built, tested against and signed. That's not cheap to undo. So the AI writes the first pass (it's good at finding the edge cases people forget) and she checks every criterion against the rules document.</p>
+<p>T07, UAT planning and triage, landed on Assist through row 6. There is a source (the test log), but much of the triage input is people: the QA lead's read on a defect, the product owner's view of severity. AI can cluster the defect log and flag duplicates. She decides.</p>
+<p>T08 is the row people argue with. Answering developer questions in chat feels like low-value interruption work. Run it through the table and it's Keep, because the input is in her head: why the refund rule has that exception, what the stakeholder actually meant. It's also, quietly, one of the most valuable things a BA does. Every one of those answers is a requirement that didn't make it into the document.</p>
+<h2>The query that adds it up</h2>
+<p>You can do the sums in a spreadsheet. I like a query, because it makes the definitions explicit. Load the CSV into SQLite (or DuckDB, or any database) as a table called <code>task_audit</code>, then:</p>
+<pre><code class="language-sql">SELECT mode,
+       COUNT(*)                          AS tasks,
+       SUM(hours_now)                    AS hours_now,
+       SUM(hours_after)                  AS hours_after,
+       SUM(check_hours)                  AS check_hours,
+       SUM(hours_now) - SUM(hours_after) AS hours_freed
+FROM task_audit
+GROUP BY mode
+ORDER BY CASE mode WHEN 'Keep' THEN 1 WHEN 'Assist' THEN 2
+                   WHEN 'Draft' THEN 3 ELSE 4 END;
+</code></pre>
+<p>I ran it in SQLite on the twelve rows above. Here's what came back:</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Tasks</th>
+<th>Hours now</th>
+<th>Hours after</th>
+<th>Checking</th>
+<th>Hours freed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Keep</td>
+<td>4</td>
+<td>15.0</td>
+<td>15.0</td>
+<td>0.0</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>Assist</td>
+<td>2</td>
+<td>8.0</td>
+<td>6.0</td>
+<td>0.5</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>Draft</td>
+<td>4</td>
+<td>13.0</td>
+<td>6.5</td>
+<td>3.0</td>
+<td>6.5</td>
+</tr>
+<tr>
+<td>Hand over</td>
+<td>2</td>
+<td>4.0</td>
+<td>0.75</td>
+<td>0.75</td>
+<td>3.25</td>
+</tr>
+</tbody>
+</table>
+<p>The whole week: 40 hours now, 28.25 after, so 11.75 hours freed. And 4.25 hours of checking that didn't exist before.</p>
+<p>Read that again. Checking is 36% of the time she "saved". Over a third of the freed time comes straight back as a new task that nobody puts on a job description: reading AI output against a source and fixing it.</p>
+<p>That's why I don't trust any AI business case that only has one column of hours. If someone shows you "12 hours saved per analyst per week", ask to see the checking column. If there isn't one, the number is a ceiling, not an estimate.</p>
+<p>Two more queries are worth running before you show the sheet to anyone. They catch the mistakes I'd expect a reviewer to find:</p>
+<pre><code class="language-sql">-- Anything set to Draft or Hand over with nothing to check it against
+SELECT task_id, task, mode
+FROM task_audit
+WHERE mode IN ('Draft', 'Hand over') AND check_source = 'none';
+
+-- Anything that commits the business but isn't Keep
+SELECT task_id, task, mode
+FROM task_audit
+WHERE commits_business = 'yes' AND mode &lt;&gt; 'Keep';
+</code></pre>
+<p>Both should return zero rows. On the example they do. On a first draft of your own, I'd bet at least one of them won't.</p>
+<h2>What the audit shows that a title can't</h2>
+<p>When you look at the example, three things stand out, and I think they generalize.</p>
+<p><strong>The Keep pile is mostly people.</strong> Fifteen of her forty hours stay exactly as they are, and every one of those tasks is a conversation or a decision: workshops, developer questions, the finance reconciliation, sign-off. None of them is "hard" in the way people mean when they say AI can't do hard things. They're hard because the input isn't written down anywhere until she talks to someone. That's the part of BA work I'd invest in, and it's the part the Conference Board's 68% "upskilling" will probably underfund, because it doesn't look like a skill on a course catalog.</p>
+<p><strong>The Draft pile is where the risk sits.</strong> Thirteen hours of work move into Draft mode, and that's where a confident, fluent, wrong output does the most damage. A wrong status report (Hand over) gets corrected in a reply. A wrong acceptance criterion (Draft) gets built. This is why the checking hours cluster there: 3 of the 4.25.</p>
+<p><strong>Checking needs a source, and the source is often missing.</strong> In the example, every Draft task has something to check against. In real weeks I'd expect several to fail that test. The fix isn't to skip the check. It's to create the source: a written business rule, a control total from finance, a recorded transcript with timestamps. That's BA work too, and it's the kind AI makes more valuable, not less. (If you want a concrete method for the transcript case, the <a href="https://github.com/prachitparikh/ba-toolkit/blob/main/templates/meeting-notes-to-user-stories-receipts.md">receipts template</a> in my toolkit makes every AI-written user story quote the transcript word for word, with a speaker and a timestamp.)</p>
+<h2>Where this method breaks</h2>
+<p>I'd be lying if I said the audit was precise. Here's what it gets wrong, so you can correct for it.</p>
+<p><strong>One week isn't a year.</strong> Month-end, release weeks and audit season look nothing like a quiet Tuesday. Do the audit on a normal week, then add a line for each recurring peak you know about, with its own hours.</p>
+<p><strong><code>hours_after</code> is a guess.</strong> It's your estimate, before you've tried it. Treat the first version as a hypothesis. Try one Draft task for two weeks, record the actual time including checking, and update the row. If the real checking time is higher than you guessed (it usually is at first), the audit just did its job.</p>
+<p><strong>Checking cost depends on the error rate, and you don't know it yet.</strong> If the AI's drafts are wrong one time in twenty, a quick read catches most of it. If they're wrong one time in five, you're rewriting. You won't know until you've run enough real examples. I wrote about how many clean runs it takes before "zero failures" means anything in <a href="https://prachitparikh.hashnode.dev/ai-uat-sample-size">a post on AI UAT sample sizes</a>; the same arithmetic applies to deciding whether a task can move from Draft to Hand over.</p>
+<p><strong>Tasks interact.</strong> Hand over the status report and you lose the twenty minutes a week where you noticed, while writing it, that one story had been "in progress" for a month. Some of a task's value is the attention it forces. Before you move a task down the table, ask what you noticed while doing it last time. If the answer is "something important", keep a check in place that would notice it too.</p>
+<p><strong>It's self-reported.</strong> People overcount the tasks they like and undercount the ones they don't. Use your calendar and your ticket history, not your memory, wherever you can.</p>
+<p>None of these is a reason not to do it. They're reasons to do it twice.</p>
+<h2>How to run the audit with your team</h2>
+<p>The audit works alone. It works better in a team, because two people with the same title will produce different sheets, and the difference is the most interesting thing on the table.</p>
+<p>Here's a 60-minute format I'd use:</p>
+<ol>
+<li><strong>Before the meeting (20 minutes each):</strong> everyone fills in their own sheet for last week, from their calendar.</li>
+<li><strong>First 15 minutes:</strong> merge the task lists. Same task, different names? Pick one name. Tasks only one person does? Flag them; they're single points of failure whether or not AI is involved.</li>
+<li><strong>Next 20 minutes:</strong> walk the decision table for each shared task together. Disagreements about the mode almost always come down to row 1 (does this commit the business?) or row 3 (is there really a source?). Write down the answer and the reason.</li>
+<li><strong>Next 15 minutes:</strong> for every Draft and Hand over task, name the checker. If the checker isn't in the room, someone owns telling them.</li>
+<li><strong>Last 10 minutes:</strong> pick one Draft task to trial for two weeks. Agree on how you'll record the real checking time.</li>
+</ol>
+<p>The output is a team sheet with modes, named checkers and one trial. That's a better input to a workforce plan than any exposure score, and it's built by the people who do the work.</p>
+<h2>What I'd do on Monday</h2>
+<p>If you only have an hour this week:</p>
+<ol>
+<li>Open last week's calendar and list every task that took more than 30 minutes. Aim for 10 to 15 rows.</li>
+<li>Fill in the five facts for each: hours, where the input lives, whether it commits the business, what you'd check it against, whether a mistake can be undone.</li>
+<li>Run the decision table. Don't argue with it yet; just record what it says.</li>
+<li>Estimate <code>hours_after</code> and <code>check_hours</code> for every non-Keep row. Be pessimistic about the checking.</li>
+<li>Run the two zero-row queries. Fix anything they return.</li>
+<li>Pick the one Draft task with the clearest check source and try it for two weeks. Record the real time.</li>
+</ol>
+<p>Then, when the template with job titles down the side lands in your manager's inbox, you'll have something better to send back.</p>
+<h2>A few questions for you</h2>
+<ul>
+<li>Which of your tasks would land in Keep because the input only lives in someone's head? Is that a strength of your role, or a gap in your team's documentation?</li>
+<li>Have you seen an AI business case that included checking time? What did the ratio look like?</li>
+<li>Does row 1 (anything that commits the business stays Keep) hold up in your world, or do you have tasks where an AI output already commits the business and nobody noticed?</li>
+</ul>
+<p>Tell me in the comments. I'm especially curious whether anyone's run this with a team and found two people with the same title who share less than half their tasks.</p>
+<h2>References</h2>
+<ul>
+<li>Jhoanna Hines, "Just 1 in 10 employers factor AI's impact into workforce plans: report", Canadian HR Reporter, 19 November 2026 (covering The Conference Board's survey of 775 leaders, published 18 November): https://www.hrreporter.com/focus-areas/automation-ai/just-1-in-10-employers-factor-ais-impact-into-workforce-plans-report/395177</li>
+<li>Katya Poltorak, "Fewer jobs, new opportunities: AI is changing what's in store for new hires and managers alike", Northeastern Global News, 2 November 2026 (Northeastern AI and Society Survey, 8,174 hiring decision-makers): https://news.northeastern.edu/2026/11/02/ai-hiring-entry-level-jobs/</li>
+<li>Kiran Tomlinson, Sonia Jaffe, Will Wang, Scott Counts, Siddharth Suri, "Working with AI: Measuring the Applicability of Generative AI to Occupations", arXiv 2507.07935: https://arxiv.org/abs/2507.07935v5 (HTML version with the occupation-group table: https://arxiv.org/html/2507.07935v6)</li>
+<li>Microsoft Research, "Applicability vs. job displacement: further notes on our recent research on AI and occupations", 21 August 2025: https://www.microsoft.com/en-us/research/blog/applicability-vs-job-displacement-further-notes-on-our-recent-research-on-ai-and-occupations/</li>
+<li>Anthropic, "Anthropic Economic Index report: June 2026", 26 June 2026: https://anthropic.com/research/economic-index-june-2026-report</li>
+<li>Image: "Woman studies at a desk with a laptop notebook and drink in a bright room" by Shixart1985, CC BY 2.0, Wikimedia Commons.</li>
+</ul>
+<p>Related reading from me: <a href="https://medium.com/@prachit.parikh/how-to-evaluate-an-ai-tool-before-you-buy-prachit-parikh-c8875c87523e">How to evaluate an AI tool before you buy it</a> (write the pass criteria before the demo) and <a href="https://medium.com/@prachit.parikh/ai-agents-can-write-the-code-now-the-bottleneck-is-the-requirements-5f7a1ee86362">AI agents can write the code now. The bottleneck is the requirements.</a></p>
+<h2>About me</h2>
+<p>I'm Prachit Parikh, a business analyst. I turn what stakeholders ask for into requirements a team can test, check the data with SQL, and see changes through UAT. I keep free templates, including a five-question test for whether a process needs rules, AI that recommends, or an agent, in my <a href="https://github.com/prachitparikh/ba-toolkit">BA Toolkit</a> on <a href="https://github.com/prachitparikh">GitHub</a>, and I make short animated explainers on <a href="https://www.youtube.com/@PrachitParikh1">YouTube</a>. Besides Medium, I write on <a href="https://prachitparikh.substack.com">Substack</a>, <a href="https://prachitparikh.hashnode.dev">Hashnode</a>, <a href="https://dev.to/prachitparikh">Dev.to</a>, <a href="https://prachitparikh-ba.blogspot.com">Blogger</a> and <a href="https://prachitparikhblog.wordpress.com">WordPress</a>, and I answer questions on <a href="https://www.quora.com/profile/Prachit-Parikh-2">Quora</a>. You can also find me on <a href="https://www.linkedin.com/in/prachitp">LinkedIn</a>, <a href="https://bsky.app/profile/prachitparikh.bsky.social">Bluesky</a>, <a href="https://www.kaggle.com/prachitparikh">Kaggle</a>, <a href="https://www.credly.com/users/prachit-parikh">Credly</a>, <a href="https://www.crunchbase.com/person/prachit-parikh-ct">Crunchbase</a> and <a href="https://gravatar.com/prachitparikhba">Gravatar</a>. Everything is collected on <a href="https://prachitparikh.github.io/">my website</a>, <a href="https://prachitparikh.github.io/portfolio.html">my portfolio page</a> and <a href="https://sites.google.com/view/prachit-parikh">my profile hub</a>.</p>
